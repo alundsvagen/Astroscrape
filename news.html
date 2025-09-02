@@ -183,7 +183,7 @@ href='data:image/svg+xml;utf8,
   <nav class="menu" role="navigation">
     <a href="https://alundsvagen.github.io/Astroscrape/Products.html">Products <small>Overview</small></a>
     <a href="https://alundsvagen.github.io/Astroscrape/detailed.view.html">Email Product <small>Leads</small></a>
-    <a href="https://google.com">News <small>Updates</small></a>
+    <a href="https://alundsvagen.github.io/Astroscrape/news.html">News <small>Updates</small></a>
     <a href="https://google.com">Recruitment <small>Careers</small></a>
     <a href="https://google.com">Support <small>Help Center</small></a>
     <a href="https://google.com">Investors <small>For shareholders</small></a>
@@ -227,11 +227,164 @@ href='data:image/svg+xml;utf8,
   </div>
 </section>
 
-  <!-- Title -->
+<style>
+.hero-db {
+  background: linear-gradient(135deg, #dbfbd7 0%, #e0f4f9 100%);
+  padding: 80px 20px;
+  overflow: hidden;
+}
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 40px;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+}
+.hero-text h1 {
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.hero-text h1 em {
+  background: linear-gradient(90deg, #111, #555);
+  color: #fff;
+  padding: 0 6px;
+  border-radius: 8px;
+  font-style: normal;
+}
+.hero-text p {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+.hero-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.hero-ctas .btn {
+  padding: 14px 20px;
+  border-radius: 999px;
+  font-weight: 800;
+  border: 2px solid #111;
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.hero-ctas .btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.hero-ctas .btn.secondary {
+  background: #fff;
+  color: #111;
+  border-color: #111;
+}
+
+/* Visual mock database */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+}
+.db-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  width: 100%;
+  max-width: 420px;
+  overflow: hidden;
+  animation: float 6s ease-in-out infinite;
+}
+.db-header {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  background: #f8f8f8;
+  border-bottom: 1px solid #e5e7eb;
+}
+.db-header input {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.filter-btn {
+  background: #111;
+  color: #fff;
+  font-size: 14px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.db-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.db-list li {
+  padding: 12px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: background 0.2s ease;
+}
+.db-list li:hover {
+  background: #f7fff6;
+}
+.db-list .name {
+  font-weight: 700;
+  font-size: 16px;
+}
+.db-list .email {
+  font-size: 14px;
+  color: #555;
+}
+.db-list .tag {
+  display: inline-block;
+  background: #dbfbd7;
+  color: #111;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 999px;
+  width: fit-content;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-ctas {
+    justify-content: center;
+  }
+  .hero-visual {
+    margin-top: 30px;
+  }
+}
+</style>
+
+  <!-- News -->
 <section class="core-problem">
   <div class="core-inner">
     <div class="core-text">
       <h2>News</h2>
+      <p>
+        Compliance, Data and the Future of 
+        <strong>prospecting.</strong>.
+      </p>
     </div>
   </div>
 </section>
@@ -279,6 +432,7 @@ href='data:image/svg+xml;utf8,
 <!-- SECTION: NEWS & UPDATES -->
 <section class="news">
   <div class="news-inner">
+    <h2 class="news-title">Latest News & Insights</h2>
     <p class="news-sub">Stay informed with updates, insights, and guides from the Astroscrape team.</p>
 
     <!-- Article 1 (unchanged) -->
@@ -368,10 +522,10 @@ href='data:image/svg+xml;utf8,
         <button class="news-toggle">Read More</button>
         <div class="news-body">
           <p>
-            Despite emerging platforms and tools, email remains the cornerstone of B2B communication. According to Forbes Advisor, 73% of B2B marketers identify email as the most effective digital channel for reaching prospects, while 81% already use it regularly—showcasing its enduring impact and preference.
+            Despite emerging platforms and tools, email remains the cornerstone of B2B communication. According to Forbes Advisor, 73% of B2B marketers identify email as the most effective digital channel for reaching prospects, while 81% already use it regularly—showcasing its enduring impact and preference :contentReference[oaicite:1]{index=1}.
           </p>
           <p>
-            Beyond popularity, email offers high ROI. Some reports suggest returns of up to $42 for every dollar spent, far exceeding other marketing channels. This combination of effectiveness and efficiency cements email’s role in modern outreach strategies.
+            Beyond popularity, email offers high ROI. Some reports suggest returns of up to $42 for every dollar spent, far exceeding other marketing channels :contentReference[oaicite:2]{index=2}. This combination of effectiveness and efficiency cements email’s role in modern outreach strategies.
           </p>
           <p>
             However, quality matters more than quantity. Generic mass emails underperform. Instead, personalized, consent-based outreach—like that powered by Astroscrape—produces stronger engagement, better conversion, and improved deliverability.
@@ -384,7 +538,170 @@ href='data:image/svg+xml;utf8,
     </article>
   </div>
 </section>
-  
+
+<!-- SECTION: LINKEDIN FOLLOW -->
+<section class="linkedin-follow">
+  <div class="linkedin-inner">
+    <div class="linkedin-content">
+      <h2>Stay Connected</h2>
+      <p>Join our community on LinkedIn for the latest updates, insights, and behind-the-scenes news from Astroscrape.</p>
+      <a href="https://www.linkedin.com/company/astroscrape/" target="_blank" class="btn linkedin-btn">
+        <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.02h4V24h-4V8.02zM8.98 8.02h3.84v2.18h.06c.54-1.02 1.86-2.1 3.82-2.1 4.09 0 4.85 2.69 4.85 6.19V24h-4v-7.09c0-1.69-.03-3.87-2.36-3.87-2.36 0-2.72 1.84-2.72 3.75V24h-4V8.02z"/>
+        </svg>
+        Follow us on LinkedIn
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<style>
+/* News Section */
+.news {
+  padding: 80px 20px;
+  background: #f8f9fa;
+}
+.news-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.news-title {
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 900;
+  text-align: center;
+}
+.news-sub {
+  text-align: center;
+  color: #6b7280;
+  margin-bottom: 40px;
+}
+.news-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+.news-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+.news-content {
+  padding: 20px;
+}
+.news-head {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 6px;
+}
+.news-date {
+  color: #6b7280;
+  font-size: 14px;
+}
+.news-summary {
+  color: #374151;
+  margin: 12px 0 16px;
+}
+.news-toggle {
+  padding: 10px 16px;
+  border: none;
+  background: #111;
+  color: #fff;
+  font-weight: 800;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.news-body {
+  display: none;
+  margin-top: 20px;
+  color: #374151;
+  line-height: 1.6;
+}
+
+/* LinkedIn Follow Section */
+.linkedin-follow {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  padding: 60px 20px;
+  text-align: center;
+}
+.linkedin-inner h2 {
+  font-size: clamp(24px, 5vw, 36px);
+  font-weight: 900;
+}
+.linkedin-inner p {
+  color: #333;
+  margin: 10px 0 20px;
+}
+.linkedin-inner .btn {
+  background: #111;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .news-img {
+    height: 180px;
+  }
+}
+
+  /* LINKEDIN FOLLOW - Dark Theme */
+.linkedin-follow {
+  background: radial-gradient(1200px 600px at 10% -10%, #0f1d1a 0%, #0b1514 50%, #0a0e0e 100%);
+  color: #e9f3f0;
+  padding: 80px 20px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.linkedin-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.linkedin-follow h2 {
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+
+.linkedin-follow p {
+  font-size: 18px;
+  color: #cfe7e0;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.linkedin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #0077b5;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.linkedin-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 119, 181, 0.4);
+}
+
+.linkedin-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+} 
+</style>
+
 <script>
   // Toggle articles
   document.querySelectorAll('.news-toggle').forEach(button => {
@@ -397,105 +714,7 @@ href='data:image/svg+xml;utf8,
   });
 </script>
 
-<!-- SECTION 3: EARN BY SHARING (scoped, drop-in) -->
-<section id="earn" class="earn">
-  <!-- Floating money glyphs -->
-  <div class="money">$</div>
-  <div class="money">$</div>
-  <div class="money">$</div>
-  <div class="money">$</div>
-
-  <div class="earn-inner">
-    <h2>Share Your Contact. Earn Every Download.</h2>
-    <p>Earn <strong>$0.05</strong> each time someone downloads your email from the directory.
-      Be discoverable. Get rewarded.</p>
-    <a class="btn earn-cta" href="https://form.fillout.com/t/5ydizc3cmyus">Add My Email</a>
-  </div>
-</section>
-
-<style>
-/* ===== Scoped to #earn only ===== */
-#earn{
-  position:relative;
-  background:#111;
-  color:#fff;
-  padding:80px 20px;
-  overflow:hidden;
-  isolation:isolate;
-}
-/* subtle brandy glow */
-#earn::before{
-  content:"";
-  position:absolute; inset:0; z-index:-1;
-  background:
-    radial-gradient(600px 300px at 10% -10%, rgba(219,251,215,.10), transparent 60%),
-    radial-gradient(800px 400px at 110% 120%, rgba(224,244,249,.10), transparent 60%),
-    linear-gradient(180deg, #0d1413 0%, #0a0f0e 100%);
-}
-
-#earn .earn-inner{
-  max-width:900px;
-  margin:0 auto;
-  text-align:center;
-}
-
-#earn h2{
-  font-size:clamp(28px,5vw,40px);
-  font-weight:900;
-  margin:0 0 12px;
-  letter-spacing:-.01em;
-}
-
-#earn p{
-  font-size:18px;
-  margin:0 0 26px;
-  color:#dbfbd7;
-  line-height:1.6;
-}
-
-#earn .earn-cta{
-  display:inline-block;
-  padding:14px 20px;
-  border-radius:999px;
-  font-weight:800;
-  background:#fff;
-  color:#111;
-  border:2px solid #fff;
-  text-decoration:none;
-  transition:transform .2s ease, box-shadow .2s ease;
-}
-#earn .earn-cta:hover{
-  transform:translateY(-1px);
-  box-shadow:0 8px 24px rgba(0,0,0,.35);
-}
-
-/* Floating money */
-#earn .money{
-  position:absolute;
-  bottom:-10%;
-  font-size:24px;
-  color:#dbfbd7;
-  opacity:.7;
-  animation:floatUp 6s linear infinite;
-}
-#earn .money:nth-of-type(1){ left:12%; animation-delay:0s;}
-#earn .money:nth-of-type(2){ left:34%; animation-delay:1.2s;}
-#earn .money:nth-of-type(3){ left:58%; animation-delay:2.4s;}
-#earn .money:nth-of-type(4){ left:80%; animation-delay:3.6s;}
-
-@keyframes floatUp{
-  0%   { transform:translateY(20%) scale(.85); opacity:0;}
-  20%  { opacity:1;}
-  100% { transform:translateY(-140%) scale(1.15); opacity:0;}
-}
-
-/* Mobile tweaks */
-@media (max-width:600px){
-  #earn p{ font-size:16px; }
-}
-</style>
-
-
+  
 
   <!-- BEGIN: Corporate Footer (scoped) -->
 <footer class="ft-footer" role="contentinfo">
@@ -660,56 +879,6 @@ href='data:image/svg+xml;utf8,
     .ft-submit{width:100%}
     .ft-bar-wrap{flex-direction:column; gap:8px}
   }
-  /* LINKEDIN FOLLOW - Dark Theme */
-.linkedin-follow {
-  background: radial-gradient(1200px 600px at 10% -10%, #0f1d1a 0%, #0b1514 50%, #0a0e0e 100%);
-  color: #e9f3f0;
-  padding: 80px 20px;
-  text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.linkedin-inner {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.linkedin-follow h2 {
-  font-size: clamp(28px, 5vw, 40px);
-  font-weight: 900;
-  margin-bottom: 12px;
-}
-
-.linkedin-follow p {
-  font-size: 18px;
-  color: #cfe7e0;
-  margin-bottom: 24px;
-  line-height: 1.6;
-}
-
-.linkedin-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: #0077b5;
-  color: #fff;
-  padding: 14px 20px;
-  border-radius: 999px;
-  font-weight: 800;
-  text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.linkedin-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 119, 181, 0.4);
-}
-
-.linkedin-icon {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-} 
 </style>
 
 <script>
