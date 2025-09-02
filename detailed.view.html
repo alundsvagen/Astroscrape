@@ -513,17 +513,87 @@ a{text-decoration:none;color:inherit}
 
 <!-- SECTION 3: EARN BY SHARING -->
 <section class="earn">
+  <!-- Floating money symbols -->
   <div class="money">$</div>
   <div class="money">$</div>
   <div class="money">$</div>
   <div class="money">$</div>
+
   <div class="earn-inner">
     <h2>Share Your Contact. Earn Every Download.</h2>
-    <p>Earn <strong>$0.05</strong> each time someone downloads your email from the directory.  
-      Be discoverable. Get rewarded.</p>
+    <p>
+      Earn <strong>$0.05</strong> each time someone downloads your email from the directory.<br>
+      Be discoverable. Get rewarded.
+    </p>
     <button class="btn">Add My Email</button>
   </div>
-</section>
+
+  <style>
+    /* SECTION 3: EARN BY SHARING */
+    .earn {
+      position: relative;
+      background: #111;
+      color: #fff;
+      padding: 80px 20px;
+      overflow: hidden;
+    }
+
+    .earn-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .earn h2 {
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+
+    .earn p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #dbfbd7;
+      line-height: 1.6;
+    }
+
+    .earn .btn {
+      padding: 14px 20px;
+      border-radius: 999px;
+      font-weight: 800;
+      background: #fff;
+      color: #111;
+      border: none;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .earn .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.3);
+    }
+
+    /* Floating money symbols */
+    .money {
+      position: absolute;
+      font-size: 24px;
+      color: #dbfbd7;
+      animation: floatUp 6s linear infinite;
+      pointer-events: none;
+    }
+    .money:nth-child(1){left:20%;animation-delay:0s;}
+    .money:nth-child(2){left:40%;animation-delay:1.5s;}
+    .money:nth-child(3){left:60%;animation-delay:3s;}
+    .money:nth-child(4){left:80%;animation-delay:4.5s;}
+
+    @keyframes floatUp {
+      0%   {transform: translateY(100%) scale(0.8); opacity: 0;}
+      20%  {opacity: 1;}
+      100% {transform: translateY(-120%) scale(1.2); opacity: 0;}
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
 
 
   <!-- BEGIN: Corporate Footer (scoped) -->
