@@ -169,43 +169,6 @@ href='data:image/svg+xml;utf8,
 </style>
 </head>
 <body>
-
-<!-- SCRIM + DRAWER -->
-<div class="scrim" id="scrim" aria-hidden="true"></div>
-<aside class="drawer" id="drawer" aria-hidden="true" aria-label="Main menu">
-  <div class="drawer-header">
-    <div class="drawer-title">
-      <span class="logo-mark" aria-hidden="true"></span>
-      <span class="logo-word">Astroscrape</span>
-    </div>
-    <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
-  </div>
-  <nav class="menu" role="navigation">
-    <a href="https://alundsvagen.github.io/Astroscrape/Products.html">Products <small>Overview</small></a>
-    <a href="https://alundsvagen.github.io/Astroscrape/detailed.view.html">Email Product <small>Leads</small></a>
-    <a href="https://google.com">News <small>Updates</small></a>
-    <a href="https://google.com">Recruitment <small>Careers</small></a>
-    <a href="https://google.com">Support <small>Help Center</small></a>
-    <a href="https://google.com">Investors <small>For shareholders</small></a>
-    <a href="https://google.com">Contacts <small>Get in touch</small></a>
-  </nav>
-</aside>
-
-<!-- NAV -->
-<nav class="nav" role="navigation" aria-label="Top">
-  <div class="nav-inner">
-    <div class="left">
-      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
-        <span></span>
-      </button>
-        <a class="logo" href="index.html">
-          <span class="logo-mark" aria-hidden="true"></span>
-          <span class="logo-word">Astroscrape</span>
-        </a>
-    </div>
-    <a class="nav-cta" href="https://app.astroscrape.io/" aria-label="Sign in">Sign in</a>
-  </div>
-</nav>
   
 <style>
 :root {
@@ -394,6 +357,67 @@ a{text-decoration:none;color:inherit}
     padding: 12px;
     font-size: 14px;
   }
+
+  /* SECTION 3: EARN BY SHARING */
+.earn {
+  position: relative;
+  background: #111;
+  color: #fff;
+  padding: 80px 20px;
+  overflow: hidden;
+}
+
+.earn-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.earn h2 {
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+
+.earn p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #dbfbd7;
+}
+
+.earn .btn {
+  padding: 14px 20px;
+  border-radius: 999px;
+  font-weight: 800;
+  background: #fff;
+  color: #111;
+  border: none;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.earn .btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.3);
+}
+
+/* Floating money symbols */
+.money {
+  position: absolute;
+  font-size: 24px;
+  color: #dbfbd7;
+  animation: floatUp 6s linear infinite;
+}
+.money:nth-child(1){left:20%;animation-delay:0s;}
+.money:nth-child(2){left:40%;animation-delay:1.5s;}
+.money:nth-child(3){left:60%;animation-delay:3s;}
+.money:nth-child(4){left:80%;animation-delay:4.5s;}
+
+@keyframes floatUp {
+  0% {transform: translateY(100%) scale(0.8); opacity: 0;}
+  20% {opacity: 1;}
+  100% {transform: translateY(-120%) scale(1.2); opacity: 0;}
+}  
 } 
 </style>
 </head>
