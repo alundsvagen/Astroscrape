@@ -92,39 +92,6 @@ href='data:image/svg+xml;utf8,
   .menu a:hover{background:#f6f6f6}
   .menu small{color:#6b7280;font-weight:600}
 
-/* === SOCIAL PROOF: Responsive Fix === */
-@media (max-width: 900px) {
-  .proof-wrap {
-    grid-template-columns: 1fr;
-    gap: 26px;
-  }
-
-  .proof-images {
-    position: relative;
-    min-height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-  }
-
-  .card-img {
-    position: relative;
-    width: 90%;
-    transform: none;
-    right: auto;
-    left: auto;
-    margin-bottom: 10px;
-  }
-}
-
-/* === FOOTER === */
-footer {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
   /* HERO — gradient moved to background only; blobs behind content */
   .hero{
     position:relative; overflow:hidden;
@@ -199,33 +166,6 @@ footer {
     .blob{animation:none}
     .reveal{transition:none}
   }
-
-    html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    overflow-x: hidden;       /* No horizontal scroll */
-    overscroll-behavior: none;/* Stops vertical bounce */
-    background: #0b1514;      /* Matches dark sections/footer for seamless stop */
-  }
-  
-  /* Make body flex so footer sits at bottom naturally */
-  body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-  }
-  
-  /* Wrap all content (except footer) inside <main> */
-  main {
-    flex: 1; /* Ensures content stretches so footer is pinned to bottom */
-  }
-  
-  /* Optional safety for images and sections to avoid overflow */
-  img, section {
-    max-width: 100%;
-  } 
 </style>
 </head>
 <body>
@@ -324,112 +264,6 @@ footer {
     <span class="marquee-item">Search, filter, export <span class="dot"></span></span>
   </div>
 </section>
-
-<section class="pain-section">
-  <div class="pain-content">
-    <div class="pain-text">
-      <h2>The struggle is real.</h2>
-      <p>
-        You’re building, selling, hustling — but finding quality contacts feels like chasing ghosts.  
-        Lists are outdated. Data is dirty. Compliance is scary.  
-        <strong>Astroscrape flips the script.</strong>
-      </p>
-      <p>
-        A verified, consent-first email directory built for businesses that want 
-        <strong>clean, compliant leads</strong> without the headache.  
-        Start qualifying leads — and closing deals — today.
-      </p>
-      <a href="https://google.com" class="cta-button">Explore the Directory</a>
-    </div>
-    <div class="pain-image">
-      <img src="jsoaeupexels1010.jpg" alt="Business professional checking leads" />
-    </div>
-  </div>
-</section>
-
-<style>
-  /* Section base */
-  .pain-section {
-    background: linear-gradient(135deg, #e7fdf5 0%, #f6fdfb 100%);
-    padding: 80px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  /* Grid layout */
-  .pain-content {
-    max-width: 1200px;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
-  }
-
-  /* Text area */
-  .pain-text h2 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: #111;
-    margin-bottom: 20px;
-    line-height: 1.2;
-  }
-
-  .pain-text p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin-bottom: 18px;
-    color: #333;
-  }
-
-  /* Button */
-  .cta-button {
-    background: #000;
-    color: #fff;
-    padding: 14px 32px;
-    font-size: 1rem;
-    font-weight: 700;
-    border-radius: 32px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: inline-block;
-  }
-
-  .cta-button:hover {
-    background: #333;
-    transform: translateY(-2px);
-  }
-
-  /* Image styling */
-  .pain-image img {
-    width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-  }
-
-  /* Mobile responsive */
-  @media (max-width: 768px) {
-    .pain-content {
-      grid-template-columns: 1fr;
-      gap: 30px;
-      text-align: center;
-    }
-
-    .pain-text h2 {
-      font-size: 2rem;
-    }
-
-    .pain-text p {
-      font-size: 1rem;
-    }
-
-    .cta-button {
-      font-size: 0.95rem;
-      padding: 12px 28px;
-    }
-  }
-</style>
   
 <!-- WHAT IT IS -->
 <section class="section">
