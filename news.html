@@ -279,7 +279,6 @@ href='data:image/svg+xml;utf8,
 <!-- SECTION: NEWS & UPDATES -->
 <section class="news">
   <div class="news-inner">
-    <h2 class="news-title">Latest News & Insights</h2>
     <p class="news-sub">Stay informed with updates, insights, and guides from the Astroscrape team.</p>
 
     <!-- Article 1 (unchanged) -->
@@ -383,15 +382,6 @@ href='data:image/svg+xml;utf8,
         </div>
       </div>
     </article>
-  </div>
-</section>
-
-<!-- SECTION: LINKEDIN FOLLOW -->
-<section class="linkedin-follow">
-  <div class="linkedin-inner">
-    <h2>Stay Connected</h2>
-    <p>Follow us on LinkedIn for more updates, behind-the-scenes insights, and community stories.</p>
-    <a href="https://www.linkedin.com/company/astroscrape/" class="btn">Follow us on LinkedIn</a>
   </div>
 </section>
 
@@ -510,6 +500,22 @@ href='data:image/svg+xml;utf8,
     });
   });
 </script>
+
+  <!-- SECTION: LINKEDIN FOLLOW -->
+<section class="linkedin-follow">
+  <div class="linkedin-inner">
+    <div class="linkedin-content">
+      <h2>Stay Connected</h2>
+      <p>Join our community on LinkedIn for the latest updates, insights, and behind-the-scenes news from Astroscrape.</p>
+      <a href="https://www.linkedin.com/company/astroscrape/" target="_blank" class="btn linkedin-btn">
+        <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.02h4V24h-4V8.02zM8.98 8.02h3.84v2.18h.06c.54-1.02 1.86-2.1 3.82-2.1 4.09 0 4.85 2.69 4.85 6.19V24h-4v-7.09c0-1.69-.03-3.87-2.36-3.87-2.36 0-2.72 1.84-2.72 3.75V24h-4V8.02z"/>
+        </svg>
+        Follow us on LinkedIn
+      </a>
+    </div>
+  </div>
+</section>
 
 
   <!-- BEGIN: Corporate Footer (scoped) -->
@@ -675,6 +681,56 @@ href='data:image/svg+xml;utf8,
     .ft-submit{width:100%}
     .ft-bar-wrap{flex-direction:column; gap:8px}
   }
+  /* LINKEDIN FOLLOW - Dark Theme */
+.linkedin-follow {
+  background: radial-gradient(1200px 600px at 10% -10%, #0f1d1a 0%, #0b1514 50%, #0a0e0e 100%);
+  color: #e9f3f0;
+  padding: 80px 20px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.linkedin-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.linkedin-follow h2 {
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+
+.linkedin-follow p {
+  font-size: 18px;
+  color: #cfe7e0;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.linkedin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #0077b5;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.linkedin-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 119, 181, 0.4);
+}
+
+.linkedin-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+} 
 </style>
 
 <script>
