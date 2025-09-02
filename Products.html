@@ -265,6 +265,205 @@ href='data:image/svg+xml;utf8,
   </div>
 </section>
 
+  <!-- HERO: DATABASE & FILTERING -->
+<section class="hero-db">
+  <div class="hero-inner">
+    <!-- Left: Tagline and CTA -->
+    <div class="hero-text">
+      <h1>Clean, <em>Consent-First</em> B2B Emails</h1>
+      <p>
+        Search. Filter. Download.  
+        Build your outreach with <strong>verified, GDPR-friendly contacts</strong> — without the scraping drama.
+      </p>
+      <div class="hero-ctas">
+        <a href="https://form.fillout.com/t/5ydizc3cmyus" class="btn">Join the Directory</a>
+        <a href="https://app.astroscrape.io/" class="btn secondary">Browse Leads</a>
+      </div>
+    </div>
+
+    <!-- Right: Visual database mockup -->
+    <div class="hero-visual">
+      <div class="db-card">
+        <div class="db-header">
+          <input type="text" placeholder="Search industry, tags, or region..." />
+          <button class="filter-btn">⚙ Filters</button>
+        </div>
+        <ul class="db-list">
+          <li>
+            <span class="name">Lena Torres</span>
+            <span class="email">lena.torres@designhub.io</span>
+            <span class="tag">Creative</span>
+          </li>
+          <li>
+            <span class="name">David Okoro</span>
+            <span class="email">d.okoro@salespro.co</span>
+            <span class="tag">Sales</span>
+          </li>
+          <li>
+            <span class="name">Marie Dubois</span>
+            <span class="email">marie.dubois@recruitwise.fr</span>
+            <span class="tag">Recruiter</span>
+          </li>
+          <li>
+            <span class="name">Chen Wei</span>
+            <span class="email">chen.wei@techstart.cn</span>
+            <span class="tag">Founder</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.hero-db {
+  background: linear-gradient(135deg, #dbfbd7 0%, #e0f4f9 100%);
+  padding: 80px 20px;
+  overflow: hidden;
+}
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 40px;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+}
+.hero-text h1 {
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.hero-text h1 em {
+  background: linear-gradient(90deg, #111, #555);
+  color: #fff;
+  padding: 0 6px;
+  border-radius: 8px;
+  font-style: normal;
+}
+.hero-text p {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+.hero-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.hero-ctas .btn {
+  padding: 14px 20px;
+  border-radius: 999px;
+  font-weight: 800;
+  border: 2px solid #111;
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.hero-ctas .btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.hero-ctas .btn.secondary {
+  background: #fff;
+  color: #111;
+  border-color: #111;
+}
+
+/* Visual mock database */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+}
+.db-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  width: 100%;
+  max-width: 420px;
+  overflow: hidden;
+  animation: float 6s ease-in-out infinite;
+}
+.db-header {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  background: #f8f8f8;
+  border-bottom: 1px solid #e5e7eb;
+}
+.db-header input {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.filter-btn {
+  background: #111;
+  color: #fff;
+  font-size: 14px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.db-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.db-list li {
+  padding: 12px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: background 0.2s ease;
+}
+.db-list li:hover {
+  background: #f7fff6;
+}
+.db-list .name {
+  font-weight: 700;
+  font-size: 16px;
+}
+.db-list .email {
+  font-size: 14px;
+  color: #555;
+}
+.db-list .tag {
+  display: inline-block;
+  background: #dbfbd7;
+  color: #111;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 999px;
+  width: fit-content;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-ctas {
+    justify-content: center;
+  }
+  .hero-visual {
+    margin-top: 30px;
+  }
+}
+</style>
+
   <!-- CORE PROBLEM -->
 <section class="core-problem">
   <div class="core-inner">
