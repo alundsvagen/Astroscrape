@@ -398,14 +398,13 @@ href='data:image/svg+xml;utf8,
 <!-- SOCIAL PROOF / BENEFITS -->
 <section class="proof-section">
   <div class="proof-wrap">
-    <!-- Left: copy -->
+    <!-- Left Text -->
     <div class="proof-text">
       <div class="kicker">Why join the directory</div>
-      <h2 class="h2">Clean, consent-first contacts. Faster qualified outreach.</h2>
+      <h2 class="h2">Clean, consent-first contacts.<br>Faster qualified outreach.</h2>
       <p class="p">
-        Stop chasing scraped lists. Astroscrape is a community-powered, GDPR-friendly directory where professionals
-        opt-in to be discovered. You get <strong>verified business emails</strong> with clear permissions, better
-        deliverability, and less risk.
+        Stop chasing scraped lists. Astroscrape is a community-powered, GDPR-friendly directory where professionals opt-in to be discovered.
+        You get <strong>verified business emails</strong> with clear permissions, better deliverability, and less risk.
       </p>
 
       <ul class="benefit-list">
@@ -427,140 +426,146 @@ href='data:image/svg+xml;utf8,
       </div>
     </div>
 
-    <!-- Right: image stack -->
+    <!-- Right: Image Stack -->
     <div class="proof-images">
-      <figure class="card-img reveal-up" style="--d:0">
-        <img src="j0182kpexels.jpg" alt="Professional using phone to check leads" />
+      <figure class="card-img top reveal-up">
+        <img src="j0182kpexels.jpg" alt="Creative professional checking emails" />
       </figure>
-      <figure class="card-img reveal-up mid" style="--d:120">
-        <img src="kaielpexels1001.jpg" alt="Team reviewing prospects on a laptop" />
+      <figure class="card-img mid reveal-up">
+        <img src="kaielpexels1001.jpg" alt="Sales expert preparing leads" />
       </figure>
-      <figure class="card-img reveal-up low" style="--d:240">
-        <img src="baialm20201pexels.jpg" alt="Executive working on outreach strategy" />
+      <figure class="card-img bottom reveal-up">
+        <img src="baialm20201pexels.jpg" alt="Recruiter researching candidates" />
       </figure>
     </div>
   </div>
 </section>
 
 <style>
-  /* Layout */
-  .proof-section{
-    padding:80px 20px;
-    background:linear-gradient(180deg,#ffffff 0%, #f7fff6 100%);
-  }
-  .proof-wrap{
-    max-width:1100px;margin:0 auto;
-    display:grid;gap:36px;align-items:center;
-    grid-template-columns:1.15fr .85fr;
+  .proof-section {
+    padding: 80px 20px;
+    background: linear-gradient(180deg, #ffffff 0%, #f7fff6 100%);
   }
 
-  /* Left copy */
-  .kicker{font-weight:900;letter-spacing:.08em;font-size:12px;text-transform:uppercase;color:#6b7280}
-  .h2{font-weight:900;font-size:clamp(24px,4.5vw,36px);letter-spacing:-.01em;margin:6px 0 10px}
-  .p{color:#374151;line-height:1.7;margin-bottom:10px}
-  .benefit-list{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:10px;color:#1f2937}
-  .benefit-list li{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:10px 12px;font-weight:600}
-  .social-proof{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
-  .sp-pill{background:#fff;border:1px solid #e5e7eb;border-radius:999px;padding:8px 12px;font-weight:800;font-size:13px}
-
-  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 20px;border-radius:999px;font-weight:800;border:2px solid #111;background:#111;color:#fff;transition:transform .2s ease, box-shadow .2s ease}
-  .btn:hover{transform:translateY(-1px);box-shadow:0 10px 30px rgba(0,0,0,.08)}
-  .btn.secondary{background:#fff;color:#111}
-
-  /* Right image stack */
-  .proof-images{
-    position:relative;min-height:520px;
-    display:grid;place-items:center;
+  .proof-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    gap: 36px;
+    align-items: center;
+    grid-template-columns: 1.2fr 0.8fr;
   }
-  .card-img{
-    position:absolute;inset:auto 0 0 auto; /* bottom-right anchor */
-    width:min(380px,92%); border-radius:24px; overflow:hidden;
-    box-shadow:0 18px 40px rgba(0,0,0,.16);
-    transform:translateY(40px) translateZ(0);
-    transition:transform .4s ease, box-shadow .3s ease, rotate .4s ease;
-    background:#fff;
-    will-change:transform;
+
+  .proof-text .h2 {
+    font-weight: 900;
+    font-size: clamp(24px, 4.5vw, 36px);
+    margin: 6px 0 10px;
   }
-  .card-img img{display:block;width:100%;height:auto;object-fit:cover}
 
-  /* Staggered layering */
-  .card-img.mid{right:30px;bottom:90px; width:min(340px,86%);}
-  .card-img.low{right:60px;bottom:180px;width:min(300px,80%);}
+  .benefit-list {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 0;
+    display: grid;
+    gap: 10px;
+  }
+  .benefit-list li {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 10px 12px;
+    font-weight: 600;
+  }
 
-  /* Hover interaction (lift + subtle rotate) */
-  .card-img:hover{transform:translateY(-4px) rotate(-.4deg); box-shadow:0 20px 50px rgba(0,0,0,.2)}
+  .proof-images {
+    position: relative;
+    min-height: 520px;
+    perspective: 800px;
+  }
 
-  /* Reveal up animation */
-  .reveal-up{opacity:0; transform:translateY(28px) scale(.995)}
-  .reveal-up.in{opacity:1; transform:translateY(0) scale(1); transition:opacity .7s ease var(--delay,0ms), transform .7s cubic-bezier(.2,.7,.2,1) var(--delay,0ms)}
-  .reveal-up.in:nth-of-type(1){--delay: calc(var(--d,0ms) * 1ms);}
-  .reveal-up.in:nth-of-type(2){--delay: calc(var(--d,0ms) * 1ms);}
-  .reveal-up.in:nth-of-type(3){--delay: calc(var(--d,0ms) * 1ms);}
+  .card-img {
+    position: absolute;
+    width: 80%;
+    max-width: 320px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
+  }
 
-  /* Parallax tilt on mouse move */
-  .proof-images{perspective:800px}
-  .proof-images.tilt .card-img{transition:transform .08s linear}
-  /* Mobile */
-  @media (max-width: 900px){
-    .proof-wrap{grid-template-columns:1fr;gap:26px}
-    .proof-images{min-height:440px}
-    .card-img{right:auto;left:50%;transform:translate(-50%,40px);width:min(420px,92%)}
-    .card-img.mid{left:50%;right:auto}
-    .card-img.low{left:50%;right:auto}
+  .card-img img {
+    width: 100%;
+    display: block;
+    height: auto;
+  }
+
+  .card-img.top {
+    top: 0;
+    right: 0;
+    z-index: 3;
+  }
+
+  .card-img.mid {
+    top: 100px;
+    right: 30px;
+    z-index: 2;
+    transform: scale(0.95);
+  }
+
+  .card-img.bottom {
+    top: 200px;
+    right: 60px;
+    z-index: 1;
+    transform: scale(0.9);
+  }
+
+  .card-img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Reveal Animation */
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  .reveal-up.in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.6s ease;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 900px) {
+    .proof-wrap {
+      grid-template-columns: 1fr;
+    }
+    .proof-images {
+      min-height: 400px;
+      margin-top: 20px;
+    }
+    .card-img {
+      position: static;
+      margin: 10px auto;
+      width: 90%;
+      transform: scale(1);
+    }
   }
 </style>
 
 <script>
-  // Reveal-on-scroll for the three images
-  (function(){
-    const els = document.querySelectorAll('.reveal-up');
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){
-          e.target.classList.add('in');
-          io.unobserve(e.target);
-        }
-      });
-    },{threshold:.2});
-    els.forEach(el=>io.observe(el));
-  })();
+  // Reveal animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
 
-  // Subtle parallax tilt on the image stack container
-  (function(){
-    const container = document.querySelector('.proof-images');
-    if(!container) return;
-    let raf = null;
-    const update = (x,y)=>{
-      const rect = container.getBoundingClientRect();
-      const cx = rect.left + rect.width/2;
-      const cy = rect.top + rect.height/2;
-      const dx = (x - cx) / rect.width;   // -0.5..0.5
-      const dy = (y - cy) / rect.height;  // -0.5..0.5
-      container.classList.add('tilt');
-      container.querySelectorAll('.card-img').forEach((img,i)=>{
-        const depth = (i+1); // 1..3
-        const tx = dx * 8 * depth;
-        const ty = dy * 8 * depth;
-        img.style.transform = `translateY(${(i* -6)}px) translateX(${tx}px) translateY(${ty}px) rotate(${dx * -1.2}deg)`;
-      });
-    };
-    const reset = ()=>{
-      container.classList.remove('tilt');
-      container.querySelectorAll('.card-img').forEach((img,i)=>{
-        img.style.transform = '';
-      });
-    };
-    container.addEventListener('mousemove', (e)=>{
-      if(raf) cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(()=>update(e.clientX,e.clientY));
-    });
-    container.addEventListener('mouseleave', ()=>{
-      if(raf) cancelAnimationFrame(raf);
-      reset();
-    });
-  })();
-</script>  
+  document.querySelectorAll('.reveal-up').forEach((el) => observer.observe(el));
+</script>
 
 <!-- HOW IT WORKS -->
 <section class="section" style="background:linear-gradient(180deg,#ffffff 0%, #f7fbff 100%)">
