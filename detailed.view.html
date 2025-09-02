@@ -332,103 +332,6 @@ a{text-decoration:none;color:inherit}
 
 /* SECTION 2: COMPARISON TABLE */
 .compare {
-  padding:80px 20px;
-  background:#f8f9fa;
-}
-.compare-inner {
-  max-width:1100px;
-  margin:0 auto;
-}
-.compare h2 {
-  text-align:center;
-  font-size:clamp(28px,5vw,40px);
-  font-weight:900;
-  margin-bottom:20px;
-}
-table {
-  width:100%;
-  border-collapse:collapse;
-  background:#fff;
-  box-shadow:var(--shadow);
-  border-radius:var(--radius);
-  overflow:hidden;
-}
-th, td {
-  padding:16px;
-  text-align:center;
-  border-bottom:1px solid #eee;
-}
-th {
-  background:#dbfbd7;
-  font-weight:900;
-}
-tr:hover {
-  background:#f7fff6;
-}
-
-/* SECTION 3: EARN BY SHARING */
-.earn {
-  position:relative;
-  background:#111;
-  color:#fff;
-  padding:80px 20px;
-  overflow:hidden;
-}
-.earn-inner {
-  max-width:900px;
-  margin:0 auto;
-  text-align:center;
-}
-.earn h2 {
-  font-size:clamp(28px,5vw,40px);
-  font-weight:900;
-  margin-bottom:16px;
-}
-.earn p {
-  font-size:18px;
-  margin-bottom:30px;
-  color:#dbfbd7;
-}
-.earn .btn {
-  padding:14px 20px;
-  border-radius:999px;
-  font-weight:800;
-  background:#fff;
-  color:#111;
-  border:none;
-  cursor:pointer;
-  transition:transform .2s ease, box-shadow .2s ease;
-}
-.earn .btn:hover {
-  transform:translateY(-1px);
-  box-shadow:0 8px 20px rgba(0,0,0,.3);
-}
-
-/* Floating money symbols */
-.money {
-  position:absolute;
-  font-size:24px;
-  color:#dbfbd7;
-  animation:floatUp 6s linear infinite;
-}
-.money:nth-child(1){left:20%;animation-delay:0s;}
-.money:nth-child(2){left:40%;animation-delay:1.5s;}
-.money:nth-child(3){left:60%;animation-delay:3s;}
-.money:nth-child(4){left:80%;animation-delay:4.5s;}
-
-@keyframes floatUp {
-  0% {transform:translateY(100%) scale(0.8);opacity:0;}
-  20% {opacity:1;}
-  100% {transform:translateY(-120%) scale(1.2);opacity:0;}
-}
-
-/* Responsive */
-@media (max-width:900px){
-  .hero-wrap {grid-template-columns:1fr; text-align:center;}
-  .hero-visual {margin-top:20px;}
-}
-
-  .compare {
   padding: 80px 20px;
   background: #f8f9fa;
 }
@@ -445,44 +348,49 @@ tr:hover {
   margin-bottom: 20px;
 }
 
-/* Wrapper for horizontal scrolling */
+/* Horizontal scroll for small screens */
 .table-wrapper {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius);
 }
 
 /* Table styling */
-table {
+.table-wrapper table {
   width: 100%;
   border-collapse: collapse;
   background: #fff;
   box-shadow: var(--shadow);
   border-radius: var(--radius);
   overflow: hidden;
-  min-width: 600px; /* keeps structure on narrow screens */
+  min-width: 600px; /* maintains column readability on narrow screens */
 }
 
-th, td {
+.table-wrapper th,
+.table-wrapper td {
   padding: 16px;
   text-align: center;
   border-bottom: 1px solid #eee;
+  white-space: nowrap;
 }
 
-th {
+.table-wrapper th {
   background: #dbfbd7;
   font-weight: 900;
 }
 
-tr:hover {
+.table-wrapper tr:hover {
   background: #f7fff6;
 }
 
-/* Mobile tweaks */
+/* Mobile adjustments */
 @media (max-width: 600px) {
   .compare h2 {
     font-size: 24px;
   }
-  th, td {
+
+  .table-wrapper th,
+  .table-wrapper td {
     padding: 12px;
     font-size: 14px;
   }
@@ -531,47 +439,51 @@ tr:hover {
     </div>
   </div>
 </section>
-
 <!-- SECTION 2: COMPARISON -->
 <section class="compare">
   <div class="compare-inner">
     <h2>Why Astroscrape Beats Apollo & ZoomInfo</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Feature</th>
-          <th>Astroscrape</th>
-          <th>Apollo</th>
-          <th>ZoomInfo</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Consent-first data</td>
-          <td>✅ Yes</td>
-          <td>❌ No</td>
-          <td>❌ No</td>
-        </tr>
-        <tr>
-          <td>GDPR & EU safe</td>
-          <td>✅ Yes</td>
-          <td>⚠ Partial</td>
-          <td>⚠ Partial</td>
-        </tr>
-        <tr>
-          <td>Verified contacts</td>
-          <td>✅ Always</td>
-          <td>❓ Sometimes</td>
-          <td>❓ Sometimes</td>
-        </tr>
-        <tr>
-          <td>Cost effective</td>
-          <td>💰 Free or low</td>
-          <td>💸 Expensive</td>
-          <td>💸 Expensive</td>
-        </tr>
-      </tbody>
-    </table>
+
+    <!-- Wrapper enables horizontal scroll on narrow screens -->
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Astroscrape</th>
+            <th>Apollo</th>
+            <th>ZoomInfo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Consent-first data</td>
+            <td>✅ Yes</td>
+            <td>❌ No</td>
+            <td>❌ No</td>
+          </tr>
+          <tr>
+            <td>GDPR & EU safe</td>
+            <td>✅ Yes</td>
+            <td>⚠ Partial</td>
+            <td>⚠ Partial</td>
+          </tr>
+          <tr>
+            <td>Verified contacts</td>
+            <td>✅ Always</td>
+            <td>❓ Sometimes</td>
+            <td>❓ Sometimes</td>
+          </tr>
+          <tr>
+            <td>Cost effective</td>
+            <td>💰 Free or low</td>
+            <td>💸 Expensive</td>
+            <td>💸 Expensive</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 </section>
 
