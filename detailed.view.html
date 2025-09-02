@@ -207,6 +207,341 @@ href='data:image/svg+xml;utf8,
   </div>
 </nav>
 
+  
+<style>
+:root {
+  --bg:#ffffff;
+  --ink:#111111;
+  --muted:#6b7280;
+  --accent:#dbfbd7;
+  --accent-2:#e0f4f9;
+  --shadow:0 10px 30px rgba(0,0,0,.08);
+  --radius:20px;
+}
+*{box-sizing:border-box}
+body {
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:70;background:#fff8;backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #eee}
+.nav-inner{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-mark{width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 20% 20%,var(--accent) 0%,var(--accent-2) 60%,#fff 100%);box-shadow:var(--shadow)}
+.logo-word{font-family:'Shrikhand',cursive;font-size:22px}
+.nav-cta{
+  padding:10px 16px;border-radius:999px;border:1px solid #e5e7eb;background:#fff;font-weight:800;
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+
+/* SECTION 1: HERO SEARCH */
+.hero {
+  background:linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  padding:80px 20px;
+}
+.hero-wrap {
+  max-width:1100px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+.hero-text h1 {
+  font-size:clamp(32px,6vw,56px);
+  font-weight:900;
+  line-height:1.1;
+}
+.hero-text h1 em {
+  background:linear-gradient(90deg,#111,#555);
+  color:#fff;
+  padding:0 6px;
+  border-radius:8px;
+  font-style:normal;
+}
+.hero-text p {
+  font-size:18px;
+  color:#333;
+  margin:16px 0 24px;
+  line-height:1.6;
+}
+.hero-text .btn {
+  padding:14px 20px;
+  border-radius:999px;
+  font-weight:800;
+  border:2px solid #111;
+  background:#111;
+  color:#fff;
+  margin-right:10px;
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.hero-text .btn.secondary {
+  background:#fff;
+  color:#111;
+}
+.hero-text .btn:hover {
+  transform:translateY(-1px);
+  box-shadow:0 8px 20px rgba(0,0,0,.2);
+}
+
+/* Visual database demo */
+.hero-visual {
+  background:#fff;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:20px;
+}
+.search-bar {
+  display:flex;
+  gap:8px;
+  margin-bottom:16px;
+}
+.search-bar input {
+  flex:1;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font-size:14px;
+}
+.search-bar button {
+  background:#111;
+  color:#fff;
+  padding:10px 16px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+.tag-bar {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:16px;
+}
+.tag {
+  background:#dbfbd7;
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:700;
+}
+.result-list {
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.result-list li {
+  padding:10px;
+  border-bottom:1px solid #eee;
+  font-size:14px;
+}
+.result-list li:hover {
+  background:#f7fff6;
+}
+
+/* SECTION 2: COMPARISON TABLE */
+.compare {
+  padding:80px 20px;
+  background:#f8f9fa;
+}
+.compare-inner {
+  max-width:1100px;
+  margin:0 auto;
+}
+.compare h2 {
+  text-align:center;
+  font-size:clamp(28px,5vw,40px);
+  font-weight:900;
+  margin-bottom:20px;
+}
+table {
+  width:100%;
+  border-collapse:collapse;
+  background:#fff;
+  box-shadow:var(--shadow);
+  border-radius:var(--radius);
+  overflow:hidden;
+}
+th, td {
+  padding:16px;
+  text-align:center;
+  border-bottom:1px solid #eee;
+}
+th {
+  background:#dbfbd7;
+  font-weight:900;
+}
+tr:hover {
+  background:#f7fff6;
+}
+
+/* SECTION 3: EARN BY SHARING */
+.earn {
+  position:relative;
+  background:#111;
+  color:#fff;
+  padding:80px 20px;
+  overflow:hidden;
+}
+.earn-inner {
+  max-width:900px;
+  margin:0 auto;
+  text-align:center;
+}
+.earn h2 {
+  font-size:clamp(28px,5vw,40px);
+  font-weight:900;
+  margin-bottom:16px;
+}
+.earn p {
+  font-size:18px;
+  margin-bottom:30px;
+  color:#dbfbd7;
+}
+.earn .btn {
+  padding:14px 20px;
+  border-radius:999px;
+  font-weight:800;
+  background:#fff;
+  color:#111;
+  border:none;
+  cursor:pointer;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.earn .btn:hover {
+  transform:translateY(-1px);
+  box-shadow:0 8px 20px rgba(0,0,0,.3);
+}
+
+/* Floating money symbols */
+.money {
+  position:absolute;
+  font-size:24px;
+  color:#dbfbd7;
+  animation:floatUp 6s linear infinite;
+}
+.money:nth-child(1){left:20%;animation-delay:0s;}
+.money:nth-child(2){left:40%;animation-delay:1.5s;}
+.money:nth-child(3){left:60%;animation-delay:3s;}
+.money:nth-child(4){left:80%;animation-delay:4.5s;}
+
+@keyframes floatUp {
+  0% {transform:translateY(100%) scale(0.8);opacity:0;}
+  20% {opacity:1;}
+  100% {transform:translateY(-120%) scale(1.2);opacity:0;}
+}
+
+/* Responsive */
+@media (max-width:900px){
+  .hero-wrap {grid-template-columns:1fr; text-align:center;}
+  .hero-visual {margin-top:20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <span class="logo-mark"></span>
+      <span class="logo-word">Astroscrape</span>
+    </a>
+    <a class="nav-cta" href="https://app.astroscrape.io/">Sign in</a>
+  </div>
+</nav>
+
+<!-- SECTION 1: HERO SEARCH -->
+<section class="hero">
+  <div class="hero-wrap">
+    <div class="hero-text">
+      <h1>Find <em>Clean</em>, <em>Consent-First</em> Emails</h1>
+      <p>Filter by industry, location, and tags. Download verified, GDPR-safe contacts without the scraping mess.</p>
+      <a href="https://form.fillout.com/t/5ydizc3cmyus" class="btn">Join Directory</a>
+      <a href="https://app.astroscrape.io/" class="btn secondary">Browse Leads</a>
+    </div>
+    <div class="hero-visual">
+      <div class="search-bar">
+        <input type="text" placeholder="Search by name, industry, or region..."/>
+        <button>Search</button>
+      </div>
+      <div class="tag-bar">
+        <span class="tag">🎨 Creative</span>
+        <span class="tag">📈 Sales</span>
+        <span class="tag">🧑‍💼 Recruiters</span>
+        <span class="tag">🌍 EU Ready</span>
+      </div>
+      <ul class="result-list">
+        <li><strong>Lena Torres</strong> – lena@designhub.io (Creative)</li>
+        <li><strong>David Okoro</strong> – d.okoro@salespro.co (Sales)</li>
+        <li><strong>Marie Dubois</strong> – marie@recruitwise.fr (Recruiter)</li>
+        <li><strong>Chen Wei</strong> – chen.wei@techstart.cn (Founder)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: COMPARISON -->
+<section class="compare">
+  <div class="compare-inner">
+    <h2>Why Astroscrape Beats Apollo & ZoomInfo</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Astroscrape</th>
+          <th>Apollo</th>
+          <th>ZoomInfo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Consent-first data</td>
+          <td>✅ Yes</td>
+          <td>❌ No</td>
+          <td>❌ No</td>
+        </tr>
+        <tr>
+          <td>GDPR & EU safe</td>
+          <td>✅ Yes</td>
+          <td>⚠ Partial</td>
+          <td>⚠ Partial</td>
+        </tr>
+        <tr>
+          <td>Verified contacts</td>
+          <td>✅ Always</td>
+          <td>❓ Sometimes</td>
+          <td>❓ Sometimes</td>
+        </tr>
+        <tr>
+          <td>Cost effective</td>
+          <td>💰 Free or low</td>
+          <td>💸 Expensive</td>
+          <td>💸 Expensive</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 3: EARN BY SHARING -->
+<section class="earn">
+  <div class="money">$</div>
+  <div class="money">$</div>
+  <div class="money">$</div>
+  <div class="money">$</div>
+  <div class="earn-inner">
+    <h2>Share Your Contact. Earn Every Download.</h2>
+    <p>Earn <strong>$0.05</strong> each time someone downloads your email from the directory.  
+      Be discoverable. Get rewarded.</p>
+    <button class="btn">Add My Email</button>
+  </div>
+</section>
+
 
   <!-- BEGIN: Corporate Footer (scoped) -->
 <footer class="ft-footer" role="contentinfo">
