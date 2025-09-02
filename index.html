@@ -593,6 +593,140 @@ href='data:image/svg+xml;utf8,
   </div>
 </section>
 
+  <!-- FREE / CONSENT SECTION -->
+<section class="free-consent">
+  <div class="free-wrap">
+    <!-- Copy -->
+    <div class="free-text">
+      <div class="kicker">Transparent by design</div>
+      <h2 class="h2">100% free — and 100% consent-based.</h2>
+      <p class="p">
+        Every email on Astroscrape is <strong>self-submitted</strong> and <strong>revocable</strong>. 
+        No scraping. No gray areas. Downloading a list gives you a clear choice:
+      </p>
+
+      <ul class="list">
+        <li>💳 <strong>Pay for the list</strong> — instant access, supports creators of the data.</li>
+        <li>🤝 <strong>Invite to unlock</strong> — help us invite contacts to the platform and get the list for free.</li>
+      </ul>
+
+      <div class="badges">
+        <span class="pill">✅ Explicit opt-in</span>
+        <span class="pill">🔄 One-click opt-out</span>
+        <span class="pill">🌍 EU/GDPR-friendly</span>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn" href="https://google.com">Browse free options</a>
+        <a class="btn secondary" href="https://google.com">Invite & unlock</a>
+      </div>
+    </div>
+
+    <!-- Image -->
+    <figure class="free-image reveal-dark">
+      <img src="baialm20201pexels.jpg" alt="Professional reviewing a consent-based lead list" />
+    </figure>
+  </div>
+</section>
+
+<style>
+  /* Dark section shell */
+  .free-consent{
+    position:relative;
+    overflow:hidden;
+    padding:80px 20px;
+    background:
+      radial-gradient(1200px 600px at 10% -10%, #1b1b1b 0%, #0f0f0f 40%, #0b0b0b 100%),
+      #0b0b0b;
+    color:#fff;
+  }
+  .free-consent::after{
+    content:""; position:absolute; inset:auto -20% -40% -20%;
+    height:60%; pointer-events:none; opacity:.35;
+    background:radial-gradient(60% 60% at 50% 0%, #dbfbd7 0%, #e0f4f9 60%, transparent 100%);
+    filter:blur(30px);
+  }
+
+  .free-wrap{
+    position:relative; z-index:2;
+    max-width:1100px; margin:0 auto;
+    display:grid; gap:36px; align-items:center;
+    grid-template-columns:1.1fr .9fr;
+  }
+
+  /* Text side */
+  .kicker{font-weight:900;letter-spacing:.08em;font-size:12px;text-transform:uppercase;color:#9ca3af}
+  .h2{font-weight:900;font-size:clamp(26px,4.8vw,40px);letter-spacing:-.01em;margin:8px 0 12px}
+  .p{color:#cbd5e1;line-height:1.8;margin:0 0 10px}
+
+  .list{list-style:none; padding:0; margin:16px 0 0; display:grid; gap:10px}
+  .list li{
+    background:linear-gradient(180deg,#121212 0%, #0e0e0e 100%);
+    border:1px solid #1f2937; color:#e5e7eb;
+    border-radius:16px; padding:12px 14px; font-weight:600;
+  }
+
+  .badges{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+  .pill{
+    display:inline-block; background:#0f1113; color:#cfe7d6;
+    border:1px solid #22302a; padding:8px 12px; border-radius:999px; font-weight:800; font-size:13px;
+  }
+
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:14px 20px;border-radius:999px;font-weight:800;border:2px solid #fff;
+    background:#fff;color:#111;transition:transform .2s ease, box-shadow .2s ease, background .2s;
+  }
+  .btn:hover{transform:translateY(-1px); box-shadow:0 10px 30px rgba(0,0,0,.35)}
+  .btn.secondary{background:transparent;color:#fff;border-color:#2b2b2b}
+  .btn.secondary:hover{background:#151515}
+
+  /* Image */
+  .free-image{
+    margin:0; position:relative; border-radius:24px; overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.04) inset;
+    transform:translateY(24px) scale(.98);
+    transition:transform .6s cubic-bezier(.2,.7,.2,1), box-shadow .4s ease;
+    background:#0e0e0e;
+  }
+  .free-image img{display:block; width:100%; height:auto; object-fit:cover; opacity:.96}
+  .free-image:hover{transform:translateY(14px) scale(1); box-shadow:0 40px 100px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.06) inset}
+  .free-image::after{
+    content:""; position:absolute; inset:auto 10% 10% auto; width:40%; height:40%;
+    background:radial-gradient(60% 60% at 50% 50%, rgba(219,251,215,.25), rgba(224,244,249,.08), transparent 70%);
+    filter:blur(20px); pointer-events:none;
+  }
+
+  /* Reveal animation (matches your site’s style) */
+  .reveal-dark{opacity:0; transform:translateY(28px) scale(.98)}
+  .reveal-dark.in{opacity:1; transform:translateY(0) scale(1); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1)}
+
+  /* Responsive */
+  @media (max-width: 900px){
+    .free-wrap{grid-template-columns:1fr}
+    .free-image{transform:none}
+  }
+</style>
+
+<script>
+  // Reveal-on-scroll for dark section image
+  (function(){
+    const el = document.querySelector('.free-image.reveal-dark');
+    if(!el) return;
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    },{threshold:.2});
+    io.observe(el);
+  })();
+</script>
+  
+
 <!-- WHY SIGN UP -->
 <section class="section">
   <div class="wrap">
