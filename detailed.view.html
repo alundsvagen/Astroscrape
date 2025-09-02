@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Astroscrape — Consent-First B2B Leads</title>
+<meta name="description" content="Astroscrape is a consent-first B2B email directory. Find verified leads. Let professionals earn for sharing their email. GDPR-friendly by design." />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Favicon (inline email icon; you can swap later for static files) -->
+<link rel="icon" type="image/svg+xml"
+href='data:image/svg+xml;utf8,
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="%23dbfbd7"/>
+      <stop offset="100%" stop-color="%23e0f4f9"/>
+    </linearGradient>
+  </defs>
+  <rect rx="14" ry="14" width="64" height="64" fill="url(%23g)"/>
+  <rect x="10" y="18" width="44" height="28" rx="6" ry="6" fill="%23ffffff" stroke="%23111" stroke-width="3"/>
+  <path d="M12 20l20 15L52 20" fill="none" stroke="%23111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>'>
+<meta name="theme-color" content="#ffffff">
+
+<style>
+  :root{
+    --bg:#ffffff;
+    --ink:#111111;
+    --muted:#6b7280;
+    --accent:#dbfbd7;
+    --accent-2:#e0f4f9;
+    --pill:#f2f2f2;
+    --card:#ffffff;
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+    --radius:28px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:70;background:#fff8;backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #eee}
+  .nav-inner{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .left{display:flex;align-items:center;gap:10px}
+  .logo{display:flex;align-items:center;gap:10px}
+  .logo-mark{width:36px;height:36px;border-radius:50%;background: radial-gradient(120% 120% at 20% 20%, var(--accent) 0%, var(--accent-2) 60%, #fff 100%);box-shadow:var(--shadow)}
+  .logo-word{font-family:'Shrikhand',cursive;font-size:22px;letter-spacing:.2px}
+
+  /* Hamburger */
+  .hamburger{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:42px;height:42px;border-radius:999px;border:1px solid #e5e7eb;background:#fff;cursor:pointer;
+    transition:transform .2s ease, box-shadow .2s ease;margin-right:6px;
+  }
+  .hamburger:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+  .hamburger span,.hamburger::before,.hamburger::after{
+    content:"";display:block;width:18px;height:2px;background:#111;border-radius:2px;transition:transform .25s ease, opacity .25s ease;
+  }
+  .hamburger span{position:relative}
+  .hamburger::before{transform:translateY(-6px)}
+  .hamburger::after{transform:translateY(6px)}
+  .hamburger.active span{opacity:0}
+  .hamburger.active::before{transform:translateY(0) rotate(45deg)}
+  .hamburger.active::after{transform:translateY(0) rotate(-45deg)}
+
+  .nav-cta{
+    display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1px solid #e5e7eb;background:#fff;font-weight:800;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .nav-cta:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+
+  /* Drawer */
+  .scrim{
+    position:fixed;inset:0;background:rgba(17,17,17,.4);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:60;
+  }
+  .scrim.open{opacity:1;pointer-events:auto}
+  .drawer{
+    position:fixed;inset:0 auto 0 0;width:min(88vw,360px);background:#fff;border-right:1px solid #eee;box-shadow:var(--shadow);
+    transform:translateX(-102%);transition:transform .25s ease;z-index:65;display:flex;flex-direction:column;
+  }
+  .drawer.open{transform:translateX(0)}
+  .drawer-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid #eee}
+  .drawer-title{display:flex;align-items:center;gap:10px}
+  .drawer-title .logo-word{font-size:20px}
+  .drawer-close{border:1px solid #e5e7eb;background:#fff;border-radius:999px;width:36px;height:36px;cursor:pointer}
+  .menu{padding:10px 12px;display:flex;flex-direction:column;gap:6px}
+  .menu a{display:flex;align-items:center;gap:10px;padding:12px 12px;border-radius:14px;font-weight:800}
+  .menu a:hover{background:#f6f6f6}
+  .menu small{color:#6b7280;font-weight:600}
+
+  /* HERO — gradient moved to background only; blobs behind content */
+  .hero{
+    position:relative; overflow:hidden;
+    background:linear-gradient(180deg, #ffffff 0%, #f7fff6 100%); /* stays behind */
+  }
+  .hero-inner{
+    position:relative; z-index:2; /* content above visuals */
+    max-width:1100px;margin:0 auto;padding:64px 18px 24px;display:grid;gap:28px
+  }
+  .tagline{display:inline-flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .tag{background:var(--pill);padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700;color:#333}
+  .h1{font-weight:900;line-height:1.02;letter-spacing:-.02em;font-size: clamp(32px, 7vw, 72px)}
+  .h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:0 .25em;border-radius:12px;box-decoration-break:clone}
+  .sub{font-size:clamp(16px, 2.6vw, 20px);color:var(--muted);max-width:760px}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 20px;border-radius:999px;font-weight:800;border:2px solid #111;background:#111;color:#fff;transition:transform .2s ease, box-shadow .2s ease, background .2s}
+  .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+  .btn.secondary{background:#fff;color:#111}
+  .trust-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+  .pill{background:#fff;border:1px solid #eee;border-radius:999px;padding:8px 12px;font-weight:700;font-size:13px}
+
+  /* Visual blobs (behind; no interaction) */
+  .blob{
+    position:absolute; z-index:1; pointer-events:none;
+    inset:auto -120px -120px auto; width:420px; height:420px; filter:blur(12px); opacity:.55;
+    background:radial-gradient(60% 60% at 40% 40%, var(--accent) 0%, var(--accent-2) 60%, transparent 100%);
+    border-radius:50%;
+    animation:float 12s ease-in-out infinite;
+  }
+  .blob.b2{inset:-80px auto auto -120px; width:500px; height:500px; animation-duration:16s;}
+  @keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-10px) scale(1.03)}}
+
+  /* Marquee */
+  .marquee{overflow:hidden;white-space:nowrap;border-top:1px dashed #e5e7eb;border-bottom:1px dashed #e5e7eb;background:#fff}
+  .marquee-track{display:inline-block;padding:12px 0;animation:scroll 24s linear infinite}
+  .marquee-item{display:inline-flex;align-items:center;gap:8px;margin:0 20px;font-weight:800;color:#444}
+  .dot{width:6px;height:6px;background:#111;border-radius:50%}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* Sections */
+  .section{padding:56px 18px}
+  .wrap{max-width:1100px;margin:0 auto}
+  .card{background:var(--card);border:1px solid #eee;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+  .kicker{font-weight:900;letter-spacing:.08em;font-size:12px;text-transform:uppercase;color:#6b7280}
+  .h2{font-weight:900;font-size:clamp(22px,4.5vw,36px);letter-spacing:-.01em;margin:6px 0 10px}
+  .p{color:#374151;line-height:1.7}
+
+  .hiw{display:grid;gap:18px;grid-template-columns:1fr;margin-top:14px}
+  .step{display:flex;gap:14px;align-items:flex-start;padding:18px;border-radius:20px;background:linear-gradient(90deg,#fff, #f9f9f9)}
+  .step-num{flex:0 0 36px;height:36px;display:grid;place-items:center;font-weight:900;border-radius:50%;background:#111;color:#fff}
+  .step h3{margin:4px 0 6px;font-size:18px}
+  .step p{margin:0;color:#4b5563}
+
+  .benefits{display:grid;gap:18px;grid-template-columns:1fr}
+  .benefit{padding:22px;border-radius:var(--radius);background:linear-gradient(180deg, #ffffff 0%, #f6fbff 100%);border:1px solid #eaf3ff}
+  .benefit h3{margin:0 0 6px;font-size:18px}
+  .benefit p{margin:0;color:#4b5563}
+
+  .footer{border-top:1px solid #eee;padding:32px 18px;background:#fff}
+  .foot-inner{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;color:#6b7280;font-size:14px}
+  .foot-links a{margin-right:14px}
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
+  .reveal.in{opacity:1;transform:translateY(0)}
+
+  @media(min-width:720px){
+    .hiw{grid-template-columns:repeat(3,1fr)}
+    .benefits{grid-template-columns:repeat(3,1fr)}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .marquee-track{animation:none}
+    .blob{animation:none}
+    .reveal{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- SCRIM + DRAWER -->
+<div class="scrim" id="scrim" aria-hidden="true"></div>
+<aside class="drawer" id="drawer" aria-hidden="true" aria-label="Main menu">
+  <div class="drawer-header">
+    <div class="drawer-title">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span class="logo-word">Astroscrape</span>
+    </div>
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
+  </div>
+  <nav class="menu" role="navigation">
+    <a href="https://alundsvagen.github.io/Astroscrape/Products.html">Products <small>Overview</small></a>
+    <a href="https://google.com">Email Product <small>Leads</small></a>
+    <a href="https://google.com">News <small>Updates</small></a>
+    <a href="https://google.com">Recruitment <small>Careers</small></a>
+    <a href="https://google.com">Support <small>Help Center</small></a>
+    <a href="https://google.com">Investors <small>For shareholders</small></a>
+    <a href="https://google.com">Contacts <small>Get in touch</small></a>
+  </nav>
+</aside>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Top">
+  <div class="nav-inner">
+    <div class="left">
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
+        <span></span>
+      </button>
+        <a class="logo" href="index.html">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <span class="logo-word">Astroscrape</span>
+        </a>
+    </div>
+    <a class="nav-cta" href="https://app.astroscrape.io/" aria-label="Sign in">Sign in</a>
+  </div>
+</nav>
+
+
+  <!-- BEGIN: Corporate Footer (scoped) -->
+<footer class="ft-footer" role="contentinfo">
+  <div class="ft-wrap">
+    <!-- Brand + tagline -->
+    <div class="ft-brand">
+      <div class="ft-logo">
+        <span class="ft-logo-mark" aria-hidden="true"></span>
+        <span class="ft-logo-word">Astroscrape</span>
+      </div>
+      <p class="ft-tag">Consent-first B2B discovery. Verified contacts, GDPR-friendly by design.</p>
+
+      <div class="ft-social" aria-label="Social links">
+        <a href="https://google.com" aria-label="LinkedIn" class="ft-social-btn">
+          <!-- LinkedIn -->
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.02h4V24h-4V8.02zM8.98 8.02h3.84v2.18h.06c.54-1.02 1.86-2.1 3.82-2.1 4.09 0 4.85 2.69 4.85 6.19V24h-4v-7.09c0-1.69-.03-3.87-2.36-3.87-2.36 0-2.72 1.84-2.72 3.75V24h-4V8.02z"/></svg>
+        </a>
+        <a href="https://google.com" aria-label="Twitter/X" class="ft-social-btn">
+          <!-- X -->
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2H21.5l-7.6 8.69L22.5 22h-6.23l-4.87-6.02L5.8 22H2.5l8.17-9.33L1.9 2h6.34l4.4 5.58L18.244 2Zm-2.18 18h1.49L7.97 4H6.4l9.664 16Z"/></svg>
+        </a>
+        <a href="https://google.com" aria-label="Instagram" class="ft-social-btn">
+          <!-- IG -->
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.584.012 4.85.07 1.17.054 1.97.24 2.67.51.72.28 1.33.65 1.92 1.24.59.59.96 1.2 1.24 1.92.27.7.456 1.5.51 2.67.058 1.266.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.24 1.97-.51 2.67-.28.72-.65 1.33-1.24 1.92-.59.59-1.2.96-1.92 1.24-.7.27-1.5.456-2.67.51-1.266.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.97-.24-2.67-.51-.72-.28-1.33-.65-1.92-1.24-.59-.59-.96-1.2-1.24-1.92-.27-.7-.456-1.5-.51-2.67C2.212 15.584 2.2 15.2 2.2 12s.012-3.584.07-4.85c.054-1.17.24-1.97.51-2.67.28-.72.65-1.33 1.24-1.92.59-.59 1.2-.96 1.92-1.24.7-.27 1.5-.456 2.67-.51C8.416 2.212 8.8 2.2 12 2.2Zm0 1.8c-3.16 0-3.532.012-4.776.07-1.03.048-1.59.22-1.96.37-.49.19-.84.42-1.21.79-.37.37-.6.72-.79 1.21-.15.37-.323.93-.37 1.96-.058 1.244-.07 1.616-.07 4.776s.012 3.532.07 4.776c.048 1.03.22 1.59.37 1.96.19.49.42.84.79 1.21.37.37.72.6 1.21.79.37.15.93.323 1.96.37 1.244.058 1.616.07 4.776.07s3.532-.012 4.776-.07c1.03-.048 1.59-.22 1.96-.37.49-.19.84-.42 1.21-.79.37-.37.6-.72.79-1.21.15-.37.323-.93.37-1.96.058-1.244.07-1.616.07-4.776s-.012-3.532-.07-4.776c-.048-1.03-.22-1.59-.37-1.96-.19-.49-.42-.84-.79-1.21-.37-.37-.72-.6-1.21-.79-.37-.15-.93-.323-1.96-.37C15.532 4.012 15.16 4 12 4Zm0 3.2a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6Zm0 1.8a3 3 0 1 0 0 6.001 3 3 0 0 0 0-6ZM17.8 6.6a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Columns -->
+    <nav class="ft-col">
+      <h3 class="ft-head">Products</h3>
+      <ul class="ft-links">
+        <li><a href="https://google.com">Email Directory</a></li>
+        <li><a href="https://google.com">Search & Filters</a></li>
+        <li><a href="https://google.com">Payouts</a></li>
+        <li><a href="https://google.com">API (soon)</a></li>
+      </ul>
+    </nav>
+
+    <nav class="ft-col">
+      <h3 class="ft-head">Company</h3>
+      <ul class="ft-links">
+        <li><a href="https://google.com">About</a></li>
+        <li><a href="https://google.com">News</a></li>
+        <li><a href="https://google.com">Recruitment</a></li>
+        <li><a href="https://google.com">Investors</a></li>
+      </ul>
+    </nav>
+
+    <nav class="ft-col">
+      <h3 class="ft-head">Legal</h3>
+      <ul class="ft-links">
+        <li><a href="https://google.com">Privacy</a></li>
+        <li><a href="https://google.com">Terms</a></li>
+        <li><a href="https://google.com">DPA</a></li>
+        <li><a href="https://google.com">GDPR Center</a></li>
+      </ul>
+    </nav>
+
+    <!-- Newsletter / Contact -->
+    <div class="ft-news">
+      <h3 class="ft-head">Stay in the loop</h3>
+      <form class="ft-form" onsubmit="event.preventDefault(); alert('Thanks — we\'ll be in touch!')">
+        <input class="ft-input" type="email" placeholder="you@company.com" aria-label="Email address">
+        <button class="ft-submit" type="submit">Subscribe</button>
+      </form>
+      <p class="ft-contact">
+        Questions? <a href="mailto:sales@astroscrape.io">sales@astroscrape.io</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="ft-bar">
+    <div class="ft-bar-wrap">
+      <small>© 2025 Astroscrape. All rights reserved.</small>
+      <button class="ft-top" aria-label="Back to top">↑ Back to top</button>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* ---------- Scoped Footer Styles ---------- */
+  .ft-footer{
+    background: radial-gradient(1200px 600px at 10% -10%, #0f1d1a 0%, #0b1514 50%, #0a0e0e 100%);
+    color:#e9f3f0;
+    border-top:1px solid rgba(255,255,255,.06);
+  }
+  .ft-wrap{
+    max-width:1100px; margin:0 auto; padding:48px 18px;
+    display:grid; gap:28px;
+    grid-template-columns: 1.4fr repeat(3, 1fr) 1.6fr;
+  }
+
+  /* Brand */
+  .ft-logo{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .ft-logo-mark{
+    width:36px;height:36px;border-radius:50%;
+    background: radial-gradient(120% 120% at 20% 20%, #dbfbd7 0%, #e0f4f9 60%, #ffffff 100%);
+    box-shadow:0 8px 24px rgba(0,0,0,.25);
+  }
+  .ft-logo-word{font-family:'Shrikhand', cursive; font-size:22px; letter-spacing:.2px}
+  .ft-tag{margin:0 0 14px; color:#cfe7e0; line-height:1.7}
+
+  /* Columns */
+  .ft-col{}.ft-head{margin:0 0 10px; font-weight:800; color:#cfe7e0; font-size:14px; letter-spacing:.06em; text-transform:uppercase}
+  .ft-links{list-style:none; padding:0; margin:0; display:grid; gap:8px}
+  .ft-links a{
+    color:#e9f3f0; text-decoration:none; font-weight:600;
+    opacity:.9; transition:opacity .15s ease, transform .15s ease, color .15s ease;
+  }
+  .ft-links a:hover{opacity:1; transform:translateX(2px); color:#ffffff}
+
+  /* Social */
+  .ft-social{display:flex; gap:10px}
+  .ft-social-btn{
+    width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1);
+    transition:transform .15s ease, background .2s ease, border-color .2s ease;
+  }
+  .ft-social-btn:hover{transform:translateY(-2px); background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.2)}
+  .ft-social-btn svg{width:18px;height:18px;fill:#e9f3f0}
+
+  /* Newsletter */
+  .ft-news{}
+  .ft-form{display:flex; gap:8px; align-items:center}
+  .ft-input{
+    flex:1; min-width:0; padding:12px 12px; border-radius:12px; border:1px solid rgba(255,255,255,.14);
+    background:rgba(255,255,255,.06); color:#fff; font-weight:600;
+  }
+  .ft-input::placeholder{color:#c7d8d3}
+  .ft-submit{
+    padding:12px 16px; border-radius:12px; border:2px solid #ffffff;
+    background:#ffffff; color:#0d1413; font-weight:800; cursor:pointer;
+    transition:transform .15s ease, box-shadow .2s ease;
+  }
+  .ft-submit:hover{transform:translateY(-1px); box-shadow:0 10px 26px rgba(0,0,0,.35)}
+  .ft-contact{margin:10px 0 0; color:#cfe7e0}
+  .ft-contact a{color:#fff; text-decoration:underline; font-weight:700}
+
+  /* Bottom bar */
+  .ft-bar{border-top:1px solid rgba(255,255,255,.06); margin-top:10px}
+  .ft-bar-wrap{
+    max-width:1100px; margin:0 auto; padding:14px 18px;
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    color:#b9cfca;
+  }
+  .ft-top{
+    background:transparent; color:#e9f3f0; border:1px solid rgba(255,255,255,.18);
+    border-radius:999px; padding:8px 12px; font-weight:800; cursor:pointer;
+    transition:transform .15s ease, background .2s ease, border-color .2s ease;
+  }
+  .ft-top:hover{transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.28)}
+
+  /* Responsive */
+  @media (max-width: 980px){
+    .ft-wrap{grid-template-columns: 1fr 1fr; gap:22px}
+    .ft-brand{grid-column:1 / -1}
+  }
+  @media (max-width: 560px){
+    .ft-wrap{grid-template-columns:1fr}
+    .ft-form{flex-direction:column; align-items:stretch}
+    .ft-submit{width:100%}
+    .ft-bar-wrap{flex-direction:column; gap:8px}
+  }
+</style>
+
+<script>
+  // Back to top (scoped)
+  document.querySelector('.ft-top')?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+<!-- END: Corporate Footer -->
+
+ <script>
+  const hamburger = document.getElementById('hamburger');
+  const drawer = document.getElementById('drawer');
+  const scrim = document.getElementById('scrim');
+  const drawerClose = document.getElementById('drawerClose');
+
+  function toggleDrawer(open) {
+    drawer.classList.toggle('open', open);
+    scrim.classList.toggle('open', open);
+    hamburger.classList.toggle('active', open);
+    hamburger.setAttribute('aria-expanded', open);
+  }
+
+  // Open drawer on hamburger click
+  hamburger.addEventListener('click', () => toggleDrawer(!drawer.classList.contains('open')));
+
+  // Close drawer on scrim click or close button
+  scrim.addEventListener('click', () => toggleDrawer(false));
+  drawerClose.addEventListener('click', () => toggleDrawer(false));
+</script> 
+  
+</body>
+</html>
