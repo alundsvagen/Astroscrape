@@ -176,32 +176,32 @@ href='data:image/svg+xml;utf8,
     .reveal{transition:none}
   }
 
-  html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  overflow-x: hidden;       /* No horizontal scroll */
-  overscroll-behavior: none;/* Stops vertical bounce */
-  background: #0b1514;      /* Matches dark sections/footer for seamless stop */
-}
-
-/* Make body flex so footer sits at bottom naturally */
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
-
-/* Wrap all content (except footer) inside <main> */
-main {
-  flex: 1; /* Ensures content stretches so footer is pinned to bottom */
-}
-
-/* Optional safety for images and sections to avoid overflow */
-img, section {
-  max-width: 100%;
-} 
+    html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;       /* No horizontal scroll */
+    overscroll-behavior: none;/* Stops vertical bounce */
+    background: #0b1514;      /* Matches dark sections/footer for seamless stop */
+  }
+  
+  /* Make body flex so footer sits at bottom naturally */
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+  
+  /* Wrap all content (except footer) inside <main> */
+  main {
+    flex: 1; /* Ensures content stretches so footer is pinned to bottom */
+  }
+  
+  /* Optional safety for images and sections to avoid overflow */
+  img, section {
+    max-width: 100%;
+  } 
 </style>
 </head>
 <body>
