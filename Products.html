@@ -207,44 +207,6 @@ href='data:image/svg+xml;utf8,
   </div>
 </nav>
 
-<!-- HERO -->
-<header class="hero">
-  <!-- Visuals behind content -->
-  <div class="blob" aria-hidden="true"></div>
-  <div class="blob b2" aria-hidden="true"></div>
-
-  <div class="hero-inner">
-    <div class="tagline">
-      <span class="tag">consent-first</span>
-      <span class="tag">verified leads</span>
-      <span class="tag">micro-payouts</span>
-    </div>
-
-    <h1 class="h1">
-      The <em>ethical</em> way to find B2B emails.<br />
-      Verified. Searchable. GDPR-friendly.
-    </h1>
-
-    <p class="sub">
-      Astroscrape is a community-powered directory where professionals opt-in to be discovered,
-      and earn micro-payouts when their contact is downloaded. Searchers get clean, compliant data
-      — not scraped lists.
-    </p>
-
-    <div class="cta-row">
-      <a class="btn" href="https://form.fillout.com/t/5ydizc3cmyus">Join the waitlist</a>
-      <a class="btn secondary" href="https://app.astroscrape.io/">Sign in to app</a>
-    </div>
-
-    <div class="trust-row">
-      <span class="pill">✅ Explicit consent</span>
-      <span class="pill">🔒 Anti-scraping controls</span>
-      <span class="pill">💸 Earn per download</span>
-      <span class="pill">🌍 EU-friendly</span>
-    </div>
-  </div>
-</header>
-
 <!-- MARQUEE -->
 <section class="marquee" aria-label="Astroscrape highlights">
   <div class="marquee-track">
@@ -881,6 +843,27 @@ href='data:image/svg+xml;utf8,
   });
 </script>
 <!-- END: Corporate Footer -->
+
+ <script>
+  const hamburger = document.getElementById('hamburger');
+  const drawer = document.getElementById('drawer');
+  const scrim = document.getElementById('scrim');
+  const drawerClose = document.getElementById('drawerClose');
+
+  function toggleDrawer(open) {
+    drawer.classList.toggle('open', open);
+    scrim.classList.toggle('open', open);
+    hamburger.classList.toggle('active', open);
+    hamburger.setAttribute('aria-expanded', open);
+  }
+
+  // Open drawer on hamburger click
+  hamburger.addEventListener('click', () => toggleDrawer(!drawer.classList.contains('open')));
+
+  // Close drawer on scrim click or close button
+  scrim.addEventListener('click', () => toggleDrawer(false));
+  drawerClose.addEventListener('click', () => toggleDrawer(false));
+</script> 
   
 </body>
 </html>
