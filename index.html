@@ -587,131 +587,136 @@ href='data:image/svg+xml;utf8,
   </div>
 </section>
 
-  <!-- FREE / CONSENT SECTION -->
-<section class="free-consent">
-  <div class="free-wrap">
-    <!-- Copy -->
-    <div class="free-text">
-      <div class="kicker">Transparent by design</div>
-      <h2 class="h2">100% free — and 100% consent-based.</h2>
-      <p class="p">
-        Every email on Astroscrape is <strong>self-submitted</strong> and <strong>revocable</strong>. 
-        No scraping. No gray areas. Downloading a list gives you a clear choice:
+<!-- BEGIN: Free / Consent (Noisy Blue-Green, Scoped) -->
+<section class="fc-section" aria-labelledby="fc-title">
+  <div class="fc-wrap">
+    <div class="fc-text">
+      <p class="fc-kicker">Transparent by design</p>
+      <h2 id="fc-title" class="fc-title">100% free — and 100% consent-based.</h2>
+      <p class="fc-body">
+        Every email in Astroscrape is <strong>self-submitted</strong> and <strong>revocable</strong>.
+        No scraping. No gray areas. When you download a list, you choose:
       </p>
 
-      <ul class="list">
-        <li>💳 <strong>Pay for the list</strong> — instant access, supports creators of the data.</li>
-        <li>🤝 <strong>Invite to unlock</strong> — help us invite contacts to the platform and get the list for free.</li>
+      <ul class="fc-list">
+        <li>💳 <strong>Pay for the list</strong> — instant access; supports the people who share their data.</li>
+        <li>🤝 <strong>Invite to unlock</strong> — help us invite contacts to the platform and get it for free.</li>
       </ul>
 
-      <div class="badges">
-        <span class="pill">✅ Explicit opt-in</span>
-        <span class="pill">🔄 One-click opt-out</span>
-        <span class="pill">🌍 EU/GDPR-friendly</span>
+      <div class="fc-badges">
+        <span class="fc-pill">✅ Explicit opt-in</span>
+        <span class="fc-pill">🔄 One-click opt-out</span>
+        <span class="fc-pill">🌍 EU/GDPR-friendly</span>
       </div>
 
-      <div class="cta-row">
-        <a class="btn" href="https://google.com">Browse free options</a>
-        <a class="btn secondary" href="https://google.com">Invite & unlock</a>
+      <div class="fc-ctas">
+        <a class="fc-btn fc-btn--light" href="https://google.com">Browse free options</a>
+        <a class="fc-btn fc-btn--ghost" href="https://google.com">Invite & unlock</a>
       </div>
     </div>
 
-    <!-- Image -->
-    <figure class="free-image reveal-dark">
-      <img src="baialm20201pexels.jpg" alt="Professional reviewing a consent-based lead list" />
+    <figure class="fc-image fc-reveal">
+      <img src="baialm20201pexels.jpg" alt="Reviewing a consent-based lead list" />
     </figure>
   </div>
 </section>
 
 <style>
-  /* Dark section shell */
-  .free-consent{
+  /* ---- SCOPE EVERYTHING UNDER .fc-section ---- */
+  .fc-section{
     position:relative;
+    isolation:isolate;           /* prevents blending/filters leaking out */
     overflow:hidden;
     padding:80px 20px;
-    background:
-      radial-gradient(1200px 600px at 10% -10%, #1b1b1b 0%, #0f0f0f 40%, #0b0b0b 100%),
-      #0b0b0b;
     color:#fff;
+    /* Blue-green noisy gradient background */
+    background:
+      radial-gradient(1200px 600px at 15% -10%, #1d3342 0%, rgba(29,51,66,.6) 50%, rgba(13,29,25,.2) 100%),
+      radial-gradient(1000px 500px at 110% 120%, #0a3d2b 0%, rgba(10,61,43,.6) 55%, rgba(10,61,43,0) 100%),
+      linear-gradient(180deg, #0e1e1a 0%, #0b1514 100%);
   }
-  .free-consent::after{
-    content:""; position:absolute; inset:auto -20% -40% -20%;
-    height:60%; pointer-events:none; opacity:.35;
-    background:radial-gradient(60% 60% at 50% 0%, #dbfbd7 0%, #e0f4f9 60%, transparent 100%);
-    filter:blur(30px);
+  /* Grain/noise overlay (very subtle) */
+  .fc-section::before{
+    content:"";
+    position:absolute; inset:0;
+    opacity:.08; pointer-events:none; z-index:0;
+    background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity="0.4"/></svg>');
+    mix-blend-mode:overlay;
   }
 
-  .free-wrap{
-    position:relative; z-index:2;
+  .fc-wrap{
+    position:relative; z-index:1;
     max-width:1100px; margin:0 auto;
     display:grid; gap:36px; align-items:center;
     grid-template-columns:1.1fr .9fr;
   }
 
-  /* Text side */
-  .kicker{font-weight:900;letter-spacing:.08em;font-size:12px;text-transform:uppercase;color:#9ca3af}
-  .h2{font-weight:900;font-size:clamp(26px,4.8vw,40px);letter-spacing:-.01em;margin:8px 0 12px}
-  .p{color:#cbd5e1;line-height:1.8;margin:0 0 10px}
+  /* Copy */
+  .fc-kicker{
+    margin:0 0 6px; font: 900 12px/1.1 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    letter-spacing:.08em; text-transform:uppercase; color:#b7d7cc;
+  }
+  .fc-title{
+    margin:0 0 10px; font-weight:900; letter-spacing:-.01em;
+    font-size:clamp(26px, 4.8vw, 40px);
+  }
+  .fc-body{margin:0 0 12px; color:#e5f2ee; line-height:1.75}
 
-  .list{list-style:none; padding:0; margin:16px 0 0; display:grid; gap:10px}
-  .list li{
-    background:linear-gradient(180deg,#121212 0%, #0e0e0e 100%);
-    border:1px solid #1f2937; color:#e5e7eb;
-    border-radius:16px; padding:12px 14px; font-weight:600;
+  .fc-list{list-style:none; padding:0; margin:16px 0 0; display:grid; gap:10px}
+  .fc-list li{
+    background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+    border:1px solid rgba(255,255,255,.12);
+    color:#f4fffb; border-radius:16px; padding:12px 14px; font-weight:600;
   }
 
-  .badges{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
-  .pill{
-    display:inline-block; background:#0f1113; color:#cfe7d6;
-    border:1px solid #22302a; padding:8px 12px; border-radius:999px; font-weight:800; font-size:13px;
+  .fc-badges{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+  .fc-pill{
+    display:inline-block; background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.18);
+    color:#daf6ea; padding:8px 12px; border-radius:999px; font-weight:800; font-size:13px;
   }
 
-  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
-  .btn{
-    display:inline-flex;align-items:center;justify-content:center;gap:10px;
-    padding:14px 20px;border-radius:999px;font-weight:800;border:2px solid #fff;
-    background:#fff;color:#111;transition:transform .2s ease, box-shadow .2s ease, background .2s;
+  .fc-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+  .fc-btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    padding:14px 20px; border-radius:999px; font-weight:800; text-decoration:none;
+    transition:transform .2s ease, box-shadow .2s ease, background .2s, color .2s, border-color .2s;
   }
-  .btn:hover{transform:translateY(-1px); box-shadow:0 10px 30px rgba(0,0,0,.35)}
-  .btn.secondary{background:transparent;color:#fff;border-color:#2b2b2b}
-  .btn.secondary:hover{background:#151515}
+  .fc-btn--light{background:#ffffff; color:#0c1412; border:2px solid #fff}
+  .fc-btn--light:hover{transform:translateY(-1px); box-shadow:0 10px 30px rgba(0,0,0,.35)}
+  .fc-btn--ghost{background:transparent; color:#ffffff; border:2px solid rgba(255,255,255,.35)}
+  .fc-btn--ghost:hover{background:rgba(255,255,255,.08)}
 
   /* Image */
-  .free-image{
-    margin:0; position:relative; border-radius:24px; overflow:hidden;
-    box-shadow:0 30px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.04) inset;
-    transform:translateY(24px) scale(.98);
-    transition:transform .6s cubic-bezier(.2,.7,.2,1), box-shadow .4s ease;
-    background:#0e0e0e;
+  .fc-image{
+    margin:0; border-radius:24px; overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.06) inset;
+    transform:translateY(26px) scale(.985);
+    background:rgba(0,0,0,.35);
+    transition:transform .6s cubic-bezier(.2,.7,.2,1), box-shadow .4s ease, opacity .4s ease;
   }
-  .free-image img{display:block; width:100%; height:auto; object-fit:cover; opacity:.96}
-  .free-image:hover{transform:translateY(14px) scale(1); box-shadow:0 40px 100px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.06) inset}
-  .free-image::after{
-    content:""; position:absolute; inset:auto 10% 10% auto; width:40%; height:40%;
-    background:radial-gradient(60% 60% at 50% 50%, rgba(219,251,215,.25), rgba(224,244,249,.08), transparent 70%);
-    filter:blur(20px); pointer-events:none;
-  }
+  .fc-image img{display:block; width:100%; height:auto; object-fit:cover}
+  .fc-image:hover{transform:translateY(16px) scale(1); box-shadow:0 40px 100px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.08) inset}
 
-  /* Reveal animation (matches your site’s style) */
-  .reveal-dark{opacity:0; transform:translateY(28px) scale(.98)}
-  .reveal-dark.in{opacity:1; transform:translateY(0) scale(1); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1)}
+  /* Reveal-on-scroll (scoped) */
+  .fc-reveal{opacity:0}
+  .fc-reveal.fc-in{opacity:1}
 
-  /* Responsive */
   @media (max-width: 900px){
-    .free-wrap{grid-template-columns:1fr}
-    .free-image{transform:none}
+    .fc-wrap{grid-template-columns:1fr}
+    .fc-image{transform:none}
   }
 </style>
 
 <script>
-  // Reveal-on-scroll for dark section image
+  // Scoped reveal for this section only
   (function(){
-    const el = document.querySelector('.free-image.reveal-dark');
+    const el = document.querySelector('.fc-image.fc-reveal');
     if(!el) return;
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
         if(e.isIntersecting){
-          e.target.classList.add('in');
+          e.target.classList.add('fc-in');
           io.unobserve(e.target);
         }
       });
@@ -719,7 +724,7 @@ href='data:image/svg+xml;utf8,
     io.observe(el);
   })();
 </script>
-  
+<!-- END: Free / Consent (Noisy Blue-Green, Scoped) -->
 
 <!-- WHY SIGN UP -->
 <section class="section">
