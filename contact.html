@@ -429,8 +429,218 @@ href='data:image/svg+xml;utf8,
 }
 </style>
 
+<style>
+  :root{
+    --bg:#ffffff;
+    --ink:#111111;
+    --muted:#6b7280;
+    --accent:#dbfbd7;
+    --accent-2:#e0f4f9;
+    --card:#ffffff;
+    --pill:#f2f2f2;
+    --shadow:0 12px 34px rgba(0,0,0,.08);
+    --radius:28px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+  }
+  a{color:inherit;text-decoration:none}
 
+  /* TITLE SECTION */
+  .title-section{
+    position:relative;overflow:hidden;isolation:isolate;
+    background:linear-gradient(180deg,#ffffff 0%, #f7fff6 100%);
+    padding:84px 20px 40px;
+  }
+  .title-inner{max-width:1100px;margin:0 auto;text-align:center}
+  .tag{display:inline-block;background:var(--pill);border:1px solid #eee;border-radius:999px;padding:6px 12px;font-weight:800;font-size:12px;margin-bottom:12px}
+  .h1{font-weight:900;letter-spacing:-.01em;line-height:1.05;font-size:clamp(32px,6.5vw,56px);margin:0 0 10px}
+  .sub{color:#374151;font-size:18px;max-width:760px;margin:0 auto;line-height:1.6}
+  .title-section .blob{
+    position:absolute;inset:auto -120px -120px auto;width:520px;height:520px;border-radius:50%;
+    background:radial-gradient(60% 60% at 40% 40%, var(--accent) 0%, var(--accent-2) 60%, transparent 100%);
+    filter:blur(14px);opacity:.5;z-index:-1;animation:float 14s ease-in-out infinite
+  }
+  .title-section .blob.b2{inset:-100px auto auto -140px;width:600px;height:600px;animation-duration:18s}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
+  /* SECTION WRAPPER */
+  .section{padding:56px 18px}
+  .wrap{max-width:1100px;margin:0 auto}
+
+  /* HQ CARD */
+  .hq{
+    display:grid;gap:18px;grid-template-columns:1fr;
+  }
+  .hq-card{
+    background:var(--card);border:1px solid #eee;border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:22px;display:grid;gap:10px;
+  }
+  .h2{font-size:clamp(22px,4.5vw,34px);font-weight:900;margin:0 0 6px}
+  .muted{color:#6b7280}
+  .addr{display:flex;gap:12px;align-items:flex-start;color:#374151}
+  .addr svg{flex:0 0 20px;margin-top:2px}
+  .map{
+    width:100%;height:320px;border:none;border-radius:18px;overflow:hidden;background:#eef5f3;
+  }
+
+  /* CONTACT GRID */
+  .grid{
+    display:grid;gap:18px;margin-top:18px;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:780px){
+    .hq{grid-template-columns:1.2fr .8fr}
+    .grid{grid-template-columns:repeat(3,1fr)}
+  }
+  .card{
+    background:#fff;border:1px solid #eee;border-radius:20px;box-shadow:var(--shadow);padding:18px;display:flex;flex-direction:column;gap:10px
+  }
+  .who{display:flex;align-items:center;gap:10px}
+  .avatar{
+    width:44px;height:44px;border-radius:50%;
+    background:radial-gradient(120% 120% at 20% 20%, var(--accent) 0%, var(--accent-2) 60%, #fff 100%);
+    border:1px solid #e8eee9;box-shadow:0 6px 16px rgba(0,0,0,.07);
+  }
+  .name{font-weight:900;margin:0}
+  .title{margin:0;color:#6b7280;font-weight:700;font-size:13px;letter-spacing:.02em;text-transform:uppercase}
+  .email{
+    display:inline-flex;align-items:center;gap:8px;
+    width:fit-content;padding:10px 14px;border-radius:999px;
+    font-weight:800;border:2px solid #111;background:#111;color:#fff;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .email:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(0,0,0,.15)}
+  .small{font-size:14px;color:#374151;margin:0}
+
+  /* CTA BAR */
+  .cta{
+    margin-top:26px;
+    background:radial-gradient(1000px 480px at 10% -10%, #0f1d1a 0%, #0b1514 50%, #0a0e0e 100%);
+    color:#e9f3f0;border:1px solid rgba(255,255,255,.06);
+    border-radius:22px;box-shadow:var(--shadow);padding:20px;
+    display:flex;flex-direction:column;gap:12px;align-items:flex-start;
+  }
+  @media(min-width:580px){.cta{flex-direction:row;align-items:center;justify-content:space-between}}
+  .cta p{margin:0;color:#cfe7e0}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:999px;
+    font-weight:800;border:2px solid #fff;background:#fff;color:#0d1413;transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .btn:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(0,0,0,.35)}
+  .in{display:inline-flex;align-items:center;gap:8px}
+  .in svg{width:18px;height:18px}
+
+  /* UTIL */
+  .list{margin:0 0 10px 18px;color:#374151}
+</style>
+</head>
+<body>
+
+<!-- TITLE SECTION -->
+<section class="title-section" aria-labelledby="title">
+  <div class="title-inner">
+    <span class="tag">Contact</span>
+    <h1 id="title" class="h1">Let’s talk</h1>
+    <p class="sub">Headquarters in <strong>Östermalm, Stockholm</strong>. Reach our leadership and regional teams directly, or connect with us on LinkedIn.</p>
+  </div>
+  <span class="blob" aria-hidden="true"></span>
+  <span class="blob b2" aria-hidden="true"></span>
+</section>
+
+<!-- HQ + QUICK CONTACTS -->
+<section class="section" aria-label="Headquarters and contacts">
+  <div class="wrap hq">
+    <div class="hq-card">
+      <h2 class="h2">Headquarters</h2>
+      <p class="muted">Östermalm, Stockholm, Sweden</p>
+      <div class="addr">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#111" stroke-width="1.7">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.5-7.5 11.25-7.5 11.25S4.5 18 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+        </svg>
+        <p class="small">We’re a hybrid team. Meetings are by appointment.</p>
+      </div>
+      <div class="map" aria-hidden="true"></div>
+    </div>
+
+    <div class="hq-card">
+      <h2 class="h2">General contact</h2>
+      <p class="small">For sales inquiries and partnerships:</p>
+      <a class="email" href="mailto:sales@astroscrape.io">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m3 7 9 6 9-6" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7" />
+        </svg>
+        sales@astroscrape.io
+      </a>
+      <ul class="list">
+        <li>We typically respond within 1–2 business days.</li>
+        <li>For data privacy requests, please use our Support page.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM CONTACTS -->
+<section class="section" aria-label="Team contacts">
+  <div class="wrap">
+    <h2 class="h2" style="margin-bottom:10px">Team</h2>
+    <p class="muted" style="margin:0 0 16px">Direct lines to the people who can help the fastest.</p>
+
+    <div class="grid">
+      <article class="card">
+        <div class="who">
+          <span class="avatar" aria-hidden="true"></span>
+          <div>
+            <p class="name">Alexandra</p>
+            <p class="title">Chief Executive Officer</p>
+          </div>
+        </div>
+        <p class="small">Leadership & partnerships.</p>
+        <a class="email" href="mailto:alexandra@astroscrape.io">alexandra@astroscrape.io</a>
+      </article>
+
+      <article class="card">
+        <div class="who">
+          <span class="avatar" aria-hidden="true"></span>
+          <div>
+            <p class="name">Edvinas</p>
+            <p class="title">Director of Sales, EMEA</p>
+          </div>
+        </div>
+        <p class="small">European reach, agencies, and enterprise.</p>
+        <a class="email" href="mailto:edvinas@astroscrape.io">edvinas@astroscrape.io</a>
+      </article>
+
+      <article class="card">
+        <div class="who">
+          <span class="avatar" aria-hidden="true"></span>
+          <div>
+            <p class="name">Dani</p>
+            <p class="title">Director of Sales, APAC</p>
+          </div>
+        </div>
+        <p class="small">Asia & East—growth and partnerships.</p>
+        <a class="email" href="mailto:dani@astroscrape.io">dani@astroscrape.io</a>
+      </article>
+    </div>
+
+    <div class="cta" style="margin-top:24px">
+      <p>Prefer socials? Follow company updates and openings on LinkedIn.</p>
+      <a class="btn in" href="https://www.linkedin.com/company/astroscrape/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.02h4V24h-4V8.02zM8.98 8.02h3.84v2.18h.06c.54-1.02 1.86-2.1 3.82-2.1 4.09 0 4.85 2.69 4.85 6.19V24h-4v-7.09c0-1.69-.03-3.87-2.36-3.87-2.36 0-2.72 1.84-2.72 3.75V24h-4V8.02z"/></svg>
+        Follow us on LinkedIn
+      </a>
+    </div>
+  </div>
+</section>
+  
 <!-- SECTION: LINKEDIN FOLLOW -->
 <section class="linkedin-follow">
   <div class="linkedin-inner">
