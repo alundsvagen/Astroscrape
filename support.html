@@ -92,6 +92,53 @@ href='data:image/svg+xml;utf8,
   .menu a:hover{background:#f6f6f6}
   .menu small{color:#6b7280;font-weight:600}
 
+  /* Modal shell (keep yours) */
+  .support-modal { position: fixed; inset: 0; display: none; }
+  .support-modal.open { display: grid; place-items: center; }
+  .support-modal__scrim { position: absolute; inset: 0; background: rgba(0,0,0,.4); backdrop-filter: blur(2px); }
+
+  /* Dialog */
+  .support-modal__dialog{
+    position: relative;
+    width: min(920px, 92vw);
+    max-height: 92vh;            /* <-- key: cap total modal height to viewport */
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.25);
+    display: flex;
+    flex-direction: column;      /* header fixed, body scrolls */
+    overflow: hidden;
+  }
+
+  .support-modal__head{
+    padding: 16px 18px;
+    border-bottom: 1px solid #eee;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px;
+  }
+  .support-modal__title{ font-weight: 900; font-size: 18px; }
+
+  /* The scrollable area */
+  .support-modal__body{
+    padding: 0;                  /* Fillout will manage spacing */
+    overflow: auto;              /* <-- key: let content scroll */
+    -webkit-overflow-scrolling: touch; /* smooth iOS scrolling */
+    flex: 1 1 auto;              /* fill remaining height */
+  }
+
+  .support-modal__close{
+    border: 1px solid #e5e7eb; background: #fff; border-radius: 999px;
+    width: 36px; height: 36px; cursor: pointer;
+  }
+
+  /* Optional: lock page scroll when modal open */
+  body.modal-open{ overflow: hidden; }
+
+  /* Small screens: give a little breathing room */
+  @media (max-width: 480px){
+    .support-modal__dialog{ width: 94vw; max-height: 94vh; }
+  }
+
   /* HERO — gradient moved to background only; blobs behind content */
   .hero{
     position:relative; overflow:hidden;
@@ -353,22 +400,30 @@ href='data:image/svg+xml;utf8,
 </section>
 
 <!-- MODALS -->
-
 <!-- General questions modal (oyZrEXvzS1us) -->
-<div id="modal-general" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-general-title" aria-hidden="true">
-  <div class="scrim" data-close-modal></div>
-  <div class="modal-card">
-    <div class="modal-head">
-      <h2 id="modal-general-title" class="modal-title">General questions & product support</h2>
-      <button class="modal-close" aria-label="Close" data-close-modal>✕</button>
+<div id="modal-remove" class="support-modal" aria-hidden="true">
+  <div class="support-modal__scrim" data-close></div>
+  <div class="support-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="remove-title">
+    <div class="support-modal__head">
+      <h3 id="remove-title" class="support-modal__title">General questions & product support</h3>
+      <button class="support-modal__close" type="button" data-close aria-label="Close">✕</button>
     </div>
-    <div class="modal-body">
-      <div class="embed-wrap">
-        <div style="width:100%;height:100%;" data-fillout-id="oyZrEXvzS1us" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div>
-      </div>
+
+    <!-- Scrollable body -->
+    <div class="support-modal__body">
+      <!-- Fillout embed (no fixed height; dynamic resize enabled) -->
+      <div
+        class="fillout-embed"
+        data-fillout-id="oyZrEXvzS1us"
+        data-fillout-embed-type="standard"
+        data-fillout-inherit-parameters
+        data-fillout-dynamic-resize
+        style="width:100%; min-height: 520px;"
+      ></div>
     </div>
   </div>
 </div>
+
 
 <!-- Remove info modal (qkC3rWXHQkus) -->
 <div id="modal-remove" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-remove-title" aria-hidden="true">
