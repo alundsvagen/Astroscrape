@@ -92,38 +92,6 @@ href='data:image/svg+xml;utf8,
   .menu a:hover{background:#f6f6f6}
   .menu small{color:#6b7280;font-weight:600}
 
-  /* HERO — gradient moved to background only; blobs behind content */
-  .hero{
-    position:relative; overflow:hidden;
-    background:linear-gradient(180deg, #ffffff 0%, #f7fff6 100%); /* stays behind */
-  }
-  .hero-inner{
-    position:relative; z-index:2; /* content above visuals */
-    max-width:1100px;margin:0 auto;padding:64px 18px 24px;display:grid;gap:28px
-  }
-  .tagline{display:inline-flex;gap:8px;flex-wrap:wrap;align-items:center}
-  .tag{background:var(--pill);padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700;color:#333}
-  .h1{font-weight:900;line-height:1.02;letter-spacing:-.02em;font-size: clamp(32px, 7vw, 72px)}
-  .h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:0 .25em;border-radius:12px;box-decoration-break:clone}
-  .sub{font-size:clamp(16px, 2.6vw, 20px);color:var(--muted);max-width:760px}
-  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 20px;border-radius:999px;font-weight:800;border:2px solid #111;background:#111;color:#fff;transition:transform .2s ease, box-shadow .2s ease, background .2s}
-  .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
-  .btn.secondary{background:#fff;color:#111}
-  .trust-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-  .pill{background:#fff;border:1px solid #eee;border-radius:999px;padding:8px 12px;font-weight:700;font-size:13px}
-
-  /* Visual blobs (behind; no interaction) */
-  .blob{
-    position:absolute; z-index:1; pointer-events:none;
-    inset:auto -120px -120px auto; width:420px; height:420px; filter:blur(12px); opacity:.55;
-    background:radial-gradient(60% 60% at 40% 40%, var(--accent) 0%, var(--accent-2) 60%, transparent 100%);
-    border-radius:50%;
-    animation:float 12s ease-in-out infinite;
-  }
-  .blob.b2{inset:-80px auto auto -120px; width:500px; height:500px; animation-duration:16s;}
-  @keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-10px) scale(1.03)}}
-
 <style>
   :root{
     --bg:#ffffff;
@@ -212,30 +180,6 @@ href='data:image/svg+xml;utf8,
   }
   .email:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(0,0,0,.15)}
   .small{font-size:14px;color:#374151;margin:0}
-
-  /* CTA BAR */
-  .cta{
-    margin-top:26px;
-    background:radial-gradient(1000px 480px at 10% -10%, #0f1d1a 0%, #0b1514 50%, #0a0e0e 100%);
-    color:#e9f3f0;border:1px solid rgba(255,255,255,.06);
-    border-radius:22px;box-shadow:var(--shadow);padding:20px;
-    display:flex;flex-direction:column;gap:12px;align-items:flex-start;
-  }
-  @media(min-width:580px){.cta{flex-direction:row;align-items:center;justify-content:space-between}}
-  .cta p{margin:0;color:#cfe7e0}
-  .btn{
-    display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:999px;
-    font-weight:800;border:2px solid #fff;background:#fff;color:#0d1413;transition:transform .2s ease, box-shadow .2s ease;
-  }
-  .btn:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(0,0,0,.35)}
-  .in{display:inline-flex;align-items:center;gap:8px}
-  .in svg{width:18px;height:18px}
-
-  /* UTIL */
-  .list{margin:0 0 10px 18px;color:#374151}
-</style>
-</head>
-<body>
 
 <!-- HERO -->
 <section class="hero" aria-labelledby="title">
