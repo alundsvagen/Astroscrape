@@ -24,170 +24,80 @@ href='data:image/svg+xml;utf8,
 </svg>'>
 <meta name="theme-color" content="#ffffff">
 
-<style>
-  :root{
-    --bg:#ffffff;
-    --ink:#111111;
-    --muted:#6b7280;
-    --accent:#dbfbd7;
-    --accent-2:#e0f4f9;
-    --pill:#f2f2f2;
-    --card:#ffffff;
-    --shadow:0 10px 30px rgba(0,0,0,.08);
-    --radius:28px;
+x<style>
+  /* Form section shell – clean, solid, crisp */
+  .form-section{
+    padding:56px 18px;
+    background:linear-gradient(180deg,#ffffff 0%,#f7fff6 100%);
   }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
-  a{color:inherit;text-decoration:none}
-  img{max-width:100%;display:block}
-
-  /* NAV */
-  .nav{position:sticky;top:0;z-index:70;background:#fff8;backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #eee}
-  .nav-inner{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
-  .left{display:flex;align-items:center;gap:10px}
-  .logo{display:flex;align-items:center;gap:10px}
-  .logo-mark{width:36px;height:36px;border-radius:50%;background: radial-gradient(120% 120% at 20% 20%, var(--accent) 0%, var(--accent-2) 60%, #fff 100%);box-shadow:var(--shadow)}
-  .logo-word{font-family:'Shrikhand',cursive;font-size:22px;letter-spacing:.2px}
-
-  /* Hamburger */
-  .hamburger{
-    display:inline-flex;align-items:center;justify-content:center;
-    width:42px;height:42px;border-radius:999px;border:1px solid #e5e7eb;background:#fff;cursor:pointer;
-    transition:transform .2s ease, box-shadow .2s ease;margin-right:6px;
+  .form-wrap{
+    max-width:900px;margin:0 auto;
   }
-  .hamburger:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
-  .hamburger span,.hamburger::before,.hamburger::after{
-    content:"";display:block;width:18px;height:2px;background:#111;border-radius:2px;transition:transform .25s ease, opacity .25s ease;
+  .form-card{
+    background:#fff;
+    border:1px solid #eee;
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    padding:22px;
   }
-  .hamburger span{position:relative}
-  .hamburger::before{transform:translateY(-6px)}
-  .hamburger::after{transform:translateY(6px)}
-  .hamburger.active span{opacity:0}
-  .hamburger.active::before{transform:translateY(0) rotate(45deg)}
-  .hamburger.active::after{transform:translateY(0) rotate(-45deg)}
 
-  .nav-cta{
-    display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1px solid #e5e7eb;background:#fff;font-weight:800;
-    transition:transform .2s ease, box-shadow .2s ease;
+  /* Typography & rendering tweaks for crispness */
+  .form-card, .form-card *{
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    text-rendering:optimizeLegibility;
   }
-  .nav-cta:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
 
-  /* Drawer */
-  .scrim{
-    position:fixed;inset:0;background:rgba(17,17,17,.4);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:60;
+  /* Prevent soft rendering from transforms/filters on ancestors */
+  .form-card{
+    transform:none !important;
+    filter:none !important;
+    backdrop-filter:none !important;
   }
-  .scrim.open{opacity:1;pointer-events:auto}
-  .drawer{
-    position:fixed;inset:0 auto 0 0;width:min(88vw,360px);background:#fff;border-right:1px solid #eee;box-shadow:var(--shadow);
-    transform:translateX(-102%);transition:transform .25s ease;z-index:65;display:flex;flex-direction:column;
+  /* If any parent section applies transforms (animations), neutralize them here */
+  .form-card *{
+    transform:none;
   }
-  .drawer.open{transform:translateX(0)}
-  .drawer-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid #eee}
-  .drawer-title{display:flex;align-items:center;gap:10px}
-  .drawer-title .logo-word{font-size:20px}
-  .drawer-close{border:1px solid #e5e7eb;background:#fff;border-radius:999px;width:36px;height:36px;cursor:pointer}
-  .menu{padding:10px 12px;display:flex;flex-direction:column;gap:6px}
-  .menu a{display:flex;align-items:center;gap:10px;padding:12px 12px;border-radius:14px;font-weight:800}
-  .menu a:hover{background:#f6f6f6}
-  .menu small{color:#6b7280;font-weight:600}
 
-  /* HERO — gradient moved to background only; blobs behind content */
-  .hero{
-    position:relative; overflow:hidden;
-    background:linear-gradient(180deg, #ffffff 0%, #f7fff6 100%); /* stays behind */
+  /* The Fillout host div – let it grow naturally */
+  .fillout-embed{
+    width:100%;
+    min-height:640px; /* taller so there’s no squeeze */
   }
-  .hero-inner{
-    position:relative; z-index:2; /* content above visuals */
-    max-width:1100px;margin:0 auto;padding:64px 18px 24px;display:grid;gap:28px
+
+  /* Optional: if you have a blurred sticky nav, disable it on this page only */
+  body.no-backdrop .nav{
+    backdrop-filter:none;
+    background:#fff;
   }
-  .tagline{display:inline-flex;gap:8px;flex-wrap:wrap;align-items:center}
-  .tag{background:var(--pill);padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700;color:#333}
-  .h1{font-weight:900;line-height:1.02;letter-spacing:-.02em;font-size: clamp(32px, 7vw, 72px)}
-  .h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:0 .25em;border-radius:12px;box-decoration-break:clone}
-  .sub{font-size:clamp(16px, 2.6vw, 20px);color:var(--muted);max-width:760px}
-  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 20px;border-radius:999px;font-weight:800;border:2px solid #111;background:#111;color:#fff;transition:transform .2s ease, box-shadow .2s ease, background .2s}
-  .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
-  .btn.secondary{background:#fff;color:#111}
-  .trust-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-  .pill{background:#fff;border:1px solid #eee;border-radius:999px;padding:8px 12px;font-weight:700;font-size:13px}
 
-  /* Visual blobs (behind; no interaction) */
-  .blob{
-    position:absolute; z-index:1; pointer-events:none;
-    inset:auto -120px -120px auto; width:420px; height:420px; filter:blur(12px); opacity:.55;
-    background:radial-gradient(60% 60% at 40% 40%, var(--accent) 0%, var(--accent-2) 60%, transparent 100%);
-    border-radius:50%;
-    animation:float 12s ease-in-out infinite;
-  }
-  .blob.b2{inset:-80px auto auto -120px; width:500px; height:500px; animation-duration:16s;}
-  @keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-10px) scale(1.03)}}
-
-  /* Marquee */
-  .marquee{overflow:hidden;white-space:nowrap;border-top:1px dashed #e5e7eb;border-bottom:1px dashed #e5e7eb;background:#fff}
-  .marquee-track{display:inline-block;padding:12px 0;animation:scroll 24s linear infinite}
-  .marquee-item{display:inline-flex;align-items:center;gap:8px;margin:0 20px;font-weight:800;color:#444}
-  .dot{width:6px;height:6px;background:#111;border-radius:50%}
-  @keyframes scroll{to{transform:translateX(-50%)}}
-
-  /* Sections */
-  .section{padding:56px 18px}
-  .wrap{max-width:1100px;margin:0 auto}
-  .card{background:var(--card);border:1px solid #eee;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
-  .kicker{font-weight:900;letter-spacing:.08em;font-size:12px;text-transform:uppercase;color:#6b7280}
-  .h2{font-weight:900;font-size:clamp(22px,4.5vw,36px);letter-spacing:-.01em;margin:6px 0 10px}
-  .p{color:#374151;line-height:1.7}
-
-  .hiw{display:grid;gap:18px;grid-template-columns:1fr;margin-top:14px}
-  .step{display:flex;gap:14px;align-items:flex-start;padding:18px;border-radius:20px;background:linear-gradient(90deg,#fff, #f9f9f9)}
-  .step-num{flex:0 0 36px;height:36px;display:grid;place-items:center;font-weight:900;border-radius:50%;background:#111;color:#fff}
-  .step h3{margin:4px 0 6px;font-size:18px}
-  .step p{margin:0;color:#4b5563}
-
-  .benefits{display:grid;gap:18px;grid-template-columns:1fr}
-  .benefit{padding:22px;border-radius:var(--radius);background:linear-gradient(180deg, #ffffff 0%, #f6fbff 100%);border:1px solid #eaf3ff}
-  .benefit h3{margin:0 0 6px;font-size:18px}
-  .benefit p{margin:0;color:#4b5563}
-
-  .footer{border-top:1px solid #eee;padding:32px 18px;background:#fff}
-  .foot-inner{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;color:#6b7280;font-size:14px}
-  .foot-links a{margin-right:14px}
-
-  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
-  .reveal.in{opacity:1;transform:translateY(0)}
-
-  @media(min-width:720px){
-    .hiw{grid-template-columns:repeat(3,1fr)}
-    .benefits{grid-template-columns:repeat(3,1fr)}
-  }
-  @media (prefers-reduced-motion:reduce){
-    .marquee-track{animation:none}
-    .blob{animation:none}
-    .reveal{transition:none}
+  @media (max-width:600px){
+    .form-card{padding:16px;border-radius:20px}
+    .fillout-embed{min-height:720px} /* mobile forms are taller */
   }
 </style>
   
-<!-- Contact / Lead Form -->
-<section class="section" id="contact-form">
-  <div class="wrap" style="max-width:900px;margin:0 auto">
+<section class="form-section">
+  <div class="form-wrap">
     <h2 class="h2" style="text-align:center">Get in touch</h2>
     <p class="p" style="text-align:center;color:#6b7280;margin-bottom:18px">
       Fill out the form and we’ll get back to you.
     </p>
 
-    <!-- Fillout embed -->
-    <div
-      style="width:100%;min-height:560px"
-      data-fillout-id="o9LULzcAT2us"
-      data-fillout-embed-type="standard"
-      data-fillout-inherit-parameters
-      data-fillout-dynamic-resize>
+    <div class="form-card">
+      <div
+        class="fillout-embed"
+        data-fillout-id="o9LULzcAT2us"
+        data-fillout-embed-type="standard"
+        data-fillout-inherit-parameters
+        data-fillout-dynamic-resize>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Load the Fillout script ONCE (place before </body>) -->
+<!-- Keep the Fillout script once, near </body> -->
 <script src="https://server.fillout.com/embed/v1/"></script>
+
 </body>
 </html>
