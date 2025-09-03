@@ -399,119 +399,128 @@ href='data:image/svg+xml;utf8,
   </div>
 </section>
 
-<!-- MODALS -->
-<!-- General questions modal (oyZrEXvzS1us) -->
-<div id="modal-remove" class="support-modal" aria-hidden="true">
+<!-- ===== Support Modals (self-contained) ===== -->
+
+<style>
+  .support-modal{position:fixed;inset:0;display:none;z-index:1000}
+  .support-modal.open{display:grid;place-items:center}
+  .support-modal__scrim{position:absolute;inset:0;background:rgba(0,0,0,.45);backdrop-filter:blur(2px)}
+  .support-modal__dialog{
+    position:relative;width:min(920px,92vw);max-height:92vh;background:#fff;border-radius:16px;
+    box-shadow:0 30px 80px rgba(0,0,0,.25);display:flex;flex-direction:column;overflow:hidden;outline:none
+  }
+  .support-modal__head{padding:16px 18px;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .support-modal__title{font-weight:900;font-size:18px}
+  .support-modal__close{border:1px solid #e5e7eb;background:#fff;border-radius:999px;width:36px;height:36px;cursor:pointer}
+  .support-modal__body{padding:0;overflow:auto;-webkit-overflow-scrolling:touch;flex:1 1 auto}
+  /* Give the Fillout container an initial view; it will auto-resize after load */
+  .support-modal__body .fillout-embed{width:100%;min-height:60vh}
+  body.modal-open{overflow:hidden}
+  @media (max-width:480px){.support-modal__dialog{width:94vw;max-height:94vh}}
+</style>
+
+<!-- 1) General questions modal -->
+<div id="modal-general" class="support-modal" aria-hidden="true">
   <div class="support-modal__scrim" data-close></div>
-  <div class="support-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="remove-title">
+  <div class="support-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="general-title" tabindex="-1">
     <div class="support-modal__head">
-      <h3 id="remove-title" class="support-modal__title">General questions & product support</h3>
+      <h3 id="general-title" class="support-modal__title">General questions &amp; product support</h3>
       <button class="support-modal__close" type="button" data-close aria-label="Close">✕</button>
     </div>
-
-    <!-- Scrollable body -->
     <div class="support-modal__body">
-      <!-- Fillout embed (no fixed height; dynamic resize enabled) -->
       <div
         class="fillout-embed"
         data-fillout-id="oyZrEXvzS1us"
         data-fillout-embed-type="standard"
         data-fillout-inherit-parameters
         data-fillout-dynamic-resize
-        style="width:100%; min-height: 520px;"
       ></div>
     </div>
   </div>
 </div>
 
-
-<!-- Remove info modal (qkC3rWXHQkus) -->
-<!-- Example: Remove your information modal -->
+<!-- 2) Remove your information -->
 <div id="modal-remove" class="support-modal" aria-hidden="true">
   <div class="support-modal__scrim" data-close></div>
-  <div class="support-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="remove-title">
+  <div class="support-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="remove-title" tabindex="-1">
     <div class="support-modal__head">
       <h3 id="remove-title" class="support-modal__title">Remove your information</h3>
       <button class="support-modal__close" type="button" data-close aria-label="Close">✕</button>
     </div>
-
-    <!-- Scrollable body -->
     <div class="support-modal__body">
-      <!-- Fillout embed (no fixed height; dynamic resize enabled) -->
       <div
         class="fillout-embed"
         data-fillout-id="qkC3rWXHQkus"
         data-fillout-embed-type="standard"
         data-fillout-inherit-parameters
         data-fillout-dynamic-resize
-        style="width:100%; min-height: 520px;"
       ></div>
     </div>
   </div>
 </div>
 
-<!-- Do-not-add / Opt-out modal (same Fillout ID) -->
-<div id="modal-remove" class="support-modal" aria-hidden="true">
+<!-- 3) Do not allow my information to be added -->
+<div id="modal-block" class="support-modal" aria-hidden="true">
   <div class="support-modal__scrim" data-close></div>
-  <div class="support-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="remove-title">
+  <div class="support-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="block-title" tabindex="-1">
     <div class="support-modal__head">
-      <h3 id="remove-title" class="support-modal__title">Do not add my information.</h3>
+      <h3 id="block-title" class="support-modal__title">Do not add my information</h3>
       <button class="support-modal__close" type="button" data-close aria-label="Close">✕</button>
     </div>
-
-    <!-- Scrollable body -->
     <div class="support-modal__body">
-      <!-- Fillout embed (no fixed height; dynamic resize enabled) -->
       <div
         class="fillout-embed"
         data-fillout-id="qkC3rWXHQkus"
         data-fillout-embed-type="standard"
         data-fillout-inherit-parameters
         data-fillout-dynamic-resize
-        style="width:100%; min-height: 520px;"
       ></div>
     </div>
   </div>
 </div>
 
-<!-- Fillout embed (load once) -->
+<!-- Fillout (load once) -->
 <script src="https://server.fillout.com/embed/v1/"></script>
 
 <script>
-  // Lightweight modal controller
+(function () {
   const openers = document.querySelectorAll('[data-open-modal]');
-  const closeSelectors = '[data-close-modal], .scrim';
+  let lastFocus = null;
+
   function openModal(id){
     const m = document.getElementById(id);
     if(!m) return;
+    lastFocus = document.activeElement;
     m.classList.add('open');
     m.removeAttribute('aria-hidden');
-    // trap focus on open
-    const focusable = m.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-    (focusable || m).focus();
-    document.body.style.overflow = 'hidden';
-  }
-  function closeModal(modal){
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden','true');
-    document.body.style.overflow = '';
-  }
-  openers.forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      const id = btn.getAttribute('data-open-modal');
-      openModal(id);
+    document.body.classList.add('modal-open');
+    const dlg = m.querySelector('.support-modal__dialog');
+    dlg && dlg.focus();
+
+    // close on scrim or [data-close]
+    m.querySelector('.support-modal__scrim')?.addEventListener('click', () => closeModal(m), { once: true });
+    m.querySelectorAll('[data-close]').forEach(btn => {
+      btn.addEventListener('click', () => closeModal(m), { once: true });
     });
-  });
-  document.querySelectorAll('.modal').forEach(modal=>{
-    modal.addEventListener('click', (e)=>{
-      if(e.target.matches(closeSelectors)) closeModal(modal);
-    });
+
     // ESC to close
-    modal.addEventListener('keydown', (e)=>{
-      if(e.key === 'Escape') closeModal(modal);
-    });
+    const onKey = (e) => { if (e.key === 'Escape') closeModal(m); };
+    m.addEventListener('keydown', onKey, { once: true });
+  }
+
+  function closeModal(m){
+    m.classList.remove('open');
+    m.setAttribute('aria-hidden','true');
+    document.body.classList.remove('modal-open');
+    if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+  }
+
+  openers.forEach(btn=>{
+    btn.addEventListener('click', () => openModal(btn.getAttribute('data-open-modal')));
   });
+})();
 </script>
+
 
 <script>
   // Toggle articles
