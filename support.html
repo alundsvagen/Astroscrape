@@ -306,221 +306,130 @@ href='data:image/svg+xml;utf8,
   .badge{background:#f6f6f6;border:1px solid #eee;border-radius:999px;padding:6px 10px;font-weight:800;font-size:12px}
   .badge.accent{background:#dbfbd7}
 
-  /* Modal (Fillout popup) */
-  .modal{
-    position:fixed;inset:0;display:none;place-items:center;padding:16px;z-index:1000
+<style>
+  :root{
+    --bg:#ffffff; --ink:#111; --muted:#6b7280;
+    --accent:#dbfbd7; --accent2:#e0f4f9;
+    --card:#fff; --pill:#f2f2f2;
+    --shadow:0 12px 30px rgba(0,0,0,.08);
+    --radius:24px;
   }
-  .modal.open{display:grid}
-  .scrim{
-    position:absolute;inset:0;background:rgba(17,17,17,.5);backdrop-filter:blur(2px)
-  }
-  .modal-card{
-    position:relative;z-index:1;width:100%;max-width:860px;background:#fff;border-radius:22px;
-    box-shadow:0 30px 60px rgba(0,0,0,.25);overflow:hidden;border:1px solid #eee
-  }
-  .modal-head{
-    display:flex;align-items:center;justify-content:space-between;gap:10px;
-    padding:12px 14px;border-bottom:1px solid #eee;background:linear-gradient(90deg,#fff,#f9fbff)
-  }
-  .modal-title{margin:0;font-size:16px;font-weight:900}
-  .modal-close{
-    background:#fff;border:1px solid #e5e7eb;border-radius:999px;width:36px;height:36px;cursor:pointer
-  }
-  .modal-body{padding:0}
-  /* Make the embed responsive */
-  .embed-wrap{width:100%;height:min(75vh,720px)}
-  /* Fillout sets its own iframe sizing when dynamic-resize is on; we just provide a container */
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+  a{text-decoration:none;color:inherit}
+  img{max-width:100%;display:block}
 
-  /* Utility footer note */
-  .contact-note{
-    margin-top:36px;text-align:center;color:#6b7280;font-size:14px
+  /* Title Section */
+  .title{
+    position:relative; overflow:hidden;
+    background:linear-gradient(180deg,#ffffff 0%, #f7fff6 100%);
+    padding:64px 18px 40px;
   }
+  .title-inner{max-width:1000px;margin:0 auto;text-align:center}
+  .kicker{font-weight:900;letter-spacing:.08em;font-size:12px;text-transform:uppercase;color:var(--muted)}
+  .h1{font-weight:900;letter-spacing:-.02em;font-size:clamp(28px,6vw,48px);margin:6px 0 8px}
+  .sub{color:#374151;max-width:760px;margin:0 auto;line-height:1.7}
 
-  /* Brand glow behind */
-  .blob{
-    position:absolute;inset:auto -120px -120px auto;width:480px;height:480px;border-radius:50%;
-    background:radial-gradient(60% 60% at 40% 40%, var(--accent) 0%, var(--accent-2) 60%, transparent 100%);
-    filter:blur(14px);opacity:.5;z-index:-1;animation:float 14s ease-in-out infinite
+  /* Sections */
+  .section{padding:40px 18px}
+  .wrap{max-width:1100px;margin:0 auto}
+
+  /* Cards + layout */
+  .cards{display:grid;gap:18px;grid-template-columns:1fr}
+  @media(min-width:880px){ .cards{grid-template-columns:1.2fr .8fr} }
+
+  .card{
+    background:var(--card);border:1px solid #eee;border-radius:var(--radius);
+    box-shadow:var(--shadow);padding:22px
   }
-  .blob.b2{inset:-100px auto auto -120px;width:560px;height:560px;animation-duration:18s}
-  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .card h3{margin:0 0 6px;font-size:22px;font-weight:900;letter-spacing:-.01em}
+  .card p{margin:0 0 16px;color:#374151;line-height:1.7}
+
+  /* Buttons */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:12px 16px;border-radius:999px;font-weight:800;border:2px solid #111;
+    background:#111;color:#fff;cursor:pointer;transition:transform .2s ease, box-shadow .2s ease
+  }
+  .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+  .btn.secondary{background:#fff;color:#111}
+
+  /* Privacy grid */
+  .privacy-grid{display:grid;gap:16px;grid-template-columns:1fr}
+  @media(min-width:580px){ .privacy-grid{grid-template-columns:1fr 1fr} }
+
+  .mini{display:flex;flex-direction:column;gap:10px;padding:18px;border-radius:16px;background:linear-gradient(180deg,#ffffff 0%, #f6fbff 100%);border:1px solid #eaf3ff}
+  .mini h4{margin:0 0 4px;font-size:18px;font-weight:900}
+  .mini p{margin:0 0 10px;color:#4b5563}
 </style>
 </head>
 <body>
 
-<!-- HERO -->
-<section class="support-hero" aria-labelledby="support-title">
-  <div class="sh-inner">
-    <span class="tag">Support</span>
-    <h1 id="support-title">Questions? Need help?</h1>
-    <p class="sub">We’re here to help with product questions, account issues, and anything related to consent-first data.</p>
-    <p class="hint">Prefer email? <a href="mailto:support@astroscrape.io">support@astroscrape.io</a></p>
+<!-- Title Section -->
+<section class="title" aria-label="Support">
+  <div class="title-inner">
+    <div class="kicker">Support</div>
+    <h1 class="h1">Questions or privacy requests?</h1>
+    <p class="sub">We’re here to help. Ask us anything—or manage your data with one click. All forms open in a secure popup and work beautifully on mobile.</p>
   </div>
-  <span class="blob" aria-hidden="true"></span>
-  <span class="blob b2" aria-hidden="true"></span>
 </section>
 
-<!-- ACTION CARDS -->
-<section class="support-grid" aria-label="Support actions">
+<!-- Section: General questions -->
+<section class="section" aria-label="General help">
   <div class="wrap">
-    <div class="grid">
-      <!-- General questions -->
+    <div class="cards">
       <article class="card">
-        <div class="meta">
-          <span class="badge accent">Fastest</span>
-        </div>
-        <h3>General questions & product support</h3>
-        <p>Ask us anything. We’ll route your request to the right teammate.</p>
-        <button class="btn" data-open-modal="modal-general" aria-haspopup="dialog" aria-controls="modal-general">Open form</button>
+        <h3>Need help?</h3>
+        <p>Product questions, billing, or feedback—send it our way and we’ll get back to you quickly.</p>
+        <!-- Fillout POPUP trigger: General support -->
+        <button
+          class="btn"
+          data-fillout-id="oyZrEXvzS1us"
+          data-fillout-embed-type="popup"
+          data-fillout-inherit-parameters>
+          Open support form
+        </button>
       </article>
 
-      <!-- Remove my information -->
+      <!-- Section: Privacy controls -->
       <article class="card">
-        <div class="meta">
-          <span class="badge">Privacy</span>
-        </div>
-        <h3>Remove your information from the database</h3>
-        <p>Request deletion of your profile and associated data from Astroscrape.</p>
-        <button class="btn" data-open-modal="modal-remove" aria-haspopup="dialog" aria-controls="modal-remove">Request removal</button>
-      </article>
+        <h3>Privacy controls</h3>
+        <p>Manage your information in line with GDPR and our consent-first policy.</p>
 
-      <!-- Do-not-add -->
-      <article class="card">
-        <div class="meta">
-          <span class="badge">Privacy</span>
+        <div class="privacy-grid">
+          <div class="mini">
+            <h4>Remove my information</h4>
+            <p>Request deletion of your contact details from our directory.</p>
+            <!-- Fillout POPUP trigger: Remove info -->
+            <button
+              class="btn secondary"
+              data-fillout-id="qkC3rWXHQkus"
+              data-fillout-embed-type="popup"
+              data-fillout-inherit-parameters>
+              Open removal form
+            </button>
+          </div>
+
+          <div class="mini">
+            <h4>Do not add my information</h4>
+            <p>Opt out of future uploads so your details aren’t added to the database.</p>
+            <!-- Fillout POPUP trigger: Do-not-add (same form ID as requested) -->
+            <button
+              class="btn secondary"
+              data-fillout-id="qkC3rWXHQkus"
+              data-fillout-embed-type="popup"
+              data-fillout-inherit-parameters>
+              Open opt-out form
+            </button>
+          </div>
         </div>
-        <h3>Don’t allow your information to be added</h3>
-        <p>Opt out to prevent your information from being added in the future.</p>
-        <button class="btn" data-open-modal="modal-optout" aria-haspopup="dialog" aria-controls="modal-optout">Opt out</button>
       </article>
     </div>
-
-    <p class="contact-note">We respect your choice. All privacy requests are handled promptly and transparently.</p>
   </div>
 </section>
 
-<!-- ===== Support Modals (self-contained) ===== -->
-
-<style>
-  .support-modal{position:fixed;inset:0;display:none;z-index:1000}
-  .support-modal.open{display:grid;place-items:center}
-  .support-modal__scrim{position:absolute;inset:0;background:rgba(0,0,0,.45);backdrop-filter:blur(2px)}
-  .support-modal__dialog{
-    position:relative;width:min(920px,92vw);max-height:92vh;background:#fff;border-radius:16px;
-    box-shadow:0 30px 80px rgba(0,0,0,.25);display:flex;flex-direction:column;overflow:hidden;outline:none
-  }
-  .support-modal__head{padding:16px 18px;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;gap:12px}
-  .support-modal__title{font-weight:900;font-size:18px}
-  .support-modal__close{border:1px solid #e5e7eb;background:#fff;border-radius:999px;width:36px;height:36px;cursor:pointer}
-  .support-modal__body{padding:0;overflow:auto;-webkit-overflow-scrolling:touch;flex:1 1 auto}
-  /* Give the Fillout container an initial view; it will auto-resize after load */
-  .support-modal__body .fillout-embed{width:100%;min-height:60vh}
-  body.modal-open{overflow:hidden}
-  @media (max-width:480px){.support-modal__dialog{width:94vw;max-height:94vh}}
-</style>
-
-<!-- 1) General questions modal -->
-<div id="modal-general" class="support-modal" aria-hidden="true">
-  <div class="support-modal__scrim" data-close></div>
-  <div class="support-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="general-title" tabindex="-1">
-    <div class="support-modal__head">
-      <h3 id="general-title" class="support-modal__title">General questions &amp; product support</h3>
-      <button class="support-modal__close" type="button" data-close aria-label="Close">✕</button>
-    </div>
-    <div class="support-modal__body">
-      <div
-        class="fillout-embed"
-        data-fillout-id="oyZrEXvzS1us"
-        data-fillout-embed-type="standard"
-        data-fillout-inherit-parameters
-        data-fillout-dynamic-resize
-      ></div>
-    </div>
-  </div>
-</div>
-
-<!-- 2) Remove your information -->
-<div id="modal-remove" class="support-modal" aria-hidden="true">
-  <div class="support-modal__scrim" data-close></div>
-  <div class="support-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="remove-title" tabindex="-1">
-    <div class="support-modal__head">
-      <h3 id="remove-title" class="support-modal__title">Remove your information</h3>
-      <button class="support-modal__close" type="button" data-close aria-label="Close">✕</button>
-    </div>
-    <div class="support-modal__body">
-      <div
-        class="fillout-embed"
-        data-fillout-id="qkC3rWXHQkus"
-        data-fillout-embed-type="standard"
-        data-fillout-inherit-parameters
-        data-fillout-dynamic-resize
-      ></div>
-    </div>
-  </div>
-</div>
-
-<!-- 3) Do not allow my information to be added -->
-<div id="modal-block" class="support-modal" aria-hidden="true">
-  <div class="support-modal__scrim" data-close></div>
-  <div class="support-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="block-title" tabindex="-1">
-    <div class="support-modal__head">
-      <h3 id="block-title" class="support-modal__title">Do not add my information</h3>
-      <button class="support-modal__close" type="button" data-close aria-label="Close">✕</button>
-    </div>
-    <div class="support-modal__body">
-      <div
-        class="fillout-embed"
-        data-fillout-id="qkC3rWXHQkus"
-        data-fillout-embed-type="standard"
-        data-fillout-inherit-parameters
-        data-fillout-dynamic-resize
-      ></div>
-    </div>
-  </div>
-</div>
-
-<!-- Fillout (load once) -->
+<!-- Load Fillout once (enables popup behavior & dynamic sizing) -->
 <script src="https://server.fillout.com/embed/v1/"></script>
-
-<script>
-(function () {
-  const openers = document.querySelectorAll('[data-open-modal]');
-  let lastFocus = null;
-
-  function openModal(id){
-    const m = document.getElementById(id);
-    if(!m) return;
-    lastFocus = document.activeElement;
-    m.classList.add('open');
-    m.removeAttribute('aria-hidden');
-    document.body.classList.add('modal-open');
-    const dlg = m.querySelector('.support-modal__dialog');
-    dlg && dlg.focus();
-
-    // close on scrim or [data-close]
-    m.querySelector('.support-modal__scrim')?.addEventListener('click', () => closeModal(m), { once: true });
-    m.querySelectorAll('[data-close]').forEach(btn => {
-      btn.addEventListener('click', () => closeModal(m), { once: true });
-    });
-
-    // ESC to close
-    const onKey = (e) => { if (e.key === 'Escape') closeModal(m); };
-    m.addEventListener('keydown', onKey, { once: true });
-  }
-
-  function closeModal(m){
-    m.classList.remove('open');
-    m.setAttribute('aria-hidden','true');
-    document.body.classList.remove('modal-open');
-    if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
-  }
-
-  openers.forEach(btn=>{
-    btn.addEventListener('click', () => openModal(btn.getAttribute('data-open-modal')));
-  });
-})();
-</script>
-
 
 <script>
   // Toggle articles
