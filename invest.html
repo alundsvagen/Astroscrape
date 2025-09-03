@@ -207,9 +207,295 @@ href='data:image/svg+xml;utf8,
   </div>
 </nav>
 
+<style>
+  :root{
+    --bg:#ffffff;
+    --ink:#111111;
+    --muted:#6b7280;
+    --accent:#dbfbd7;
+    --accent2:#e0f4f9;
+    --card:#ffffff;
+    --shadow:0 12px 30px rgba(0,0,0,.08);
+    --radius:26px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
 
+  /* ===== Title Section ===== */
+  .title{
+    position:relative; overflow:hidden;
+    background:linear-gradient(180deg,#ffffff 0%, #f7fff6 100%);
+    padding:72px 18px 40px;
+  }
+  .title-inner{max-width:1100px;margin:0 auto;text-align:center}
+  .kicker{font-weight:900;letter-spacing:.08em;font-size:12px;text-transform:uppercase;color:var(--muted)}
+  .h1{font-weight:900;letter-spacing:-.02em;font-size:clamp(30px,6vw,56px);margin:8px 0 10px}
+  .sub{color:#374151;max-width:780px;margin:0 auto;line-height:1.7}
 
+  /* ===== Grid basics ===== */
+  .section{padding:56px 18px}
+  .wrap{max-width:1100px;margin:0 auto}
 
+  /* ===== Pill cards ===== */
+  .grid-4{display:grid;gap:18px;grid-template-columns:1fr}
+  @media(min-width:860px){ .grid-4{grid-template-columns:repeat(4,1fr)} }
+
+  .pill{
+    background:var(--card);
+    border:1px solid #eee;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:20px;
+  }
+  .pill h3{margin:0 0 6px;font-size:18px;font-weight:900}
+  .pill p{margin:0;color:#374151;line-height:1.7}
+
+  /* ===== Animated data > auction > payout ===== */
+  .flow{
+    background:radial-gradient(1200px 600px at 10% -10%, #dbfbd7 0%, #e0f4f9 60%, #ffffff 100%);
+    border:1px solid #eaf3ff;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:22px;
+  }
+  .flow-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+  .flow-head h2{margin:0;font-size:22px;font-weight:900;letter-spacing:-.01em}
+  .legend{display:flex;gap:10px;flex-wrap:wrap}
+  .chip{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid #e5e7eb;font-weight:800;font-size:12px}
+  .dot{width:8px;height:8px;border-radius:50%}
+  .u{background:#66c061} .m{background:#111} .p{background:#8bd0ea}
+
+  .canvas{
+    position:relative;aspect-ratio:16/9;min-height:260px;background:#fff;border:1px dashed #dbe6ef;border-radius:18px;overflow:hidden;
+  }
+  /* Users (left) */
+  .user{position:absolute;left:-60px;top:var(--y);width:46px;height:46px;border-radius:14px;background:#f7fff6;border:1px solid #d9f2d7;display:grid;place-items:center;font-weight:900}
+  .user::after{content:"@";opacity:.5}
+  /* Auction block (center) */
+  .auction{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:160px;height:100px;border-radius:16px;background:#111;color:#fff;display:grid;place-items:center;box-shadow:0 12px 26px rgba(0,0,0,.25)
+  }
+  .auction .gavel{font-weight:900;letter-spacing:.06em}
+  .auction .subg{font-size:12px;color:#cfe7e0;margin-top:2px}
+
+  /* Coins (payouts) that fly back to users */
+  .coin{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;background:linear-gradient(180deg,#ffe99a,#ffd24a);border:1px solid #e3c24a;box-shadow:0 6px 14px rgba(0,0,0,.2)}
+  .coin::after{content:"$";display:block;text-align:center;line-height:26px;font-weight:900}
+
+  /* Motion */
+  @keyframes toAuction{
+    0%{transform:translateX(0) translateY(0)}
+    100%{transform:translateX(calc(50vw - 40%)) translateY(var(--dy))}
+  }
+  @keyframes payout{
+    0%{transform:translate(-50%,-50%) scale(.6);opacity:0}
+    10%{opacity:1}
+    100%{transform:translate(var(--tx), var(--ty)) scale(1);opacity:0}
+  }
+
+  /* Assign travel; we’ll set CSS vars inline */
+  .move{animation:toAuction var(--dur) ease-in forwards}
+  .fly{animation:payout var(--pdur) ease-out forwards}
+
+  /* ===== “Future Exchange” concept ===== */
+  .future{
+    background:#0d1413;color:#e9f3f0;border-radius:var(--radius);padding:22px;border:1px solid rgba(255,255,255,.08);box-shadow:0 10px 24px rgba(0,0,0,.35)
+  }
+  .future h2{margin:0 0 8px;font-size:22px;font-weight:900}
+  .ticker{overflow:hidden;border:1px solid rgba(255,255,255,.12);border-radius:14px}
+  .t-track{display:flex;gap:10px;white-space:nowrap;padding:10px;animation:tScroll 24s linear infinite}
+  .ticket{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:8px 12px;font-weight:800}
+  .ticket small{opacity:.8}
+  @keyframes tScroll{to{transform:translateX(-50%)}}
+
+  /* ===== CTA ===== */
+  .cta{
+    background:linear-gradient(180deg,#ffffff 0%, #f7fff6 100%);
+    border:1px solid #eee;border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:26px;text-align:center
+  }
+  .cta h2{margin:0 0 10px;font-size:clamp(22px,4.5vw,34px);font-weight:900}
+  .cta p{margin:0 0 16px;color:#374151}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;font-weight:800;border:2px solid #111;background:#111;color:#fff;border-radius:999px;padding:12px 16px;transition:transform .2s ease, box-shadow .2s ease
+  }
+  .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+  .btn.secondary{background:#fff;color:#111}
+</style>
+</head>
+<body>
+
+<!-- ===== Title Section ===== -->
+<section class="title" aria-label="Investors">
+  <div class="title-inner">
+    <div class="kicker">For Investors</div>
+    <h1 class="h1">Building the consent-first marketplace for B2B contacts</h1>
+    <p class="sub">Astroscrape aligns incentives: professionals control their information, companies access verified contacts, and value flows back to the people who create it.</p>
+  </div>
+</section>
+
+<!-- ===== Mission / Vision / Purpose / Uniqueness ===== -->
+<section class="section" aria-label="Company pillars">
+  <div class="wrap">
+    <div class="grid-4">
+      <div class="pill">
+        <h3>Mission</h3>
+        <p>Make B2B discovery ethical, efficient, and high-signal by centering consent and rewarding contributors for verified contact data.</p>
+      </div>
+      <div class="pill">
+        <h3>Vision</h3>
+        <p>A world where professional data is portable and priced—so people are paid when their information drives value, and buyers engage with intent.</p>
+      </div>
+      <div class="pill">
+        <h3>Purpose</h3>
+        <p>Restore trust in outreach. Replace scraping and guesswork with a respectful, transparent exchange that benefits both sides.</p>
+      </div>
+      <div class="pill">
+        <h3>Uniqueness</h3>
+        <p>Consent-first directory, self-verified profiles, micro-payouts per download, and compliance by design—creating cleaner data and better outcomes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Animated Graphic: Contacts → Auction → Payouts ===== -->
+<section class="section" aria-label="Value flow animation">
+  <div class="wrap">
+    <div class="flow">
+      <div class="flow-head">
+        <h2>How value flows</h2>
+        <div class="legend">
+          <span class="chip"><span class="dot u"></span>Users</span>
+          <span class="chip"><span class="dot m"></span>Auction</span>
+          <span class="chip"><span class="dot p"></span>Payouts</span>
+        </div>
+      </div>
+      <div class="canvas" id="flow-canvas">
+        <!-- auction block -->
+        <div class="auction">
+          <div>
+            <div class="gavel">CONTACTS • AUCTION</div>
+            <div class="subg">verified • consent-first • fair price</div>
+          </div>
+        </div>
+        <!-- users + coins injected by JS -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Future: Personal Data Exchange (concept ticker) ===== -->
+<section class="section" aria-label="Future market">
+  <div class="wrap">
+    <div class="future">
+      <h2>Imagining a Personal Data Exchange</h2>
+      <p style="margin:0 0 12px; color:#cfe7e0">Think order book, not list rental. Profiles clear at market rates based on freshness, role, and verified demand.</p>
+      <div class="ticker" aria-label="Concept ticker">
+        <div class="t-track">
+          <span class="ticket">UX-DIRECTOR <small>€0.22 / dl</small></span>
+          <span class="ticket">CFO (DACH) <small>€0.41 / dl</small></span>
+          <span class="ticket">SWE—Senior <small>€0.28 / dl</small></span>
+          <span class="ticket">RevOps (SaaS) <small>€0.19 / dl</small></span>
+          <span class="ticket">Procurement (EU) <small>€0.24 / dl</small></span>
+          <span class="ticket">Marketing Lead (UK) <small>€0.21 / dl</small></span>
+          <!-- repeat for seamless scroll -->
+          <span class="ticket">UX-DIRECTOR <small>€0.22 / dl</small></span>
+          <span class="ticket">CFO (DACH) <small>€0.41 / dl</small></span>
+          <span class="ticket">SWE—Senior <small>€0.28 / dl</small></span>
+          <span class="ticket">RevOps (SaaS) <small>€0.19 / dl</small></span>
+          <span class="ticket">Procurement (EU) <small>€0.24 / dl</small></span>
+          <span class="ticket">Marketing Lead (UK) <small>€0.21 / dl</small></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Investor CTA ===== -->
+<section class="section" aria-label="Investor contact">
+  <div class="wrap">
+    <div class="cta">
+      <h2>Interested in investing?</h2>
+      <p>We’re exploring the right partners for this next chapter. Let’s talk about the opportunity and the roadmap.</p>
+      <a class="btn" href="https://www.linkedin.com/in/alexandragrisanti/" target="_blank" rel="noopener noreferrer" aria-label="Connect with Alexandra on LinkedIn">
+        Connect with Alexandra on LinkedIn
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+/* Lightweight animation: users drift toward the auction, coins “pay out” back toward them */
+(function(){
+  const root = document.getElementById('flow-canvas');
+  if(!root) return;
+
+  // positions (percent) around left edge to spawn users
+  const lanes = [12, 26, 40, 54, 68, 82];
+  const users = [];
+
+  lanes.forEach((yPct, i) => {
+    const u = document.createElement('div');
+    u.className = 'user move';
+    // random vertical drift and duration
+    const dy = (Math.random()*40 - 20) + 'px';
+    const dur = (7 + Math.random()*3).toFixed(2) + 's';
+    u.style.setProperty('--y', `calc(${yPct}% - 23px)`);
+    u.style.setProperty('--dy', dy);
+    u.style.setProperty('--dur', dur);
+    // stagger start
+    u.style.animationDelay = (i*0.6) + 's';
+    root.appendChild(u);
+    users.push(u);
+
+    // schedule coin payout toward user after it reaches center
+    const coinDelay = (i*0.6) + (parseFloat(dur) - 1.2);
+    setTimeout(()=>spawnCoinToward(u), coinDelay*1000);
+  });
+
+  function spawnCoinToward(userEl){
+    const rect = root.getBoundingClientRect();
+    const uRect = userEl.getBoundingClientRect();
+
+    const coin = document.createElement('div');
+    coin.className = 'coin fly';
+    // travel from center to user offset (relative to center translate)
+    const tx = (uRect.left - (rect.left + rect.width/2)) + 'px';
+    const ty = (uRect.top  - (rect.top  + rect.height/2)) + 'px';
+    coin.style.setProperty('--tx', tx);
+    coin.style.setProperty('--ty', ty);
+    coin.style.setProperty('--pdur', (1.8 + Math.random()*0.8).toFixed(2) + 's');
+    root.appendChild(coin);
+
+    // clean up coin after animation
+    setTimeout(()=> coin.remove(), 2400);
+  }
+
+  // loop: periodically respawn waves
+  setInterval(()=>{
+    users.forEach((u,i)=>{
+      // restart animation by cloning
+      const clone = u.cloneNode(true);
+      clone.style.animation = 'none';
+      // force reflow
+      void clone.offsetWidth;
+      const dur = (7 + Math.random()*3).toFixed(2) + 's';
+      clone.style.setProperty('--dur', dur);
+      clone.style.animation = '';
+      clone.style.animationDelay = (i*0.6) + 's';
+      u.replaceWith(clone);
+      users[i] = clone;
+
+      const coinDelay = (i*0.6) + (parseFloat(dur) - 1.2);
+      setTimeout(()=>spawnCoinToward(clone), coinDelay*1000);
+    });
+  }, 11000);
+})();
+</script>
+  
 <script>
   // Toggle articles
   document.querySelectorAll('.news-toggle').forEach(button => {
