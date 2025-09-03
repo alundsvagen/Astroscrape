@@ -518,7 +518,262 @@ href='data:image/svg+xml;utf8,
   svg.addEventListener('mouseleave', ()=>{clearInterval(timer); timer = setInterval(tick, 900);});
 })();
 </script>
+<!-- ===== Exchange-style visual: Mobile-optimized ===== -->
+<section class="section" aria-label="Exchange visual">
+  <div class="wrap">
+    <div class="flow">
+      <div class="flow-head">
+        <h2>A Free Market where Users can Sell their own Data, consent based</h2>
+        <div class="legend">
+          <span class="chip"><span class="dot u"></span>Users</span>
+          <span class="chip"><span class="dot m"></span>Market price</span>
+          <span class="chip"><span class="dot p"></span>Payout (per download)</span>
+        </div>
+      </div>
 
+      <!-- Chart canvas -->
+      <div class="canvas" id="ex-chart">
+        <svg id="ex-svg" width="100%" height="100%" viewBox="0 0 800 450" preserveAspectRatio="none" aria-label="Market chart">
+          <defs>
+            <linearGradient id="ex-grad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#dbfbd7" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="#e0f4f9" stop-opacity="0.15"/>
+            </linearGradient>
+          </defs>
+
+          <!-- frame -->
+          <rect x="20" y="20" width="760" height="410" rx="14" fill="url(#ex-grad)" stroke="#dbe6ef" stroke-dasharray="5 6"/>
+
+          <!-- gridlines -->
+          <g id="ex-grid" stroke="#e9eef5"></g>
+
+          <!-- price area + line -->
+          <path id="ex-area" fill="rgba(17,17,17,.06)"></path>
+          <path id="ex-line" stroke="#111" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"></path>
+
+          <!-- live dot + label -->
+          <circle id="ex-dot" r="6" fill="#111" stroke="#fff" stroke-width="2"></circle>
+          <g id="ex-price" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="900" font-size="13">
+            <rect id="ex-price-bg" rx="8" ry="8" fill="#111"></rect>
+            <text id="ex-price-txt" fill="#fff"></text>
+          </g>
+        </svg>
+
+        <!-- floating trade tickets -->
+        <div id="ex-tickets" aria-hidden="true"></div>
+      </div>
+
+      <!-- Mini scrolling ticker -->
+      <div class="ticker" aria-label="Sample categories and current payout levels">
+        <div class="t-track">
+          <span class="ticket">CFO (Nordics) <small>€0.41/dl</small></span>
+          <span class="ticket">Senior SWE <small>€0.28/dl</small></span>
+          <span class="ticket">Procurement EU <small>€0.24/dl</small></span>
+          <span class="ticket">RevOps SaaS <small>€0.19/dl</small></span>
+          <span class="ticket">UX Director <small>€0.22/dl</small></span>
+          <span class="ticket">Marketing Lead UK <small>€0.21/dl</small></span>
+          <!-- repeat for seamless loop -->
+          <span class="ticket">CFO (Nordics) <small>€0.41/dl</small></span>
+          <span class="ticket">Senior SWE <small>€0.28/dl</small></span>
+          <span class="ticket">Procurement EU <small>€0.24/dl</small></span>
+          <span class="ticket">RevOps SaaS <small>€0.19/dl</small></span>
+          <span class="ticket">UX Director <small>€0.22/dl</small></span>
+          <span class="ticket">Marketing Lead UK <small>€0.21/dl</small></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* container helpers (match your brand scaffolding) */
+.section{padding:56px 18px}
+.wrap{max-width:1100px;margin:0 auto}
+
+/* card */
+.flow{
+  background: radial-gradient(1200px 600px at 10% -10%, #dbfbd7 0%, #e0f4f9 60%, #ffffff 100%);
+  border:1px solid #eaf3ff;border-radius:26px;box-shadow:0 12px 30px rgba(0,0,0,.06);padding:22px;
+}
+.flow-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.flow-head h2{margin:0;font-size:clamp(20px,3vw,24px);font-weight:900;letter-spacing:-.01em}
+
+/* legend */
+.legend{display:flex;gap:10px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid #e5e7eb;font-weight:800;font-size:12px}
+.dot{width:8px;height:8px;border-radius:50%}
+.u{background:#66c061} .m{background:#111} .p{background:#8bd0ea}
+
+/* chart canvas */
+.canvas{position:relative;aspect-ratio:16/9;min-height:360px;background:#fff;border-radius:18px;overflow:hidden}
+
+/* floating trade tickets */
+#ex-tickets{position:absolute;inset:0;pointer-events:none}
+.ticket-pop{
+  position:absolute;transform:translate(-50%,-50%);
+  background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:8px 10px;
+  box-shadow:0 10px 24px rgba(0,0,0,.14);font-weight:800;font-size:12px;white-space:nowrap
+}
+.ticket-pop .coin{
+  display:inline-grid;place-items:center;margin-left:6px;
+  background:linear-gradient(180deg,#ffe99a,#ffd24a);border:1px solid #e3c24a;
+  width:20px;height:20px;border-radius:50%;font-weight:900
+}
+.ticket-pop.fade{animation:fadeOut 2.6s ease forwards}
+@keyframes fadeOut{0%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-70%) scale(.96)}}
+
+/* ticker */
+.ticker{overflow:hidden;border:1px solid #dbe6ef;border-radius:14px;margin-top:12px;background:#fff}
+.t-track{display:flex;gap:18px;white-space:nowrap;animation:ticker 26s linear infinite;padding:10px 14px;font-weight:800}
+.ticket{display:inline-flex;gap:8px;align-items:baseline}
+.ticket small{color:#6b7280;font-weight:800}
+@keyframes ticker{to{transform:translateX(-50%)}}
+
+/* ===== Mobile enhancements ===== */
+@media (max-width: 720px){
+  .flow{padding:16px;border-radius:22px}
+  .flow-head{flex-direction:column;align-items:flex-start;gap:8px}
+  .chip{font-size:11px;padding:6px 9px}
+  .canvas{aspect-ratio:4/5;min-height:320px} /* taller, easier to read on phones */
+  /* lighter strokes/smaller labels for small screens */
+  #ex-line{stroke-width:2.4}
+  #ex-dot{r:5}
+  #ex-price text{font-size:12px}
+  .t-track{animation-duration:34s;padding:8px 12px;gap:14px}
+  .ticket-pop{font-size:11px;padding:7px 9px}
+}
+
+@media (max-width: 420px){
+  .canvas{aspect-ratio:3/4;min-height:300px}
+  .legend{gap:8px}
+  .chip{padding:5px 8px}
+}
+
+/* Motion sensitivity */
+@media (prefers-reduced-motion: reduce){
+  .t-track{animation:none}
+  .ticket-pop.fade{animation:none;opacity:1}
+}
+</style>
+
+<script>
+(() => {
+  const svg = document.getElementById('ex-svg');
+  const area = document.getElementById('ex-area');
+  const line = document.getElementById('ex-line');
+  const dot = document.getElementById('ex-dot');
+  const priceGroup = document.getElementById('ex-price');
+  const priceBg = document.getElementById('ex-price-bg');
+  const priceTxt = document.getElementById('ex-price-txt');
+  const grid = document.getElementById('ex-grid');
+  const tickets = document.getElementById('ex-tickets');
+
+  const W = 800, H = 450, PX = {l:40, r:40, t:30, b:30};
+  const w = W - PX.l - PX.r, h = H - PX.t - PX.b;
+
+  // grid lines & labels (hidden on very narrow screens via media query if needed)
+  const levels = [0.12, 0.18, 0.24, 0.30, 0.36, 0.42];
+  grid.innerHTML = levels.map(val => {
+    const y = PX.t + h - (val - 0.12)/(0.42-0.12)*h;
+    return `<line x1="${PX.l}" y1="${y}" x2="${PX.l+w}" y2="${y}"/><text x="${PX.l+4}" y="${y-6}" fill="#6b7280" font-size="12" font-weight="700">€${val.toFixed(2)}/dl</text>`;
+  }).join('');
+
+  // helpers
+  const clamp = (v,a,b)=>Math.max(a,Math.min(b,v));
+  const lerp = (a,b,t)=>a+(b-a)*t;
+
+  // initial series
+  let points = Array.from({length:36}, (_,i) => ({
+    x: i/(36-1),
+    y: 0.22 + (Math.sin(i*0.45)*0.03) + (Math.random()-0.5)*0.015
+  }));
+
+  function mapX(t){ return PX.l + t*w }
+  function mapY(v){ return PX.t + h - ((v-0.12)/(0.42-0.12))*h }
+
+  function pathFrom(pts){
+    const d = pts.map((p,i)=> (i? 'L':'M') + mapX(p.x) + ' ' + mapY(p.y)).join(' ');
+    const areaD = d + ` L ${mapX(pts[pts.length-1].x)} ${PX.t+h} L ${mapX(pts[0].x)} ${PX.t+h} Z`;
+    return {d, areaD};
+  }
+
+  function render(){
+    const {d, areaD} = pathFrom(points);
+    line.setAttribute('d', d);
+    area.setAttribute('d', areaD);
+
+    const last = points[points.length-1];
+    const cx = mapX(last.x), cy = mapY(last.y);
+    dot.setAttribute('cx', cx); dot.setAttribute('cy', cy);
+
+    const label = `€${last.y.toFixed(2)}/dl`;
+    priceTxt.textContent = label;
+    const textX = cx + 10, textY = cy - 10;
+    priceTxt.setAttribute('x', textX + 10);
+    priceTxt.setAttribute('y', textY + 18);
+    const bbox = priceTxt.getBBox();
+    priceBg.setAttribute('x', bbox.x - 8);
+    priceBg.setAttribute('y', bbox.y - 6);
+    priceBg.setAttribute('width', bbox.width + 16);
+    priceBg.setAttribute('height', bbox.height + 12);
+  }
+
+  function tick(){
+    points.shift();
+    const last = points[points.length-1].y;
+    const target = 0.24 + (Math.random()-0.5)*0.02;
+    const next = clamp(lerp(last, target, 0.35) + (Math.random()-0.5)*0.01, 0.12, 0.42);
+    points.push({x:1, y:next});
+    points = points.map((p,i)=>({x:i/(points.length-1), y:p.y}));
+
+    render();
+    maybePopTicket(next);
+  }
+
+  function maybePopTicket(price){
+    if(Math.random() < 0.45){
+      const el = document.createElement('div');
+      el.className = 'ticket-pop fade';
+      // place within safe inner band so it doesn't clip on mobile
+      const left = 20 + Math.random()*60; // %
+      const top  = 25 + Math.random()*50; // %
+      el.style.left = left + '%';
+      el.style.top  = top + '%';
+      const roles = ['SWE','CFO','UX','AE','RevOps','PM','DS','Recruiter'];
+      const cities = ['SE','DE','FR','UK','ES','NL','FI','PL'];
+      const r = roles[Math.floor(Math.random()*roles.length)];
+      const c = cities[Math.floor(Math.random()*cities.length)];
+      el.innerHTML = `New sale • ${r} ${c} <span class="coin">€</span> <span style="margin-left:6px">€${price.toFixed(2)}/dl</span>`;
+      tickets.appendChild(el);
+      setTimeout(()=>el.remove(), 2800);
+    }
+  }
+
+  // run loop with pause on hover/tap
+  let timer;
+  const start = () => { timer = setInterval(tick, 900); };
+  const stop  = () => { clearInterval(timer); };
+
+  render(); start();
+
+  // hover (desktop)
+  svg.addEventListener('mouseenter', stop);
+  svg.addEventListener('mouseleave', () => { stop(); start(); });
+
+  // tap (mobile): toggle pause/resume
+  let paused = false;
+  svg.addEventListener('touchstart', (e)=>{ 
+    e.preventDefault();
+    paused ? start() : stop();
+    paused = !paused;
+  }, {passive:false});
+
+  // Respect reduced motion
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    stop();
+  }
+})();
+</script>
 
 <!-- ===== Future: Personal Data Exchange (concept ticker) ===== -->
 <section class="section" aria-label="Future market">
