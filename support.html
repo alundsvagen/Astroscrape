@@ -426,33 +426,50 @@ href='data:image/svg+xml;utf8,
 
 
 <!-- Remove info modal (qkC3rWXHQkus) -->
-<div id="modal-remove" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-remove-title" aria-hidden="true">
-  <div class="scrim" data-close-modal></div>
-  <div class="modal-card">
-    <div class="modal-head">
-      <h2 id="modal-remove-title" class="modal-title">Remove your information</h2>
-      <button class="modal-close" aria-label="Close" data-close-modal>✕</button>
+<!-- Example: Remove your information modal -->
+<div id="modal-remove" class="support-modal" aria-hidden="true">
+  <div class="support-modal__scrim" data-close></div>
+  <div class="support-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="remove-title">
+    <div class="support-modal__head">
+      <h3 id="remove-title" class="support-modal__title">Remove your information</h3>
+      <button class="support-modal__close" type="button" data-close aria-label="Close">✕</button>
     </div>
-    <div class="modal-body">
-      <div class="embed-wrap">
-        <div style="width:100%;height:100%;" data-fillout-id="qkC3rWXHQkus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div>
-      </div>
+
+    <!-- Scrollable body -->
+    <div class="support-modal__body">
+      <!-- Fillout embed (no fixed height; dynamic resize enabled) -->
+      <div
+        class="fillout-embed"
+        data-fillout-id="qkC3rWXHQkus"
+        data-fillout-embed-type="standard"
+        data-fillout-inherit-parameters
+        data-fillout-dynamic-resize
+        style="width:100%; min-height: 520px;"
+      ></div>
     </div>
   </div>
 </div>
 
 <!-- Do-not-add / Opt-out modal (same Fillout ID) -->
-<div id="modal-optout" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-optout-title" aria-hidden="true">
-  <div class="scrim" data-close-modal></div>
-  <div class="modal-card">
-    <div class="modal-head">
-      <h2 id="modal-optout-title" class="modal-title">Do not add my information</h2>
-      <button class="modal-close" aria-label="Close" data-close-modal>✕</button>
+<div id="modal-remove" class="support-modal" aria-hidden="true">
+  <div class="support-modal__scrim" data-close></div>
+  <div class="support-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="remove-title">
+    <div class="support-modal__head">
+      <h3 id="remove-title" class="support-modal__title">Do not add my information.</h3>
+      <button class="support-modal__close" type="button" data-close aria-label="Close">✕</button>
     </div>
-    <div class="modal-body">
-      <div class="embed-wrap">
-        <div style="width:100%;height:100%;" data-fillout-id="qkC3rWXHQkus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div>
-      </div>
+
+    <!-- Scrollable body -->
+    <div class="support-modal__body">
+      <!-- Fillout embed (no fixed height; dynamic resize enabled) -->
+      <div
+        class="fillout-embed"
+        data-fillout-id="qkC3rWXHQkus"
+        data-fillout-embed-type="standard"
+        data-fillout-inherit-parameters
+        data-fillout-dynamic-resize
+        style="width:100%; min-height: 520px;"
+      ></div>
     </div>
   </div>
 </div>
