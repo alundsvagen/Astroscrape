@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About Astroscrape — Bootstrapped GDPR-friendly B2B Emails in Europe</title>
+<meta name="description" content="Astroscrape is a bootstrapped, GDPR-friendly way to get B2B email addresses and outreach lists in Europe. Built by two founders for solo entrepreneurs and small teams." />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Inter:wght@400;500;600;700;800;900&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+
+<link rel="icon" type="image/svg+xml"
+href='data:image/svg+xml;utf8,
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="%23dbfbd7"/>
+      <stop offset="100%" stop-color="%23e0f4f9"/>
+    </linearGradient>
+  </defs>
+  <rect rx="14" ry="14" width="64" height="64" fill="url(%23g)"/>
+  <rect x="10" y="18" width="44" height="28" rx="6" ry="6" fill="%23ffffff" stroke="%23111" stroke-width="3"/>
+  <path d="M12 20l20 15L52 20" fill="none" stroke="%23111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>'>
+<meta name="theme-color" content="#ffffff">
+
+<!-- Hotjar -->
+<script>
+  (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:6425621,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQCRY4KX4Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZQCRY4KX4Q');
+</script>
+
+<style>
+:root{
+  --bg:#ffffff;
+  --ink:#2f2e2d;
+  --muted:#8b8b8b;
+  --accent-top:#E2F9E1;
+  --accent-bottom:#E8F5F9;
+  --green:#55B587;
+  --shadow-bar:6px 15px 18px rgba(0,0,0,0.10);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  display:flex;
+  flex-direction:column;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+
+.page-shell{
+  max-width:860px;
+  margin:0 auto;
+  width:100%;
+  padding:24px 16px 72px; /* extra bottom space */
+  display:flex;
+  flex-direction:column;
+  min-height:100%;
+}
+
+/* TOP: just logo */
+.top-row{
+  display:flex;
+  align-items:flex-start;
+  justify-content:flex-start;
+}
+.brand-lockup{
+  font-family:'Shrikhand',cursive;
+  font-style:normal;
+  font-weight:400;
+  font-size:clamp(28px,3.7vw,36px);
+  line-height:0.85;
+  color:#000;
+  cursor:pointer;
+}
+
+/* MAIN */
+.about-main{
+  margin-top:40px;
+}
+
+/* Intro */
+.pill-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 13px;
+  border-radius:999px;
+  background:#f5f5f5;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+  color:#6b7280;
+  margin-bottom:16px;
+}
+.pill-tag span{
+  width:8px;height:8px;border-radius:999px;
+  background:var(--green);
+}
+
+.about-heading{
+  font-family:'Nunito',system-ui,sans-serif;
+  font-weight:900;
+  font-size:clamp(28px,4vw,34px);
+  line-height:1.2;
+  margin-bottom:14px;
+}
+.about-heading em{
+  font-style:normal;
+  background:linear-gradient(90deg,var(--accent-top),var(--accent-bottom));
+  padding:0 .25em;
+  border-radius:10px;
+  box-decoration-break:clone;
+}
+
+.about-lead{
+  font-size:17px;
+  line-height:1.8;
+  color:#374151;
+  margin-bottom:10px;
+}
+.about-lead strong{
+  font-weight:800;
+  color:#111827;
+}
+
+/* Story card */
+.story-card{
+  margin-top:22px;
+  background:linear-gradient(180deg,var(--accent-top) 0%,var(--accent-bottom) 100%);
+  border-radius:24px;
+  box-shadow:var(--shadow-bar);
+  padding:20px 18px;
+}
+.story-title{
+  font-family:'Nunito',system-ui,sans-serif;
+  font-weight:900;
+  font-size:16px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:#2f2e2d;
+  margin-bottom:10px;
+}
+.story-body{
+  font-size:16px;
+  line-height:1.9;
+  color:#1f2933;
+}
+.story-body p + p{
+  margin-top:10px;
+}
+
+/* Sections */
+.section{
+  margin-top:28px;
+}
+.section-title{
+  font-family:'Nunito',system-ui,sans-serif;
+  font-weight:900;
+  font-size:17px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:#8b8b8b;
+  margin-bottom:6px;
+}
+.section-sub{
+  font-size:16px;
+  color:#374151;
+  line-height:1.8;
+  margin-bottom:12px;
+}
+
+/* Founders */
+.founders{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+@media(min-width:640px){
+  .founders{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+.founder-card{
+  border-radius:20px;
+  border:1px solid #f0f0f0;
+  background:#ffffff;
+  padding:14px 14px 12px;
+}
+.founder-name{
+  font-weight:800;
+  font-size:15px;
+  margin-bottom:2px;
+}
+.founder-meta{
+  font-size:13px;
+  color:#6b7280;
+  margin-bottom:8px;
+}
+.founder-text{
+  font-size:15px;
+  color:#374151;
+  line-height:1.8;
+  margin-bottom:8px;
+}
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+.chip{
+  font-size:12px;
+  font-weight:700;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid #e5e7eb;
+  background:#f9fafb;
+}
+
+/* Bootstrapping POV list */
+.list{
+  margin-top:8px;
+  list-style:none;
+  padding:0;
+}
+.list li{
+  display:flex;
+  gap:8px;
+  font-size:15px;
+  color:#111827;
+  line-height:1.7;
+  margin-bottom:8px;
+}
+.bullet{
+  flex-shrink:0;
+  width:20px;height:20px;
+  border-radius:7px;
+  background:#000;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:11px;
+  font-weight:800;
+}
+
+/* Links / icons */
+.links{
+  margin-top:20px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+}
+.link-card{
+  border-radius:18px;
+  border:1px solid #f0f0f0;
+  padding:12px 14px 10px;
+  background:#ffffff;
+}
+.link-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:4px;
+}
+.link-icon{
+  width:26px;
+  height:26px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.link-title{
+  font-weight:700;
+  font-size:15px;
+}
+.link-text{
+  font-size:14px;
+  color:#4b5563;
+  margin:6px 0;
+}
+.link-card a{
+  font-size:13px;
+  font-weight:700;
+  text-decoration:underline;
+}
+
+/* Simple inline icons */
+.icon-sun svg,
+.icon-half-sun svg,
+.icon-linkedin svg{
+  width:20px;
+  height:20px;
+}
+
+/* Closer */
+.closer{
+  margin-top:22px;
+  font-size:15px;
+  color:#374151;
+  line-height:1.8;
+}
+
+/* Simple footer */
+.simple-footer{
+  border-top:1px solid #eee;
+  padding-top:16px;
+  margin-top:40px;
+  font-size:12px;
+  color:#9ca3af;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  justify-content:space-between;
+  align-items:center;
+}
+.simple-footer a{
+  text-decoration:underline;
+  font-weight:600;
+}
+
+/* Mobile spacing */
+@media(max-width:480px){
+  .about-main{margin-top:32px;}
+  .simple-footer{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<div class="page-shell">
+  <!-- Logo -> homepage -->
+  <header class="top-row">
+    <a class="brand-lockup" href="index.html">
+      Astro<br/>Scrape
+    </a>
+  </header>
+
+  <main class="about-main">
+    <!-- Intro -->
+    <div class="pill-tag">
+      <span></span>
+      Built by bootstrapped founders
+    </div>
+
+    <h1 class="about-heading">
+      Bootstrapping &gt; VC funding.<br>
+      <em>Made for the entrepreneurs, vibe coders &amp; grinders.</em>
+    </h1>
+
+    <p class="about-lead">
+      Astroscrape is a small bootstrapped vibe-coded product that works.
+      We help solo entrepreneurs and tiny teams build <strong>clean, GDPR-friendly B2B outreach lists in Europe</strong>
+      without shady scraping.
+    </p>
+
+    <p class="about-lead">
+      We’re building the tool we wish we’d had when trying to find those first serious customers
+      in Sweden, Germany, the Netherlands, the UK and across Europe.  
+      So nice you’re here — and feel free to reach out to us.
+    </p>
+
+    <!-- Short story card -->
+    <section class="story-card">
+      <div class="story-title">From bots to consent-first lists</div>
+      <div class="story-body">
+        <p>
+          Astroscrape started like many B2B email tools:
+          scraping websites, crawling the internet and collecting addresses.
+          Technically impressive. But not aligned with how we want the internet to work.
+        </p>
+        <p>
+          We live in Europe. GDPR is not a suggestion here.  
+          So we shut that version down and rebuilt Astroscrape as a
+          <strong>consent-first way to get B2B email lists</strong>:
+          fewer hacks, more respect. Still useful for founders, but better
+          for the people on the other side of the inbox.
+        </p>
+      </div>
+    </section>
+
+    <!-- Founders -->
+    <section class="section">
+      <h2 class="section-title">The two people behind Astroscrape</h2>
+      <p class="section-sub">
+        Two bootstrappers testing and trying new things for the love of curiosity.
+        Our goal is to deliver value to you.
+      </p>
+
+      <div class="founders">
+        <article class="founder-card">
+          <h3 class="founder-name">Alexandra</h3>
+          <p class="founder-meta">Design, UX &amp; product · based in Sweden 🇸🇪</p>
+          <p class="founder-text">
+            Trained as a designer and product person.  
+            Alexandra cares about products that feel calm, clear and kind —
+            even when you’re dealing with hard things like email, privacy
+            and conversion rates.
+          </p>
+          <div class="chips">
+            <a class="chip" href="https://www.linkedin.com/in/alexandragrisanti/" target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+            <a class="chip" href="https://alexandrapgrisanti.com/" target="_blank" rel="noopener noreferrer">
+              Portfolio
+            </a>
+          </div>
+        </article>
+
+        <article class="founder-card">
+          <h3 class="founder-name">Edvinas</h3>
+          <p class="founder-meta">Business &amp; new models · based in the Netherlands 🇳🇱</p>
+          <p class="founder-text">
+            Currently in business school, more interested in challenging old models
+            than repeating them. Edvinas thinks a lot about how
+            <strong>bootstrapped products</strong> can compete with VC-backed giants
+            by being sharper, more ethical and more focused on real users.
+          </p>
+          <div class="chips">
+            <a class="chip" href="https://www.linkedin.com/in/edvinas-aliukonis-02184b328/" target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Bootstrapping POV -->
+    <section class="section">
+      <h2 class="section-title">Our point of view: for bootstrappers, by bootstrappers</h2>
+      <p class="section-sub">
+        If you’re building a SaaS, a small agency, or a niche product in Europe,
+        you don’t need a huge sales org. You need <strong>good B2B email data</strong>,
+        a clear offer, and a way to reach people without burning your reputation.
+      </p>
+
+      <ul class="list">
+        <li>
+          <span class="bullet">1</span>
+          <span><strong>No “growth at all costs”.</strong> We’d rather stay small than spam half of LinkedIn.</span>
+        </li>
+        <li>
+          <span class="bullet">2</span>
+          <span><strong>Respect for GDPR.</strong> We design for European privacy laws instead of looking for loopholes.</span>
+        </li>
+        <li>
+          <span class="bullet">3</span>
+          <span><strong>Built for solo founders.</strong> Simple lists, clear pricing, no 12-month “enterprise” contracts.</span>
+        </li>
+        <li>
+          <span class="bullet">4</span>
+          <span><strong>Long-term, we deliver value</strong> because we know you’re fighting hard to deliver value too.</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Other links / ecosystem -->
+    <section class="section">
+      <h2 class="section-title">If you like this kind of internet</h2>
+      <div class="links">
+        <!-- Takeaway Studio: sun -->
+        <div class="link-card">
+          <div class="link-head">
+            <div class="link-icon icon-sun" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="4.5" fill="#FACC15"></circle>
+                <g stroke="#F59E0B" stroke-width="1.4" stroke-linecap="round">
+                  <line x1="12" y1="2.5" x2="12" y2="5"></line>
+                  <line x1="12" y1="19" x2="12" y2="21.5"></line>
+                  <line x1="4.22" y1="4.22" x2="5.9" y2="5.9"></line>
+                  <line x1="18.1" y1="18.1" x2="19.78" y2="19.78"></line>
+                  <line x1="2.5" y1="12" x2="5" y2="12"></line>
+                  <line x1="19" y1="12" x2="21.5" y2="12"></line>
+                  <line x1="4.22" y1="19.78" x2="5.9" y2="18.1"></line>
+                  <line x1="18.1" y1="5.9" x2="19.78" y2="4.22"></line>
+                </g>
+              </svg>
+            </div>
+            <div>
+              <div class="link-title">Takeaway Studio</div>
+            </div>
+          </div>
+          <p class="link-text">
+            Good-looking, affordable, consistent branding for early-stage products.
+          </p>
+          <a href="https://takeaway-studio.com/" target="_blank" rel="noopener noreferrer">
+            Visit takeaway-studio.com →
+          </a>
+        </div>
+
+        <!-- Alexandra: half sun -->
+        <div class="link-card">
+          <div class="link-head">
+            <div class="link-icon icon-half-sun" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 18a8 8 0 0 1 16 0" fill="none" stroke="#FB923C" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M12 6a3.5 3.5 0 0 1 3.5 3.5" fill="none" stroke="#FDBA74" stroke-width="1.6" stroke-linecap="round"/>
+                <line x1="12" y1="2.5" x2="12" y2="4.5" stroke="#FDBA74" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <div class="link-title">Alexandra’s work</div>
+            </div>
+          </div>
+          <p class="link-text">
+            More experiments, design and product thinking.
+          </p>
+          <a href="https://alexandrapgrisanti.com/" target="_blank" rel="noopener noreferrer">
+            Explore alexandrapgrisanti.com →
+          </a>
+        </div>
+
+        <!-- Astroscrape LinkedIn -->
+        <div class="link-card">
+          <div class="link-head">
+            <div class="link-icon icon-linkedin" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="3" fill="#0A66C2"></rect>
+                <circle cx="8" cy="8" r="1.5" fill="#ffffff"></circle>
+                <rect x="6.8" y="10.2" width="2.4" height="6.2" fill="#ffffff"></rect>
+                <path d="M11.6 10.2h2.3v1c.3-.7.9-1.2 2-1.2 1.5 0 2.6 1 2.6 3.1v3.5h-2.4v-3.1c0-.9-.3-1.5-1.1-1.5-.8 0-1.3.6-1.3 1.5v3.2h-2.4v-6.5z" fill="#ffffff"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="link-title">Astroscrape on LinkedIn</div>
+            </div>
+          </div>
+          <p class="link-text">
+            Follow our shipping logs, thoughts on B2B outreach and bootstrapping.
+          </p>
+          <a href="https://www.linkedin.com/company/astroscrape/" target="_blank" rel="noopener noreferrer">
+            Follow Astroscrape →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <p class="closer">
+      If you’re a bootstrapped founder trying to reach your first 100 customers
+      with <strong>GDPR-friendly B2B email lists in Europe</strong>, we built Astroscrape for you.
+      Thanks for being here. 👋
+    </p>
+
+    <!-- Simple footer -->
+    <footer class="simple-footer">
+      <span>© 2025 Astroscrape. Bootstrapped B2B emails from Sweden &amp; the Netherlands.</span>
+      <a href="https://www.linkedin.com/company/astroscrape/" target="_blank" rel="noopener noreferrer">
+        Company LinkedIn →
+      </a>
+    </footer>
+  </main>
+</div>
+
+</body>
+</html>
