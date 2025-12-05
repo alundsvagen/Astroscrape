@@ -92,21 +92,20 @@ href='data:image/svg+xml;utf8,
   .menu a:hover{background:#f6f6f6}
   .menu small{color:#6b7280;font-weight:600}
 
-  /* Modal shell (keep yours) */
+  /* Modal shell (kept but unused) */
   .support-modal { position: fixed; inset: 0; display: none; }
   .support-modal.open { display: grid; place-items: center; }
   .support-modal__scrim { position: absolute; inset: 0; background: rgba(0,0,0,.4); backdrop-filter: blur(2px); }
 
-  /* Dialog */
   .support-modal__dialog{
     position: relative;
     width: min(920px, 92vw);
-    max-height: 92vh;            /* <-- key: cap total modal height to viewport */
+    max-height: 92vh;
     background: #fff;
     border-radius: 16px;
     box-shadow: 0 30px 80px rgba(0,0,0,.25);
     display: flex;
-    flex-direction: column;      /* header fixed, body scrolls */
+    flex-direction: column;
     overflow: hidden;
   }
 
@@ -118,12 +117,11 @@ href='data:image/svg+xml;utf8,
   }
   .support-modal__title{ font-weight: 900; font-size: 18px; }
 
-  /* The scrollable area */
   .support-modal__body{
-    padding: 0;                  /* Fillout will manage spacing */
-    overflow: auto;              /* <-- key: let content scroll */
-    -webkit-overflow-scrolling: touch; /* smooth iOS scrolling */
-    flex: 1 1 auto;              /* fill remaining height */
+    padding: 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    flex: 1 1 auto;
   }
 
   .support-modal__close{
@@ -131,10 +129,8 @@ href='data:image/svg+xml;utf8,
     width: 36px; height: 36px; cursor: pointer;
   }
 
-  /* Optional: lock page scroll when modal open */
   body.modal-open{ overflow: hidden; }
 
-  /* Small screens: give a little breathing room */
   @media (max-width: 480px){
     .support-modal__dialog{ width: 94vw; max-height: 94vh; }
   }
@@ -142,10 +138,10 @@ href='data:image/svg+xml;utf8,
   /* HERO — gradient moved to background only; blobs behind content */
   .hero{
     position:relative; overflow:hidden;
-    background:linear-gradient(180deg, #ffffff 0%, #f7fff6 100%); /* stays behind */
+    background:linear-gradient(180deg, #ffffff 0%, #f7fff6 100%);
   }
   .hero-inner{
-    position:relative; z-index:2; /* content above visuals */
+    position:relative; z-index:2;
     max-width:1100px;margin:0 auto;padding:64px 18px 24px;display:grid;gap:28px
   }
   .tagline{display:inline-flex;gap:8px;flex-wrap:wrap;align-items:center}
@@ -250,7 +246,7 @@ href='data:image/svg+xml;utf8,
           <span class="logo-word">Astroscrape</span>
         </a>
     </div>
-    <a class="nav-cta" href="https://form.fillout.com/t/o9LULzcAT2us" aria-label="Sign in">Sign in</a>
+    <a class="nav-cta" href="#" aria-label="Sign in">Sign in</a>
   </div>
 </nav>
 
@@ -306,7 +302,6 @@ href='data:image/svg+xml;utf8,
   .badge{background:#f6f6f6;border:1px solid #eee;border-radius:999px;padding:6px 10px;font-weight:800;font-size:12px}
   .badge.accent{background:#dbfbd7}
 
-<style>
   :root{
     --bg:#ffffff; --ink:#111; --muted:#6b7280;
     --accent:#dbfbd7; --accent2:#e0f4f9;
@@ -314,7 +309,6 @@ href='data:image/svg+xml;utf8,
     --shadow:0 12px 30px rgba(0,0,0,.08);
     --radius:24px;
   }
-  *{box-sizing:border-box}
   body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
   a{text-decoration:none;color:inherit}
   img{max-width:100%;display:block}
@@ -370,7 +364,10 @@ href='data:image/svg+xml;utf8,
   <div class="title-inner">
     <div class="kicker">Support</div>
     <h1 class="h1">Questions or privacy requests?</h1>
-    <p class="sub">We’re here to help. Ask us anything—or manage your data with one click. All forms open in a secure popup and work beautifully on mobile.</p>
+    <p class="sub">
+      We’re here to help. Ask us anything—or manage your data with a quick email.  
+      Just click a button below and your email client will open with the right subject line.
+    </p>
   </div>
 </section>
 
@@ -381,14 +378,12 @@ href='data:image/svg+xml;utf8,
       <article class="card">
         <h3>Need help?</h3>
         <p>Product questions, billing, or feedback—send it our way and we’ll get back to you quickly.</p>
-        <!-- Fillout POPUP trigger: General support -->
-        <button
+        <!-- Email trigger instead of Fillout -->
+        <a
           class="btn"
-          data-fillout-id="oyZrEXvzS1us"
-          data-fillout-embed-type="popup"
-          data-fillout-inherit-parameters>
-          Open support form
-        </button>
+          href="mailto:alexandrapgrisanti@gmail.com?subject=Astroscrape%20support%20request&body=Hi%20Alexandra%2C%0D%0A%0D%0A">
+          Send email
+        </a>
       </article>
 
       <!-- Section: Privacy controls -->
@@ -400,27 +395,21 @@ href='data:image/svg+xml;utf8,
           <div class="mini">
             <h4>Remove my information</h4>
             <p>Request deletion of your contact details from our directory.</p>
-            <!-- Fillout POPUP trigger: Remove info -->
-            <button
+            <a
               class="btn secondary"
-              data-fillout-id="qkC3rWXHQkus"
-              data-fillout-embed-type="popup"
-              data-fillout-inherit-parameters>
-              Open removal form
-            </button>
+              href="mailto:alexandrapgrisanti@gmail.com?subject=Astroscrape%20-%20remove%20my%20information&body=Hi%20Alexandra%2C%0D%0A%0D%0APlease%20remove%20my%20information%20from%20Astroscrape.%0D%0A%0D%0A">
+              Send email
+            </a>
           </div>
 
           <div class="mini">
             <h4>Do not add my information</h4>
             <p>Opt out of future uploads so your details aren’t added to the database.</p>
-            <!-- Fillout POPUP trigger: Do-not-add (same form ID as requested) -->
-            <button
+            <a
               class="btn secondary"
-              data-fillout-id="qkC3rWXHQkus"
-              data-fillout-embed-type="popup"
-              data-fillout-inherit-parameters>
-              Open opt-out form
-            </button>
+              href="mailto:alexandrapgrisanti@gmail.com?subject=Astroscrape%20-%20do%20not%20add%20my%20information&body=Hi%20Alexandra%2C%0D%0A%0D%0AI%20would%20like%20to%20opt%20out%20of%20having%20my%20information%20added%20to%20Astroscrape.%0D%0A%0D%0A">
+              Send email
+            </a>
           </div>
         </div>
       </article>
@@ -428,11 +417,8 @@ href='data:image/svg+xml;utf8,
   </div>
 </section>
 
-<!-- Load Fillout once (enables popup behavior & dynamic sizing) -->
-<script src="https://server.fillout.com/embed/v1/"></script>
-
 <script>
-  // Toggle articles
+  // Toggle articles (if you use news cards elsewhere)
   document.querySelectorAll('.news-toggle').forEach(button => {
     button.addEventListener('click', () => {
       const body = button.parentElement.querySelector('.news-body');
@@ -501,15 +487,12 @@ href='data:image/svg+xml;utf8,
       </ul>
     </nav>
 
-    <!-- Newsletter / Contact -->
+    <!-- Contact (no form, no visible email) -->
     <div class="ft-news">
-      <h3 class="ft-head">Stay in the loop</h3>
-      <form class="ft-form">
-        <input class="ft-input" type="email" placeholder="you@company.com" aria-label="Email address">
-        <button class="ft-submit" type="submit">Subscribe</button>
-      </form>
+      <h3 class="ft-head">Need help?</h3>
       <p class="ft-contact">
-        Questions? <a href="mailto:sales@astroscrape.io">sales@astroscrape.io</a>
+        Questions or privacy requests? 
+        <a href="mailto:alexandrapgrisanti@gmail.com?subject=Astroscrape%20support">Send email</a>
       </p>
     </div>
   </div>
@@ -535,7 +518,6 @@ href='data:image/svg+xml;utf8,
     grid-template-columns: 1.4fr repeat(3, 1fr) 1.6fr;
   }
 
-  /* Brand */
   .ft-logo{display:flex;align-items:center;gap:10px;margin-bottom:8px}
   .ft-logo-mark{
     width:36px;height:36px;border-radius:50%;
@@ -545,8 +527,7 @@ href='data:image/svg+xml;utf8,
   .ft-logo-word{font-family:'Shrikhand', cursive; font-size:22px; letter-spacing:.2px}
   .ft-tag{margin:0 0 14px; color:#cfe7e0; line-height:1.7}
 
-  /* Columns */
-  .ft-col{}.ft-head{margin:0 0 10px; font-weight:800; color:#cfe7e0; font-size:14px; letter-spacing:.06em; text-transform:uppercase}
+  .ft-head{margin:0 0 10px; font-weight:800; color:#cfe7e0; font-size:14px; letter-spacing:.06em; text-transform:uppercase}
   .ft-links{list-style:none; padding:0; margin:0; display:grid; gap:8px}
   .ft-links a{
     color:#e9f3f0; text-decoration:none; font-weight:600;
@@ -554,7 +535,6 @@ href='data:image/svg+xml;utf8,
   }
   .ft-links a:hover{opacity:1; transform:translateX(2px); color:#ffffff}
 
-  /* Social */
   .ft-social{display:flex; gap:10px}
   .ft-social-btn{
     width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
@@ -564,24 +544,6 @@ href='data:image/svg+xml;utf8,
   .ft-social-btn:hover{transform:translateY(-2px); background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.2)}
   .ft-social-btn svg{width:18px;height:18px;fill:#e9f3f0}
 
-  /* Newsletter */
-  .ft-news{}
-  .ft-form{display:flex; gap:8px; align-items:center}
-  .ft-input{
-    flex:1; min-width:0; padding:12px 12px; border-radius:12px; border:1px solid rgba(255,255,255,.14);
-    background:rgba(255,255,255,.06); color:#fff; font-weight:600;
-  }
-  .ft-input::placeholder{color:#c7d8d3}
-  .ft-submit{
-    padding:12px 16px; border-radius:12px; border:2px solid #ffffff;
-    background:#ffffff; color:#0d1413; font-weight:800; cursor:pointer;
-    transition:transform .15s ease, box-shadow .2s ease;
-  }
-  .ft-submit:hover{transform:translateY(-1px); box-shadow:0 10px 26px rgba(0,0,0,.35)}
-  .ft-contact{margin:10px 0 0; color:#cfe7e0}
-  .ft-contact a{color:#fff; text-decoration:underline; font-weight:700}
-
-  /* Bottom bar */
   .ft-bar{border-top:1px solid rgba(255,255,255,.06); margin-top:10px}
   .ft-bar-wrap{
     max-width:1100px; margin:0 auto; padding:14px 18px;
@@ -595,15 +557,12 @@ href='data:image/svg+xml;utf8,
   }
   .ft-top:hover{transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.28)}
 
-  /* Responsive */
   @media (max-width: 980px){
     .ft-wrap{grid-template-columns: 1fr 1fr; gap:22px}
     .ft-brand{grid-column:1 / -1}
   }
   @media (max-width: 560px){
     .ft-wrap{grid-template-columns:1fr}
-    .ft-form{flex-direction:column; align-items:stretch}
-    .ft-submit{width:100%}
     .ft-bar-wrap{flex-direction:column; gap:8px}
   }
 </style>
@@ -613,10 +572,8 @@ href='data:image/svg+xml;utf8,
   document.querySelector('.ft-top')?.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
-</script>
-<!-- END: Corporate Footer -->
 
- <script>
+  // Drawer logic
   const hamburger = document.getElementById('hamburger');
   const drawer = document.getElementById('drawer');
   const scrim = document.getElementById('scrim');
@@ -629,10 +586,7 @@ href='data:image/svg+xml;utf8,
     hamburger.setAttribute('aria-expanded', open);
   }
 
-  // Open drawer on hamburger click
   hamburger.addEventListener('click', () => toggleDrawer(!drawer.classList.contains('open')));
-
-  // Close drawer on scrim click or close button
   scrim.addEventListener('click', () => toggleDrawer(false));
   drawerClose.addEventListener('click', () => toggleDrawer(false));
 </script> 
