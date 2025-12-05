@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Astroscrape — B2B emails. Simple. Easy.</title>
-<meta name="description" content="Astroscrape builds simple, consent-first B2B email lists by industry and location." />
+<title>Invest in our Company</title>
+<meta name="description" content="Building the consent-first marketplace for B2B contacts." />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
+<!-- Favicon (inline email icon; you can swap later for static files) -->
 <link rel="icon" type="image/svg+xml"
 href='data:image/svg+xml;utf8,
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
@@ -24,1341 +24,1643 @@ href='data:image/svg+xml;utf8,
 </svg>'>
 <meta name="theme-color" content="#ffffff">
 
-<!-- Hotjar -->
-<script>
-  (function(h,o,t,j,a,r){
-      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-      h._hjSettings={hjid:6425621,hjsv:6};
-      a=o.getElementsByTagName('head')[0];
-      r=o.createElement('script');r.async=1;
-      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-      a.appendChild(r);
-  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQCRY4KX4Q"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-ZQCRY4KX4Q');
-</script>
+  <!-- Hotjar Tracking Code for AstroScrape -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:6425621,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQCRY4KX4Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-ZQCRY4KX4Q');
+  </script>    
 
 <style>
-:root{
-  --bg:#ffffff;
-  --surface:#ffffff;
-  --ink:#202124;
-  --muted:#5f6368;
-  --border-subtle:#dadce0;
-  --border-strong:#202124;
-  --accent:#1a73e8;
-  --accent-hover:#1558b8;
-  --pill-bg:#ffffff;
-  --pill-border:#dadce0;
-  --green:#1e8e3e;
-  --shadow-soft:0 4px 14px rgba(0,0,0,0.10);
-  --shadow-card:0 2px 10px rgba(0,0,0,0.06);
-}
+  :root{
+    --bg:#ffffff;
+    --ink:#111111;
+    --muted:#6b7280;
+    --accent:#dbfbd7;
+    --accent-2:#e0f4f9;
+    --pill:#f2f2f2;
+    --card:#ffffff;
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+    --radius:28px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
 
-*,
-*::before,
-*::after{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:70;background:#fff8;backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #eee}
+  .nav-inner{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .left{display:flex;align-items:center;gap:10px}
+  .logo{display:flex;align-items:center;gap:10px}
+  .logo-mark{width:36px;height:36px;border-radius:50%;background: radial-gradient(120% 120% at 20% 20%, var(--accent) 0%, var(--accent-2) 60%, #fff 100%);box-shadow:var(--shadow)}
+  .logo-word{font-family:'Shrikhand',cursive;font-size:22px;letter-spacing:.2px}
 
-html,body{height:100%}
+  /* Hamburger */
+  .hamburger{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:42px;height:42px;border-radius:999px;border:1px solid #e5e7eb;background:#fff;cursor:pointer;
+    transition:transform .2s ease, box-shadow .2s ease;margin-right:6px;
+  }
+  .hamburger:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+  .hamburger span,.hamburger::before,.hamburger::after{
+    content:"";display:block;width:18px;height:2px;background:#111;border-radius:2px;transition:transform .25s ease, opacity .25s ease;
+  }
+  .hamburger span{position:relative}
+  .hamburger::before{transform:translateY(-6px)}
+  .hamburger::after{transform:translateY(6px)}
+  .hamburger.active span{opacity:0}
+  .hamburger.active::before{transform:translateY(0) rotate(45deg)}
+  .hamburger.active::after{transform:translateY(0) rotate(-45deg)}
 
-body{
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-  color:var(--ink);
-  background:var(--bg);
+  .nav-cta{
+    display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1px solid #e5e7eb;background:#fff;font-weight:800;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .nav-cta:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+
+  /* Drawer */
+  .scrim{
+    position:fixed;inset:0;background:rgba(17,17,17,.4);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:60;
+  }
+  .scrim.open{opacity:1;pointer-events:auto}
+  .drawer{
+    position:fixed;inset:0 auto 0 0;width:min(88vw,360px);background:#fff;border-right:1px solid #eee;box-shadow:var(--shadow);
+    transform:translateX(-102%);transition:transform .25s ease;z-index:65;display:flex;flex-direction:column;
+  }
+  .drawer.open{transform:translateX(0)}
+  .drawer-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid #eee}
+  .drawer-title{display:flex;align-items:center;gap:10px}
+  .drawer-title .logo-word{font-size:20px}
+  .drawer-close{border:1px solid #e5e7eb;background:#fff;border-radius:999px;width:36px;height:36px;cursor:pointer}
+  .menu{padding:10px 12px;display:flex;flex-direction:column;gap:6px}
+  .menu a{display:flex;align-items:center;gap:10px;padding:12px 12px;border-radius:14px;font-weight:800}
+  .menu a:hover{background:#f6f6f6}
+  .menu small{color:#6b7280;font-weight:600}
+
+  /* HERO — gradient moved to background only; blobs behind content */
+  .hero{
+    position:relative; overflow:hidden;
+    background:linear-gradient(180deg, #ffffff 0%, #f7fff6 100%); /* stays behind */
+  }
+  .hero-inner{
+    position:relative; z-index:2; /* content above visuals */
+    max-width:1100px;margin:0 auto;padding:64px 18px 24px;display:grid;gap:28px
+  }
+  .tagline{display:inline-flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .tag{background:var(--pill);padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700;color:#333}
+  .h1{font-weight:900;line-height:1.02;letter-spacing:-.02em;font-size: clamp(32px, 7vw, 72px)}
+  .h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:0 .25em;border-radius:12px;box-decoration-break:clone}
+  .sub{font-size:clamp(16px, 2.6vw, 20px);color:var(--muted);max-width:760px}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 20px;border-radius:999px;font-weight:800;border:2px solid #111;background:#111;color:#fff;transition:transform .2s ease, box-shadow .2s ease, background .2s}
+  .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+  .btn.secondary{background:#fff;color:#111}
+  .trust-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+  .pill{background:#fff;border:1px solid #eee;border-radius:999px;padding:8px 12px;font-weight:700;font-size:13px}
+
+  /* Visual blobs (behind; no interaction) */
+  .blob{
+    position:absolute; z-index:1; pointer-events:none;
+    inset:auto -120px -120px auto; width:420px; height:420px; filter:blur(12px); opacity:.55;
+    background:radial-gradient(60% 60% at 40% 40%, var(--accent) 0%, var(--accent-2) 60%, transparent 100%);
+    border-radius:50%;
+    animation:float 12s ease-in-out infinite;
+  }
+  .blob.b2{inset:-80px auto auto -120px; width:500px; height:500px; animation-duration:16s;}
+  @keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-10px) scale(1.03)}}
+
+  /* Marquee */
+  .marquee{overflow:hidden;white-space:nowrap;border-top:1px dashed #e5e7eb;border-bottom:1px dashed #e5e7eb;background:#fff}
+  .marquee-track{display:inline-block;padding:12px 0;animation:scroll 24s linear infinite}
+  .marquee-item{display:inline-flex;align-items:center;gap:8px;margin:0 20px;font-weight:800;color:#444}
+  .dot{width:6px;height:6px;background:#111;border-radius:50%}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* Sections */
+  .section{padding:56px 18px}
+  .wrap{max-width:1100px;margin:0 auto}
+  .card{background:var(--card);border:1px solid #eee;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+  .kicker{font-weight:900;letter-spacing:.08em;font-size:12px;text-transform:uppercase;color:#6b7280}
+  .h2{font-weight:900;font-size:clamp(22px,4.5vw,36px);letter-spacing:-.01em;margin:6px 0 10px}
+  .p{color:#374151;line-height:1.7}
+
+  .hiw{display:grid;gap:18px;grid-template-columns:1fr;margin-top:14px}
+  .step{display:flex;gap:14px;align-items:flex-start;padding:18px;border-radius:20px;background:linear-gradient(90deg,#fff, #f9f9f9)}
+  .step-num{flex:0 0 36px;height:36px;display:grid;place-items:center;font-weight:900;border-radius:50%;background:#111;color:#fff}
+  .step h3{margin:4px 0 6px;font-size:18px}
+  .step p{margin:0;color:#4b5563}
+
+  .benefits{display:grid;gap:18px;grid-template-columns:1fr}
+  .benefit{padding:22px;border-radius:var(--radius);background:linear-gradient(180deg, #ffffff 0%, #f6fbff 100%);border:1px solid #eaf3ff}
+  .benefit h3{margin:0 0 6px;font-size:18px}
+  .benefit p{margin:0;color:#4b5563}
+
+  .footer{border-top:1px solid #eee;padding:32px 18px;background:#fff}
+  .foot-inner{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;color:#6b7280;font-size:14px}
+  .foot-links a{margin-right:14px}
+
+  .hero-cta{
+  margin-top:28px;
   display:flex;
-  flex-direction:column;
-  -webkit-font-smoothing:antialiased;
+  justify-content:center;
+  gap:16px;
+  flex-wrap:wrap;
 }
 
-a{color:inherit;text-decoration:none}
-
-/* PAGE SHELL */
-.page-shell{
-  width:100%;
-  max-width:1040px;
-  margin:0 auto;
-  padding:20px 20px 40px;
-  display:flex;
-  flex-direction:column;
-  min-height:100%;
-}
-
-/* TOP BAR */
-.top-row{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-
-.brand-lockup{
-  font-family:'Shrikhand',cursive;
-  font-weight:400;
-  font-size:28px;
-  line-height:0.9;
-  color:#000;
-  cursor:pointer;
-}
-
-.top-actions{
-  display:flex;
-  justify-content:flex-start;
-  align-items:center;
-  gap:20px;
-}
-
-.top-about-link{
-  font-size:14px;
-  font-weight:500;
-  text-decoration:underline;
-  text-underline-offset:3px;
-  color:var(--muted);
-}
-
-.top-cta{
-  padding:9px 18px;
-  border-radius:999px;
-  border:1px solid var(--border-subtle);
-  background:var(--surface);
-  font-size:12px;
-  font-weight:600;
-  letter-spacing:.04em;
-  text-transform:uppercase;
+.btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  white-space:nowrap;
-}
-
-@media (min-width:768px){
-  .top-row{
-    flex-direction:row;
-    align-items:center;
-    justify-content:space-between;
-  }
-  .brand-lockup{
-    font-size:32px;
-  }
-}
-
-/* HERO */
-.hero-center{
-  margin-top:48px;
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  text-align:left;
-}
-
-.hero-heading{
-  font-weight:700;
-  font-size:clamp(26px,4vw,36px);
-  line-height:1.25;
-  color:var(--ink);
-  margin-bottom:12px;
-}
-
-.hero-subtitle{
-  font-size:15px;
-  color:var(--muted);
-  max-width:560px;
-}
-
-.hero-subtitle + .hero-subtitle{
-  margin-top:6px;
-}
-
-/* BUILDER CARD */
-.hero-card-wrap{
-  width:100%;
-  margin-top:28px;
-}
-
-.hero-card{
-  position:relative;           /* IMPORTANT for dropdown positioning */
-  background:var(--surface);
+  font-weight:800;
+  border:2px solid #111;
   border-radius:999px;
-  border:1px solid var(--border-subtle);
-  box-shadow:var(--shadow-soft);
-  padding:12px 18px;
-  display:flex;
-  align-items:center;
-}
-
-.hero-bar{
-  width:100%;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-@media (min-width:768px){
-  .hero-card{
-    padding:12px 20px;
-  }
-  .hero-bar{
-    flex-direction:row;
-    align-items:center;
-    gap:10px;
-  }
-}
-
-/* FIELD PILLS */
-.field-row{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-
-@media (min-width:768px){
-  .field-row{
-    flex-direction:row;
-  }
-}
-
-.field-pill{
-  position:relative;
-  flex:1;
-  background:var(--pill-bg);
-  border-radius:999px;
-  padding:10px 40px 10px 16px;
-  display:flex;
-  align-items:center;
-  justify-content:flex-start;
-  cursor:pointer;
-  border:1px solid var(--pill-border);
-  transition:border-color .15s ease, box-shadow .15s ease, background .15s ease;
-}
-
-.field-pill:hover{
-  border-color:var(--border-subtle);
-  box-shadow:0 1px 2px rgba(0,0,0,0.06);
-  background:#f8f9fa;
-}
-
-.field-pill-label{
-  font-size:14px;
-  font-weight:500;
-  color:#9aa0a6;
-}
-
-.field-pill-label.selected{
-  color:var(--ink);
-}
-
-.field-pill-caret{
-  position:absolute;
-  right:16px;
-  font-size:12px;
-  color:#dadce0;
-}
-
-/* BUILD BUTTON */
-.build-pill{
-  width:100%;
-  border-radius:999px;
-  border:none;
-  background:var(--accent);
-  color:#fff;
+  padding:14px 22px;
   font-size:15px;
-  font-weight:600;
-  padding:11px 18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  text-decoration:none;
   cursor:pointer;
-  transition:background .12s ease, transform .08s ease, box-shadow .12s ease;
-  box-shadow:0 2px 6px rgba(26,115,232,0.35);
+  transition:transform .2s ease, box-shadow .2s ease;
 }
 
-.build-pill:hover{
-  background:var(--accent-hover);
-}
-
-.build-pill:active{
-  transform:translateY(1px);
-  box-shadow:0 1px 3px rgba(26,115,232,0.35);
-}
-
-@media (min-width:768px){
-  .build-pill{
-    width:150px;
-    flex:none;
-  }
-}
-
-/* ERROR MESSAGE */
-.error{
-  margin-top:8px;
-  font-size:12px;
-  color:#d93025;
-  text-align:left;
-  display:none;
-}
-.error.show{display:block;}
-
-/* DROPDOWN SHEET */
-.dropdown-sheet{
-  position:absolute;
-  left:0;
-  right:0;
-  top:calc(100% + 6px);
-  margin:0 auto;
-  max-width:520px;
-  background:var(--surface);
-  border-radius:16px;
-  border:1px solid var(--border-subtle);
-  box-shadow:var(--shadow-card);
-  padding:10px 10px 8px;
-  display:none;
-  z-index:20;
-  max-height:60vh;
-  overflow-y:auto;
-}
-
-.dropdown-sheet.open{display:block;}
-
-.dropdown-label{
-  font-size:11px;
-  font-weight:600;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-  color:#9aa0a6;
-  margin-bottom:4px;
-}
-
-.dropdown-list{
-  list-style:none;
-}
-
-.dropdown-item{
-  padding:8px 8px;
-  border-radius:8px;
-  font-size:15px;
-  font-weight:500;
-  color:var(--ink);
-  cursor:pointer;
-}
-.dropdown-item + .dropdown-item{margin-top:2px;}
-.dropdown-item.selected{
-  background:#e8f0fe;
-}
-
-/* RESULTS / CARDS */
-.results{
-  margin-top:32px;
-  display:none;
-  flex-direction:column;
-  gap:10px;
-}
-.results.visible{display:flex;}
-
-.results-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:8px;
-  flex-wrap:wrap;
-}
-.results-title{
-  font-size:11px;
-  font-weight:600;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color:#9aa0a6;
-}
-.results-meta{
-  font-size:13px;
-  color:var(--muted);
-}
-
-.cards{
-  margin-top:10px;
-  display:grid;
-  gap:12px;
-}
-
-@media (min-width:768px){
-  .cards{grid-template-columns:repeat(3,minmax(0,1fr));}
-}
-
-/* CARD */
-.card{
-  background:var(--surface);
-  border-radius:16px;
-  border:1px solid var(--border-subtle);
-  padding:16px 14px 14px;
-  text-align:left;
-  cursor:pointer;
-  box-shadow:var(--shadow-card);
-  transition:box-shadow .12s ease, transform .08s ease, border-color .12s ease, opacity .12s ease;
-  opacity:0;
-  transform:translateY(10px);
-}
-.card.reveal{
-  animation:cardRise .35s ease-out forwards;
-}
-@keyframes cardRise{
-  to{opacity:1;transform:translateY(0);}
-}
-.card:hover{
-  border-color:#dadce0;
-  box-shadow:0 4px 12px rgba(0,0,0,0.10);
+.btn:hover{
   transform:translateY(-1px);
-}
-.card-context{
-  font-size:11px;
-  font-weight:600;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color:#9aa0a6;
-  margin-bottom:10px;
-}
-.card-icon{
-  font-size:24px;
-  color:var(--ink);
-  margin-bottom:8px;
-}
-.card-price{
-  font-size:18px;
-  font-weight:700;
-  color:var(--green);
-}
-.card-name{
-  margin-top:2px;
-  font-size:15px;
-  font-weight:600;
-}
-.card-note{
-  margin-top:6px;
-  font-size:13px;
-  color:var(--muted);
+  box-shadow:var(--shadow);
 }
 
-/* MODALS (shared styles) */
-.modal-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(32,33,36,.45);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:100;
-  backdrop-filter:blur(4px);
-}
-.modal-overlay.open{display:flex;}
-
-.modal-shell,
-.custom-shell{
-  width:100%;
-  max-width:520px;
-  padding:16px;
-}
-
-.modal-box{
-  position:relative;
-  background:#ffffff;
-  border-radius:18px;
-  border:1px solid rgba(0,0,0,0.06);
-  box-shadow:0 18px 40px rgba(32,33,36,0.28);
-  padding:20px 22px 18px;
-}
-
-/* PRODUCT MODAL HEADER */
-.modal-header-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:12px;
-}
-.modal-heading-block{
-  display:flex;
-  gap:12px;
-  align-items:flex-start;
-}
-.modal-icon-circle{
-  width:40px;
-  height:40px;
-  border-radius:12px;
-  background:#f1f3f4;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:22px;
-}
-
-.modal-title-stack{
-  display:flex;
-  flex-direction:column;
-  gap:2px;
-}
-
-.modal-context{
-  font-size:11px;
-  font-weight:600;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color:#5f6368;
-}
-.modal-price{
-  font-size:18px;
-  font-weight:700;
-  color:#16a34a;
-}
-.modal-list-name{
-  font-size:15px;
-  font-weight:600;
-  color:#202124;
-}
-
-/* Close button */
-.modal-close-scribble{
-  position:relative;
-  width:24px;
-  height:24px;
-  border:none;
-  background:transparent;
-  cursor:pointer;
-}
-.modal-close-scribble::before,
-.modal-close-scribble::after{
-  content:"";
-  position:absolute;
-  left:5px;
-  right:5px;
-  top:50%;
-  border-top:2px solid #9aa0a6;
-  transform-origin:center;
-}
-.modal-close-scribble::before{transform:rotate(45deg);}
-.modal-close-scribble::after{transform:rotate(-45deg);}
-
-/* Product modal body */
-.modal-body{
-  margin-top:18px;
-  font-size:14px;
-  color:#202124;
-}
-.modal-label{
-  font-size:11px;
-  font-weight:600;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-  margin-bottom:6px;
-  color:#5f6368;
-}
-.modal-bullets{
-  list-style:none;
-  margin:0 0 14px;
-  padding:0;
-}
-.modal-bullets li{
-  margin-bottom:4px;
-  font-size:14px;
-}
-.modal-subline{
-  margin-top:4px;
-  font-size:14px;
-}
-
-/* Step 2: form only */
-.modal-step-2{
-  display:none;
-  margin-top:14px;
-}
-.modal-form{
-  border-radius:12px;
-  border:1px solid #e0e0e0;
-  width:100%;
-  background:#fff;
-  height:60vh;
-}
-
-/* Footer */
-.modal-footer{
-  margin-top:18px;
-  display:flex;
-  justify-content:flex-end;
-}
-.modal-get-btn{
-  padding:9px 22px;
-  border-radius:999px;
-  border:none;
-  background:#1a73e8;
+.btn.primary{
+  background:#111;
   color:#fff;
-  font-size:14px;
-  font-weight:600;
-  cursor:pointer;
-  box-shadow:0 3px 6px rgba(26,115,232,0.35);
-  transition:background .12s ease, box-shadow .12s ease, transform .08s ease;
-}
-.modal-get-btn:hover{
-  background:#185abc;
-  box-shadow:0 4px 12px rgba(26,115,232,0.4);
-  transform:translateY(-1px);
-}
-.modal-get-btn:active{
-  background:#185abc;
-  box-shadow:0 2px 4px rgba(26,115,232,0.35);
-  transform:translateY(0);
 }
 
-/* When form is open */
-.modal-box.form-open .modal-body,
-.modal-box.form-open .modal-footer{
-  display:none;
-}
-.modal-box.form-open .modal-step-2{
-  display:block;
-}
-
-/* CUSTOM FORM MODAL (top-right button) */
-.custom-shell{
-  max-width:640px;
-}
-.custom-box{
-  padding:20px 22px 18px;
-}
-.custom-title{
-  font-size:16px;
-  font-weight:600;
-  color:#202124;
-}
-.custom-sub{
-  font-size:13px;
-  color:#5f6368;
-  margin-top:4px;
-  margin-bottom:10px;
-}
-.custom-form{
-  width:100%;
-  height:65vh;
-  border-radius:12px;
-  border:1px solid #e0e0e0;
-}
-
-/* Mobile tweaks */
-@media (max-width:600px){
-  .modal-shell,
-  .custom-shell{
-    padding:12px;
-  }
-  .modal-box,
-  .custom-box{
-    border-radius:16px;
-    padding:18px 16px 16px;
-  }
-}
-
-/* Close button */
-.modal-close-scribble{
-  position:relative;
-  width:24px;
-  height:24px;
-  border:none;
-  background:transparent;
-  cursor:pointer;
-}
-.modal-close-scribble::before,
-.modal-close-scribble::after{
-  content:"";
-  position:absolute;
-  left:5px;
-  right:5px;
-  top:50%;
-  border-top:2px solid #9aa0a6;
-  transform-origin:center;
-}
-.modal-close-scribble::before{transform:rotate(45deg);}
-.modal-close-scribble::after{transform:rotate(-45deg);}
-
-/* Product modal body */
-.modal-body{
-  margin-top:14px;
-  font-size:14px;
-  color:var(--ink);
-}
-.modal-label{
-  font-size:11px;
-  font-weight:600;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-  margin-bottom:6px;
-  color:#5f6368;
-}
-.modal-bullets{
-  list-style:none;
-  margin:0 0 12px;
-  padding:0;
-}
-.modal-bullets li{
-  margin-bottom:4px;
-  font-size:14px;
-}
-.modal-subline{
-  margin-top:4px;
-  font-size:14px;
-}
-
-/* Step 2: form only */
-.modal-step-2{
-  display:none;
-  margin-top:12px;
-}
-.modal-form{
-  border-radius:8px;
-  border:1px solid var(--border-subtle);
-  width:100%;
+.btn.secondary{
   background:#fff;
-  height:60vh;
+  color:#111;
 }
 
-/* Footer */
-.modal-footer{
-  margin-top:14px;
-  display:flex;
-  justify-content:flex-end;
-}
-.modal-get-btn{
-  padding:9px 18px;
-  border-radius:999px;
-  border:none;
-  background:var(--accent);
-  color:#fff;
-  font-size:14px;
-  font-weight:600;
-  cursor:pointer;
-}
 
-/* When form is open */
-.modal-box.form-open .modal-body,
-.modal-box.form-open .modal-footer{
-  display:none;
-}
-.modal-box.form-open .modal-step-2{
-  display:block;
-}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
+  .reveal.in{opacity:1;transform:translateY(0)}
 
-/* CUSTOM FORM MODAL */
-.custom-shell{max-width:640px;}
-.custom-box{padding:18px 18px 16px;}
-.custom-title{
-  font-size:16px;
-  font-weight:600;
-}
-.custom-sub{
-  font-size:13px;
-  color:var(--muted);
-  margin-top:4px;
-  margin-bottom:10px;
-}
-.custom-form{
-  width:100%;
-  height:65vh;
-  border-radius:8px;
-  border:1px solid var(--border-subtle);
-}
-
-/* FOOTER */
-footer{
-  border-top:1px solid var(--border-subtle);
-  padding:16px 0 0;
-  margin-top:40px;
-  font-size:12px;
-  color:#9aa0a6;
-  text-align:center;
-}
-
-/* Mobile fixes for builder bubble */
-@media (max-width: 640px){
-  .hero-card{
-    border-radius:24px;      /* instead of huge pill */
-    padding:16px 16px 18px;  /* a bit more breathing room */
-    box-shadow:0 4px 12px rgba(0,0,0,0.08); /* slightly softer */
+  @media(min-width:720px){
+    .hiw{grid-template-columns:repeat(3,1fr)}
+    .benefits{grid-template-columns:repeat(3,1fr)}
   }
-
-  .hero-card-wrap{
-    margin-top:20px;
+  @media (prefers-reduced-motion:reduce){
+    .marquee-track{animation:none}
+    .blob{animation:none}
+    .reveal{transition:none}
   }
-}
-
 </style>
 </head>
 <body>
-<div class="page-shell">
-  <header class="top-row">
-    <div class="brand-lockup" id="brandReset">
-      Astro<br/>Scrape
-    </div>
 
-    <div class="top-actions">
-      <a href="about.html" class="top-about-link">About</a>
-      <button class="top-cta" type="button" id="customBtn">
-        Subscribe
+<!-- SCRIM + DRAWER -->
+<div class="scrim" id="scrim" aria-hidden="true"></div>
+<aside class="drawer" id="drawer" aria-hidden="true" aria-label="Main menu">
+  <div class="drawer-header">
+    <div class="drawer-title">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span class="logo-word">Astroscrape</span>
+    </div>
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
+  </div>
+  <nav class="menu" role="navigation">
+    <a href="https://alundsvagen.github.io/Astroscrape/Products.html">Products <small>Overview</small></a>
+    <a href="https://alundsvagen.github.io/Astroscrape/detailed.view.html">Email Product <small>Leads</small></a>
+    <a href="https://alundsvagen.github.io/Astroscrape/news.html">News <small>Updates</small></a>
+    <a href="https://alundsvagen.github.io/Astroscrape/recruitment.html">Recruitment <small>Careers</small></a>
+    <a href="https://alundsvagen.github.io/Astroscrape/support.html">Support <small>Help Center</small></a>
+    <a href="https://alundsvagen.github.io/Astroscrape/invest.html">Investors <small>For shareholders</small></a>
+    <a href="https://alundsvagen.github.io/Astroscrape/contact.html">Contacts <small>Get in touch</small></a>
+  </nav>
+</aside>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Top">
+  <div class="nav-inner">
+    <div class="left">
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
+        <span></span>
       </button>
+        <a class="logo" href="index.html">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <span class="logo-word">Astroscrape</span>
+        </a>
     </div>
-  </header>
+    <a class="nav-cta" href="https://form.fillout.com/t/o9LULzcAT2us" aria-label="Sign in">Login</a>
+  </div>
+</nav>
 
-  <!-- HERO CENTER -->
-  <main class="hero-center">
-    <h1 class="hero-heading">
-      B2B emails. Simple. Easy.
-    </h1>
-    <p class="hero-subtitle">
-      Tell us who you want to reach and we’ll build a clean, consent-first list of decision-makers by industry and location.
-    </p>
-    <p class="hero-subtitle">
-      Choose your industry and country, then pick a list size. We verify emails and send a CSV straight to your inbox.
-    </p>
+<style>
+  :root{
+    --bg:#ffffff;
+    --ink:#111111;
+    --muted:#6b7280;
+    --accent:#dbfbd7;
+    --accent2:#e0f4f9;
+    --card:#ffffff;
+    --shadow:0 12px 30px rgba(0,0,0,.08);
+    --radius:26px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
 
-    <div class="hero-card-wrap">
-      <section class="hero-card" aria-label="List builder">
-        <div class="hero-bar">
-          <div class="field-row">
-            <!-- Industry -->
-            <button class="field-pill" type="button" data-field="industry">
-              <span class="field-pill-label" id="industryLabel" data-placeholder="industry">industry</span>
-              <span class="field-pill-caret">▾</span>
-            </button>
-            <!-- Location -->
-            <button class="field-pill" type="button" data-field="location">
-              <span class="field-pill-label" id="locationLabel" data-placeholder="location">location</span>
-              <span class="field-pill-caret">▾</span>
-            </button>
-          </div>
+  /* ===== Title Section ===== */
+  .title{
+    position:relative; overflow:hidden;
+    background:linear-gradient(180deg,#ffffff 0%, #f7fff6 100%);
+    padding:72px 18px 40px;
+  }
+  .title-inner{max-width:1100px;margin:0 auto;text-align:center}
+  .kicker{font-weight:900;letter-spacing:.08em;font-size:12px;text-transform:uppercase;color:var(--muted)}
+  .h1{font-weight:900;letter-spacing:-.02em;font-size:clamp(30px,6vw,56px);margin:8px 0 10px}
+  .sub{color:#374151;max-width:780px;margin:0 auto;line-height:1.7}
 
-          <button id="buildBtn" type="button" class="build-pill">Sort List</button>
-        </div>
+  /* ===== Grid basics ===== */
+  .section{padding:56px 18px}
+  .wrap{max-width:1100px;margin:0 auto}
 
-        <p id="errorMsg" class="error">Please choose both an industry and a location.</p>
+  /* ===== Pill cards ===== */
+  .grid-4{display:grid;gap:18px;grid-template-columns:1fr}
+  @media(min-width:860px){ .grid-4{grid-template-columns:repeat(4,1fr)} }
 
-        <!-- Dropdown sheet -->
-        <div class="dropdown-sheet" id="dropdownSheet" aria-hidden="true">
-          <div class="dropdown-label" id="dropdownLabel"></div>
-          <ul class="dropdown-list" id="dropdownOptions"></ul>
-        </div>
-      </section>
-    </div>
+  .pill{
+    background:var(--card);
+    border:1px solid #eee;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:20px;
+  }
+  .pill h3{margin:0 0 6px;font-size:18px;font-weight:900}
+  .pill p{margin:0;color:#374151;line-height:1.7}
 
-    <!-- Results / cards -->
-    <section id="results" class="results">
-      <div class="results-header">
-        <div class="results-title">Available lists</div>
-        <div id="selectionSummary" class="results-meta"></div>
+  /* ===== Animated data > auction > payout ===== */
+  .flow{
+    background:radial-gradient(1200px 600px at 10% -10%, #dbfbd7 0%, #e0f4f9 60%, #ffffff 100%);
+    border:1px solid #eaf3ff;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:22px;
+  }
+  .flow-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+  .flow-head h2{margin:0;font-size:22px;font-weight:900;letter-spacing:-.01em}
+  .legend{display:flex;gap:10px;flex-wrap:wrap}
+  .chip{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid #e5e7eb;font-weight:800;font-size:12px}
+  .dot{width:8px;height:8px;border-radius:50%}
+  .u{background:#66c061} .m{background:#111} .p{background:#8bd0ea}
+
+  .canvas{
+    position:relative;aspect-ratio:16/9;min-height:260px;background:#fff;border:1px dashed #dbe6ef;border-radius:18px;overflow:hidden;
+  }
+  /* Users (left) */
+  .user{position:absolute;left:-60px;top:var(--y);width:46px;height:46px;border-radius:14px;background:#f7fff6;border:1px solid #d9f2d7;display:grid;place-items:center;font-weight:900}
+  .user::after{content:"@";opacity:.5}
+  /* Auction block (center) */
+  .auction{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:160px;height:100px;border-radius:16px;background:#111;color:#fff;display:grid;place-items:center;box-shadow:0 12px 26px rgba(0,0,0,.25)
+  }
+  .auction .gavel{font-weight:900;letter-spacing:.06em}
+  .auction .subg{font-size:12px;color:#cfe7e0;margin-top:2px}
+
+  /* Coins (payouts) that fly back to users */
+  .coin{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;background:linear-gradient(180deg,#ffe99a,#ffd24a);border:1px solid #e3c24a;box-shadow:0 6px 14px rgba(0,0,0,.2)}
+  .coin::after{content:"$";display:block;text-align:center;line-height:26px;font-weight:900}
+
+  /* Motion */
+  @keyframes toAuction{
+    0%{transform:translateX(0) translateY(0)}
+    100%{transform:translateX(calc(50vw - 40%)) translateY(var(--dy))}
+  }
+  @keyframes payout{
+    0%{transform:translate(-50%,-50%) scale(.6);opacity:0}
+    10%{opacity:1}
+    100%{transform:translate(var(--tx), var(--ty)) scale(1);opacity:0}
+  }
+
+  /* Assign travel; we’ll set CSS vars inline */
+  .move{animation:toAuction var(--dur) ease-in forwards}
+  .fly{animation:payout var(--pdur) ease-out forwards}
+
+  /* ===== “Future Exchange” concept ===== */
+  .future{
+    background:#0d1413;color:#e9f3f0;border-radius:var(--radius);padding:22px;border:1px solid rgba(255,255,255,.08);box-shadow:0 10px 24px rgba(0,0,0,.35)
+  }
+  .future h2{margin:0 0 8px;font-size:22px;font-weight:900}
+  .ticker{overflow:hidden;border:1px solid rgba(255,255,255,.12);border-radius:14px}
+  .t-track{display:flex;gap:10px;white-space:nowrap;padding:10px;animation:tScroll 24s linear infinite}
+  .ticket{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:8px 12px;font-weight:800}
+  .ticket small{opacity:.8}
+  @keyframes tScroll{to{transform:translateX(-50%)}}
+
+  /* ===== CTA ===== */
+  .cta{
+    background:linear-gradient(180deg,#ffffff 0%, #f7fff6 100%);
+    border:1px solid #eee;border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:26px;text-align:center
+  }
+  .cta h2{margin:0 0 10px;font-size:clamp(22px,4.5vw,34px);font-weight:900}
+  .cta p{margin:0 0 16px;color:#374151}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;font-weight:800;border:2px solid #111;background:#111;color:#fff;border-radius:999px;padding:12px 16px;transition:transform .2s ease, box-shadow .2s ease
+  }
+  .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+  .btn.secondary{background:#fff;color:#111}
+</style>
+</head>
+<body>
+
+<!-- ===== Title Section ===== -->
+<section class="title" aria-label="Investors">
+  <div class="title-inner">
+    <div class="kicker">For Prospecting</div>
+    <h1 class="h1">Lead Generation Directory to Cut Prospecting Time in Half.</h1>
+    <p class="sub">We built Astroscrape for bootstrappers like us needing their first 100 Customers. Using Google Maps Data we give you targeted lists to jump start your outreach.</p>
+  </div>
+  <div class="hero-cta">
+    <a class="btn secondary" href="Products.html">Learn More</a>
+    <a class="btn primary" href="https://form.fillout.com/t/o9LULzcAT2us">Sign Up</a>
+  </div>  
+</section>
+
+<!-- ===== Mission / Vision / Purpose / Uniqueness ===== -->
+<section class="section" aria-label="Company pillars">
+  <div class="wrap">
+    <div class="grid-4">
+      <div class="pill">
+        <h3>What is it?</h3>
+        <p>Industry & Location Specific lists of Real Businesses in Excel Format. Sent to your email inbox.</p>
       </div>
-
-      <div class="cards">
-        <!-- Sample -->
-        <article
-          class="card card-sample"
-          data-count="Sample"
-          data-price="FREE"
-          data-product-id="sample"
-          data-icon="bi-brightness-alt-high-fill"
-        >
-          <div class="card-context"></div>
-          <i class="bi bi-brightness-alt-high-fill card-icon" aria-hidden="true"></i>
-          <div class="card-price">0 SEK</div>
-          <div class="card-name">No credit card needed.</div>
-          <div class="card-note">Designed & made in Sweden.</div>
-        </article>
-
-        <!-- 100 -->
-        <article
-          class="card card-100"
-          data-count="100"
-          data-price="15 SEK"
-          data-product-id="list100"
-          data-icon="bi-brightness-high-fill"
-        >
-          <div class="card-context"></div>
-          <i class="bi bi-brightness-high-fill card-icon" aria-hidden="true"></i>
-          <div class="card-price">15 SEK</div>
-          <div class="card-name">List of 100 Company URLs</div>
-          <div class="card-note">Perfect for a focused outbound sprint.</div>
-        </article>
-
-        <!-- 300 -->
-        <article
-          class="card card-300"
-          data-count="300"
-          data-price="50 SEK"
-          data-product-id="list300"
-          data-icon="bi-cup-hot-fill"
-        >
-          <div class="card-context"></div>
-          <i class="bi bi-cup-hot-fill card-icon" aria-hidden="true"></i>
-          <div class="card-price">50 SEK</div>
-          <div class="card-name">List of 300 Company URLs</div>
-          <div class="card-note">Best value when you’re ready to scale.</div>
-        </article>
+      <div class="pill">
+        <h3>Why?</h3>
+        <p>The first step of Prospecting is often finding relevant companies. We streamlined this for you. Now you get 100 or 300 businesses in a set location (Sweden or Germany or the UK) and they are real, we have their URLS and some generic emails.</p>
       </div>
-    </section>
-  </main>
-
-  <footer>
-    © 2025 Astroscrape. B2B emails, built with love from Sweden.
-  </footer>
-</div>
-
-<!-- PRODUCT MODAL -->
-<div id="modalOverlay" class="modal-overlay" aria-hidden="true">
-  <div class="modal-shell">
-    <div id="productModal" class="modal-box" role="dialog" aria-modal="true">
-      <div class="modal-header-row">
-        <div class="modal-heading-block">
-          <div class="modal-icon-circle">
-            <i class="bi card-icon" id="modalIcon" aria-hidden="true"></i>
-          </div>
-          <div class="modal-title-stack">
-            <div class="modal-context" id="modalContext">INDUSTRY • LOCATION</div>
-            <div class="modal-price" id="modalPrice">0 SEK</div>
-            <div class="modal-list-name" id="modalListName">LIST NAME</div>
-          </div>
-        </div>
-        <button type="button" class="modal-close-scribble" data-close></button>
+      <div class="pill">
+        <h3>How does this help me?</h3>
+        <p>We know it would be even better if we sold decision makers emails and we know how to technically get those BUT that's illegal in the EU. So we are giving you what is legal and teaching you how to reach out without spamming.</p>
       </div>
-
-      <div class="modal-body">
-        <div class="modal-section">
-          <div class="modal-label">What you get</div>
-          <ul class="modal-bullets">
-            <li id="modalLineCount">300 (industry) businesses in (location)</li>
-            <li>URLs to the businesses</li>
-            <li>Verified info@ or sales@ emails</li>
-          </ul>
-        </div>
-
-        <div class="modal-section">
-          <div class="modal-label">Delivery</div>
-          <div class="modal-subline">We send a CSV directly to your inbox.</div>
-        </div>
-      </div>
-
-      <div class="modal-step-2">
-        <iframe class="modal-form" id="modalForm" src="" frameborder="0"></iframe>
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="modal-get-btn" id="modalGetBtn">Get List</button>
+      <div class="pill">
+        <h3>Jump Start Outreach</h3>
+        <p>Research shows Forms on companies websites (Companies of 50 people or fewer)  usually go directly to the CEO's inbox. We suggest you start there but the other alternative is to pay someone to take the URLS, use Linkedin to find out who works there and verify their emails with a service like Truelist.io.</p>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- CUSTOM FORM MODAL -->
-<div id="customOverlay" class="modal-overlay" aria-hidden="true">
-  <div class="custom-shell">
-    <div class="modal-box custom-box" role="dialog" aria-modal="true">
-      <div class="modal-header-row">
-        <div>
-          <div class="custom-title">Subscribe to Astroscrape</div>
-          <p class="custom-sub">
-            100% Free. Get Updates & occassional lists from us.
-          </p>
-        </div>
-        <button type="button" class="modal-close-scribble" data-close-custom></button>
-      </div>
-      <iframe id="customForm" class="custom-form" src="" frameborder="0"></iframe>
-    </div>
-  </div>
-</div>
+<style>
+/* container helpers (match your brand scaffolding) */
+.section{padding:56px 18px}
+.wrap{max-width:1100px;margin:0 auto}
+
+/* card */
+.flow{
+  background: radial-gradient(1200px 600px at 10% -10%, #dbfbd7 0%, #e0f4f9 60%, #ffffff 100%);
+  border:1px solid #eaf3ff;
+  border-radius:26px;
+  box-shadow:0 12px 30px rgba(0,0,0,.06);
+  padding:22px;
+}
+.flow-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.flow-head h2{margin:0;font-size:clamp(20px,3vw,24px);font-weight:900;letter-spacing:-.01em}
+
+/* legend */
+.legend{display:flex;gap:10px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid #e5e7eb;font-weight:800;font-size:12px}
+.dot{width:8px;height:8px;border-radius:50%}
+.u{background:#66c061} .m{background:#111} .p{background:#8bd0ea}
+
+/* chart canvas */
+.canvas{position:relative;aspect-ratio:16/9;min-height:360px;background:#fff;border-radius:18px;overflow:hidden;}
+
+/* floating trade tickets */
+#ex-tickets{position:absolute;inset:0;pointer-events:none}
+.ticket-pop{
+  position:absolute;transform:translate(-50%,-50%);
+  background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:8px 10px;
+  box-shadow:0 10px 24px rgba(0,0,0,.14);font-weight:800;font-size:12px;white-space:nowrap
+}
+.ticket-pop .coin{
+  display:inline-grid;place-items:center;margin-left:6px;
+  background:linear-gradient(180deg,#ffe99a,#ffd24a);border:1px solid #e3c24a;
+  width:20px;height:20px;border-radius:50%;font-weight:900
+}
+.ticket-pop.fade{animation:fadeOut 2.6s ease forwards}
+@keyframes fadeOut{0%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-70%) scale(.96)}}
+
+/* ticker */
+.ticker{overflow:hidden;border:1px solid #dbe6ef;border-radius:14px;margin-top:12px;background:#fff}
+.t-track{display:flex;gap:18px;white-space:nowrap;animation:ticker 26s linear infinite;padding:10px 14px;font-weight:800}
+.ticket{display:inline-flex;gap:8px;align-items:baseline}
+.ticket small{color:#6b7280;font-weight:800}
+@keyframes ticker{to{transform:translateX(-50%)}}
+
+/* responsive */
+@media (max-width:720px){
+  .flow-head{flex-direction:column;align-items:flex-start}
+}
+</style>
 
 <script>
-  // ====== FORM URLS (60 products + 1 custom) ======
-  const FORM_URLS = {
-    sample: {
-      "banking-finance": {
-        sweden:        "https://form.fillout.com/t/6e45T172Pxus",
-        germany:       "https://form.fillout.com/t/ntJyfChhYBus",
-        "northern-europe": "https://form.fillout.com/t/dsy8Tpq3Pnus",
-        uk:            "https://form.fillout.com/t/1sa9Zu6bCrus",
-        usa:           "https://form.fillout.com/t/mtbrwBEcR7us",
-      },
-      "b2b-smes-small-medium-enterprise": {
-        sweden:        "https://form.fillout.com/t/xcrS3NhU4Pus",
-        germany:       "https://form.fillout.com/t/k9bRmwQVhRus",
-        "northern-europe": "https://form.fillout.com/t/byP3u1cthQus",
-        uk:            "https://form.fillout.com/t/t4GDW3X1VYus",
-        usa:           "https://form.fillout.com/t/htPm62GBEsus",
-      },
-      "it-and-start-up-companies": {
-        sweden:        "https://form.fillout.com/t/eWZe2uki3Uus",
-        germany:       "https://form.fillout.com/t/2rW31Kziu5us",
-        "northern-europe": "https://form.fillout.com/t/eFJy3MSUJFus",
-        uk:            "https://form.fillout.com/t/nPDBj5VWCXus",
-        usa:           "https://form.fillout.com/t/usC7YX1xvSus",
-      },
-      "b2c-smes": {
-        sweden:        "https://form.fillout.com/t/9NNGrHmsEWus",
-        germany:       "https://form.fillout.com/t/ncFJEBDEM5us",
-        "northern-europe": "https://form.fillout.com/t/9XJtehLunUus",
-        uk:            "https://form.fillout.com/t/9KNUDpPu1Cus",
-        usa:           "https://form.fillout.com/t/grUWCwKSeRus",
-      }
-    },
+(() => {
+  const svg = document.getElementById('ex-svg');
+  const area = document.getElementById('ex-area');
+  const line = document.getElementById('ex-line');
+  const dot = document.getElementById('ex-dot');
+  const priceGroup = document.getElementById('ex-price');
+  const priceBg = document.getElementById('ex-price-bg');
+  const priceTxt = document.getElementById('ex-price-txt');
+  const grid = document.getElementById('ex-grid');
+  const tickets = document.getElementById('ex-tickets');
 
-    list100: {
-      "banking-finance": {
-        sweden:        "https://form.fillout.com/t/6UTkRz47Lcus",
-        germany:       "https://form.fillout.com/t/m6dYNqwW7Rus",
-        "northern-europe": "https://form.fillout.com/t/tnbEKVCbT4us",
-        uk:            "https://form.fillout.com/t/sWHFoqsKQMus",
-        usa:           "https://form.fillout.com/t/sFfgjLTCUYus",
-      },
-      "b2b-smes-small-medium-enterprise": {
-        sweden:        "https://form.fillout.com/t/nQWD3y9KXNus",
-        germany:       "https://form.fillout.com/t/4uVkLau8Lius",
-        "northern-europe": "https://form.fillout.com/t/99LvD94Nidus",
-        uk:            "https://form.fillout.com/t/fxZ62tZXSSus",
-        usa:           "https://form.fillout.com/t/2uD4eGvaEYus",
-      },
-      "it-and-start-up-companies": {
-        sweden:        "https://form.fillout.com/t/oQDP5Vknzgus",
-        germany:       "https://form.fillout.com/t/x3q4WYGPy5us",
-        "northern-europe": "https://form.fillout.com/t/6317VdmTxHus",
-        uk:            "https://form.fillout.com/t/sWHFoqsKQMus",
-        usa:           "https://form.fillout.com/t/eYghzTMj93us",
-      },
-      "b2c-smes": {
-        sweden:        "https://form.fillout.com/t/jLwBTeDa53us",
-        germany:       "https://form.fillout.com/t/c29AsTzHQqus",
-        "northern-europe": "https://form.fillout.com/t/r59D8GEQnPus",
-        uk:            "https://form.fillout.com/t/56R4P8XNYjus",
-        usa:           "https://form.fillout.com/t/54xq7uKn1Sus",
-      }
-    },
+  const W = 800, H = 450, PX = {l:40, r:40, t:30, b:30};
+  const w = W - PX.l - PX.r, h = H - PX.t - PX.b;
 
-    list300: {
-      "banking-finance": {
-        sweden:        "https://form.fillout.com/t/94WKWYH5p8us",
-        germany:       "https://form.fillout.com/t/sC6BXuh5VBus",
-        "northern-europe": "https://form.fillout.com/t/9u9Es9a8BJus",
-        uk:            "https://form.fillout.com/t/3DbQEKYp8vus",
-        usa:           "https://form.fillout.com/t/nsHHjnGyzMus",
-      },
-      "b2b-smes-small-medium-enterprise": {
-        sweden:        "https://form.fillout.com/t/fBGTKa2bTSus",
-        germany:       "https://form.fillout.com/t/j5mjx6haaPus",
-        "northern-europe": "https://form.fillout.com/t/v78yJcThkRus",
-        uk:            "https://form.fillout.com/t/oiwMLvpTsDus",
-        usa:           "https://form.fillout.com/t/akjaHaR9bbus",
-      },
-      "it-and-start-up-companies": {
-        sweden:        "https://form.fillout.com/t/9ZamsVH33Lus",
-        germany:       "https://form.fillout.com/t/fEsaG9TH9eus",
-        "northern-europe": "https://form.fillout.com/t/3P3FCMgfh7us",
-        uk:            "https://form.fillout.com/t/qYKCQaNeaaus",
-        usa:           "https://form.fillout.com/t/uH6Ci5d4zZus",
-      },
-      "b2c-smes": {
-        sweden:        "https://form.fillout.com/t/jYf3kzQepwus",
-        germany:       "https://form.fillout.com/t/f2kaoRXTFFus",
-        "northern-europe": "https://form.fillout.com/t/otTyBoS6Lous",
-        uk:            "https://form.fillout.com/t/vUXkAgvUw4us",
-        usa:           "https://form.fillout.com/t/njQHqcSiyQus",
-      }
-    }
-  };
+  // grid lines
+  const levels = [0.12, 0.18, 0.24, 0.30, 0.36, 0.42];
+  grid.innerHTML = levels.map(val => {
+    const y = PX.t + h - (val - 0.12)/(0.42-0.12)*h;
+    return `<line x1="${PX.l}" y1="${y}" x2="${PX.l+w}" y2="${y}"/><text x="${PX.l+4}" y="${y-6}" fill="#6b7280" font-size="12" font-weight="700">€${val.toFixed(2)}/dl</text>`;
+  }).join('');
 
-  // Custom list form (top-right button)
-  const customFormUrl = "https://form.fillout.com/t/7kPj1VZj95us";
+  // helpers
+  const clamp = (v,a,b)=>Math.max(a,Math.min(b,v));
+  const lerp = (a,b,t)=>a+(b-a)*t;
 
-  // ====== STATE / CONSTANTS ======
-  let selectedIndustry = null;
-  let selectedLocation = null;
-  let openField = null;
+  // initial series
+  let points = Array.from({length:36}, (_,i) => ({
+    x: i/(36-1),
+    y: 0.22 + (Math.sin(i*0.45)*0.03) + (Math.random()-0.5)*0.015
+  }));
 
-  const industryOptions = [
-    "Banking / Finance",
-    "B2B SMEs (small medium enterprise)",
-    "IT & Start-up companies",
-    "B2C SMEs"
-  ];
-  const locationOptions = [
-    "Sweden",
-    "Germany",
-    "Northern Europe",
-    "UK",
-    "USA"
-  ];
+  function mapX(t){ return PX.l + t*w }
+  function mapY(v){ return PX.t + h - ((v-0.12)/(0.42-0.12))*h }
 
-  // ---- DOM references ----
-  const industryLabel = document.getElementById('industryLabel');
-  const locationLabel = document.getElementById('locationLabel');
-  const dropdownSheet = document.getElementById('dropdownSheet');
-  const dropdownLabel = document.getElementById('dropdownLabel');
-  const dropdownOptions = document.getElementById('dropdownOptions');
-  const triggers = document.querySelectorAll('.field-pill');
-  const buildBtn = document.getElementById('buildBtn');
-  const errorMsg = document.getElementById('errorMsg');
-  const results = document.getElementById('results');
-  const selectionSummary = document.getElementById('selectionSummary');
-  const cards = document.querySelectorAll('.cards .card');
-  const heroCard = document.querySelector('.hero-card');
-  const brandReset = document.getElementById('brandReset');
-  const customBtn = document.getElementById('customBtn');
-
-  // ====== HELPERS ======
-  function slugify(str){
-    return str
-      .toLowerCase()
-      .replace(/&/g,'and')
-      .replace(/[^a-z0-9]+/g,'-')
-      .replace(/^-+|-+$/g,'');
+  function pathFrom(pts){
+    const d = pts.map((p,i)=> (i? 'L':'M') + mapX(p.x) + ' ' + mapY(p.y)).join(' ');
+    const areaD = d + ` L ${mapX(pts[pts.length-1].x)} ${PX.t+h} L ${mapX(pts[0].x)} ${PX.t+h} Z`;
+    return {d, areaD};
   }
 
-  function resetApp(){
-    selectedIndustry = null;
-    selectedLocation = null;
-    industryLabel.textContent = industryLabel.dataset.placeholder;
-    locationLabel.textContent = locationLabel.dataset.placeholder;
-    industryLabel.classList.remove('selected');
-    locationLabel.classList.remove('selected');
-    errorMsg.classList.remove('show');
-    results.classList.remove('visible');
-    selectionSummary.textContent = '';
-    closeDropdown();
+  function render(){
+    const {d, areaD} = pathFrom(points);
+    line.setAttribute('d', d);
+    area.setAttribute('d', areaD);
 
-    document.querySelectorAll('.card-context').forEach(el => {
-      el.textContent = 'INDUSTRY + LOCATION';
-    });
+    const last = points[points.length-1];
+    const cx = mapX(last.x), cy = mapY(last.y);
+    dot.setAttribute('cx', cx); dot.setAttribute('cy', cy);
 
-    cards.forEach(card => {
-      card.classList.remove('reveal');
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(10px)';
-    });
-
-    window.scrollTo({top:0,behavior:'smooth'});
+    const label = `€${last.y.toFixed(2)}/dl`;
+    priceTxt.textContent = label;
+    // measure label
+    const textX = cx + 10, textY = cy - 10;
+    priceTxt.setAttribute('x', textX + 10);
+    priceTxt.setAttribute('y', textY + 18);
+    const bbox = priceTxt.getBBox();
+    priceBg.setAttribute('x', bbox.x - 8);
+    priceBg.setAttribute('y', bbox.y - 6);
+    priceBg.setAttribute('width', bbox.width + 16);
+    priceBg.setAttribute('height', bbox.height + 12);
   }
 
-  brandReset.addEventListener('click', resetApp);
+  function tick(){
+    // shift left, add new
+    points.shift();
+    const last = points[points.length-1].y;
+    // drift toward mid with noise
+    const target = 0.24 + (Math.random()-0.5)*0.02;
+    const next = clamp(lerp(last, target, 0.35) + (Math.random()-0.5)*0.01, 0.12, 0.42);
+    points.push({x:1, y:next});
+    // normalize x
+    points = points.map((p,i)=>({x:i/(points.length-1), y:p.y}));
 
-  // ====== DROPDOWN LOGIC ======
-  function openDropdown(field){
-    openField = field;
-    const options = field === 'industry' ? industryOptions : locationOptions;
-    const current = field === 'industry' ? selectedIndustry : selectedLocation;
-
-    dropdownLabel.textContent = field.toUpperCase();
-    dropdownOptions.innerHTML = '';
-
-    options.forEach(opt => {
-      const li = document.createElement('li');
-      li.className = 'dropdown-item' + (opt === current ? ' selected' : '');
-      li.textContent = opt;
-      li.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if(field === 'industry'){
-          selectedIndustry = opt;
-          industryLabel.textContent = opt;
-          industryLabel.classList.add('selected');
-        } else {
-          selectedLocation = opt;
-          locationLabel.textContent = opt;
-          locationLabel.classList.add('selected');
-        }
-        closeDropdown();
-      });
-      dropdownOptions.appendChild(li);
-    });
-
-    dropdownSheet.classList.add('open');
-    dropdownSheet.setAttribute('aria-hidden','false');
+    render();
+    maybePopTicket(next);
   }
 
-  function closeDropdown(){
-    openField = null;
-    dropdownSheet.classList.remove('open');
-    dropdownSheet.setAttribute('aria-hidden','true');
-  }
-
-  triggers.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const field = btn.getAttribute('data-field');
-      if(openField === field) closeDropdown();
-      else openDropdown(field);
-    });
-  });
-
-  document.addEventListener('click', (e) => {
-    if(!dropdownSheet.contains(e.target) && ![...triggers].some(t => t.contains(e.target))){
-      closeDropdown();
-    }
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape'){
-      closeDropdown();
-      closeProductModal();
-      closeCustomModal();
-    }
-  });
-
-  function updateCardContexts(){
-    const contextText = (selectedIndustry && selectedLocation)
-      ? (selectedIndustry + ' • ' + selectedLocation).toUpperCase()
-      : 'INDUSTRY + LOCATION';
-    document.querySelectorAll('.card-context').forEach(el => {
-      el.textContent = contextText;
-    });
-  }
-
-  function animateCards(){
-    cards.forEach(card => {
-      card.classList.remove('reveal');
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(10px)';
-    });
-
-    cards.forEach((card, idx) => {
-      const delay = idx * 160;
-      setTimeout(() => {
-        card.classList.add('reveal');
-        card.style.opacity = '';
-        card.style.transform = '';
-      }, delay);
-    });
-  }
-
-  buildBtn.addEventListener('click', () => {
-    closeDropdown();
-    if(!selectedIndustry || !selectedLocation){
-      errorMsg.classList.add('show');
-      results.classList.remove('visible');
-      return;
-    }
-    errorMsg.classList.remove('show');
-    selectionSummary.textContent = selectedIndustry + ' • ' + selectedLocation;
-    updateCardContexts();
-    results.classList.add('visible');
-    animateCards();
-    results.scrollIntoView({behavior:'smooth',block:'start'});
-  });
-
-  // ====== PRODUCT MODAL ======
-  const productOverlay = document.getElementById('modalOverlay');
-  const modalBox = document.getElementById('productModal');
-  const modalIcon = document.getElementById('modalIcon');
-  const modalContext = document.getElementById('modalContext');
-  const modalPrice = document.getElementById('modalPrice');
-  const modalListName = document.getElementById('modalListName');
-  const modalLineCount = document.getElementById('modalLineCount');
-  const modalForm = document.getElementById('modalForm');
-  const modalStep2 = document.querySelector('.modal-step-2');
-  const modalGetBtn = document.getElementById('modalGetBtn');
-  const closeButtons = document.querySelectorAll('[data-close]');
-  let currentFormUrl = '';
-
-  function buildCountLine(count, industry, location){
-    if(!industry || !location) return 'Industry + location list';
-    if(!count || isNaN(Number(count))){
-      return `Sample of ${industry} businesses in ${location}`;
-    }
-    return `${count} ${industry} businesses in ${location}`;
-  }
-
-  function findFormUrl(variant, industry, location){
-    if(!variant || !industry || !location) return "";
-    const v = FORM_URLS[variant];
-    if(!v) return "";
-    const iSlug = slugify(industry);
-    const lSlug = slugify(location);
-    return v[iSlug]?.[lSlug] || "";
-  }
-
-  function openModalForCard(card){
-    const listName = card.querySelector('.card-name').textContent.trim();
-    const count = card.getAttribute('data-count') || '';
-    const price = card.getAttribute('data-price') || card.querySelector('.card-price').textContent.trim();
-    const iconClass = card.getAttribute('data-icon') || '';
-    const industry = selectedIndustry || 'Industry';
-    const location = selectedLocation || 'Location';
-    const variant = card.getAttribute('data-product-id');
-
-    modalIcon.className = `bi card-icon ${iconClass}`;
-    modalContext.textContent = `${industry} • ${location}`.toUpperCase();
-    modalPrice.textContent = price;
-    modalListName.textContent = listName;
-    modalLineCount.textContent = buildCountLine(count, industry, location);
-
-    currentFormUrl = findFormUrl(variant, industry, location) || "https://google.com";
-
-    modalBox.classList.remove('form-open');
-    modalStep2.style.display = 'none';
-    modalForm.removeAttribute('src');
-    modalGetBtn.textContent = 'Get List';
-
-    productOverlay.classList.add('open');
-    productOverlay.setAttribute('aria-hidden','false');
-  }
-
-  function closeProductModal(){
-    productOverlay.classList.remove('open');
-    productOverlay.setAttribute('aria-hidden','true');
-  }
-
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      openModalForCard(card);
-    });
-  });
-
-  modalGetBtn.addEventListener('click', () => {
-    if(!currentFormUrl){
-      closeProductModal();
-      return;
-    }
-    modalBox.classList.add('form-open');
-    modalStep2.style.display = 'block';
-    if(!modalForm.src){
-      modalForm.src = currentFormUrl;
-    }
-  });
-
-  closeButtons.forEach(btn => btn.addEventListener('click', closeProductModal));
-  productOverlay.addEventListener('click', (e) => {
-    if(e.target === productOverlay) closeProductModal();
-  });
-
-  // ====== CUSTOM FORM MODAL ======
-  const customOverlay = document.getElementById('customOverlay');
-  const customForm = document.getElementById('customForm');
-  const customCloseBtns = document.querySelectorAll('[data-close-custom]');
-
-  function openCustomModal(){
-    customOverlay.classList.add('open');
-    customOverlay.setAttribute('aria-hidden','false');
-    if (!customForm.getAttribute('src')) {
-      customForm.setAttribute('src', customFormUrl);
+  function maybePopTicket(price){
+    if(Math.random() < 0.45){
+      const el = document.createElement('div');
+      el.className = 'ticket-pop fade';
+      // random location near the curve end
+      const left = 60 + Math.random()*30; // percentage
+      const top  = 30 + Math.random()*40;
+      el.style.left = left + '%';
+      el.style.top  = top + '%';
+      const roles = ['SWE','CFO','UX','AE','RevOps','PM','DS','Recruiter'];
+      const cities = ['SE','DE','FR','UK','ES','NL','FI','PL'];
+      const r = roles[Math.floor(Math.random()*roles.length)];
+      const c = cities[Math.floor(Math.random()*cities.length)];
+      el.innerHTML = `New sale • ${r} ${c} <span class="coin">€</span> <span style="margin-left:6px">€${price.toFixed(2)}/dl</span>`;
+      tickets.appendChild(el);
+      setTimeout(()=>el.remove(), 2800);
     }
   }
 
-  function closeCustomModal(){
-    customOverlay.classList.remove('open');
-    customOverlay.setAttribute('aria-hidden','true');
-  }
-
-  customBtn.addEventListener('click', openCustomModal);
-  customCloseBtns.forEach(btn => btn.addEventListener('click', closeCustomModal));
-  customOverlay.addEventListener('click', (e) => {
-    if(e.target === customOverlay) closeCustomModal();
-  });
-
-  // initial placeholder text
-  updateCardContexts();
+  render();
+  let timer = setInterval(tick, 900);
+  // pause on hover
+  svg.addEventListener('mouseenter', ()=>clearInterval(timer));
+  svg.addEventListener('mouseleave', ()=>{clearInterval(timer); timer = setInterval(tick, 900);});
+})();
 </script>
+<!-- ===== Exchange-style visual: Mobile-optimized ===== -->
+<section class="section" aria-label="Exchange visual">
+  <div class="wrap">
+    <div class="flow">
+      <div class="flow-head">
+        <h2>Data Updates, Companies Added to the Directory. +6000</h2>
+        <div class="legend">
+          <span class="chip"><span class="dot u"></span>Industry</span>
+          <span class="chip"><span class="dot m"></span>URLS</span>
+          <span class="chip"><span class="dot p"></span>Locations</span>
+        </div>
+      </div>
+
+      <!-- Chart canvas -->
+      <div class="canvas" id="ex-chart">
+        <svg id="ex-svg" width="100%" height="100%" viewBox="0 0 800 450" preserveAspectRatio="none" aria-label="Market chart">
+          <defs>
+            <linearGradient id="ex-grad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#dbfbd7" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="#e0f4f9" stop-opacity="0.15"/>
+            </linearGradient>
+          </defs>
+
+          <!-- frame -->
+          <rect x="20" y="20" width="760" height="410" rx="14" fill="url(#ex-grad)" stroke="#dbe6ef" stroke-dasharray="5 6"/>
+
+          <!-- gridlines -->
+          <g id="ex-grid" stroke="#e9eef5"></g>
+
+          <!-- price area + line -->
+          <path id="ex-area" fill="rgba(17,17,17,.06)"></path>
+          <path id="ex-line" stroke="#111" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"></path>
+
+          <!-- live dot + label -->
+          <circle id="ex-dot" r="6" fill="#111" stroke="#fff" stroke-width="2"></circle>
+          <g id="ex-price" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="900" font-size="13">
+            <rect id="ex-price-bg" rx="8" ry="8" fill="#111"></rect>
+            <text id="ex-price-txt" fill="#fff"></text>
+          </g>
+        </svg>
+
+        <!-- floating trade tickets -->
+        <div id="ex-tickets" aria-hidden="true"></div>
+      </div>
+
+      <!-- Mini scrolling ticker -->
+      <div class="ticker" aria-label="Sample categories and current payout levels">
+        <div class="t-track">
+          <span class="ticket">Berlin<small>+50</small></span>
+          <span class="ticket">Stockholm<small>+100</small></span>
+          <span class="ticket">London<small>+150</small></span>
+          <span class="ticket">New York City<small>+200</small></span>
+          <span class="ticket">Copenhagen<small>+250</small></span>
+          <span class="ticket">Amsterdam<small>+300</small></span>
+          <!-- repeat for seamless loop -->
+          <span class="ticket">Berlin<small>+50</small></span>
+          <span class="ticket">Stockholm<small>+100</small></span>
+          <span class="ticket">London<small>+150</small></span>
+          <span class="ticket">New York City<small>+200</small></span>
+          <span class="ticket">Copenhagen<small>+250</small></span>
+          <span class="ticket">Amsterdam<small>+300</small></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* container helpers (match your brand scaffolding) */
+.section{padding:56px 18px}
+.wrap{max-width:1100px;margin:0 auto}
+
+/* card */
+.flow{
+  background: radial-gradient(1200px 600px at 10% -10%, #dbfbd7 0%, #e0f4f9 60%, #ffffff 100%);
+  border:1px solid #eaf3ff;border-radius:26px;box-shadow:0 12px 30px rgba(0,0,0,.06);padding:22px;
+}
+.flow-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.flow-head h2{margin:0;font-size:clamp(20px,3vw,24px);font-weight:900;letter-spacing:-.01em}
+
+/* legend */
+.legend{display:flex;gap:10px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid #e5e7eb;font-weight:800;font-size:12px}
+.dot{width:8px;height:8px;border-radius:50%}
+.u{background:#66c061} .m{background:#111} .p{background:#8bd0ea}
+
+/* chart canvas */
+.canvas{position:relative;aspect-ratio:16/9;min-height:360px;background:#fff;border-radius:18px;overflow:hidden}
+
+/* floating trade tickets */
+#ex-tickets{position:absolute;inset:0;pointer-events:none}
+.ticket-pop{
+  position:absolute;transform:translate(-50%,-50%);
+  background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:8px 10px;
+  box-shadow:0 10px 24px rgba(0,0,0,.14);font-weight:800;font-size:12px;white-space:nowrap
+}
+.ticket-pop .coin{
+  display:inline-grid;place-items:center;margin-left:6px;
+  background:linear-gradient(180deg,#ffe99a,#ffd24a);border:1px solid #e3c24a;
+  width:20px;height:20px;border-radius:50%;font-weight:900
+}
+.ticket-pop.fade{animation:fadeOut 2.6s ease forwards}
+@keyframes fadeOut{0%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-70%) scale(.96)}}
+
+/* ticker */
+.ticker{overflow:hidden;border:1px solid #dbe6ef;border-radius:14px;margin-top:12px;background:#fff}
+.t-track{display:flex;gap:18px;white-space:nowrap;animation:ticker 26s linear infinite;padding:10px 14px;font-weight:800}
+.ticket{display:inline-flex;gap:8px;align-items:baseline}
+.ticket small{color:#6b7280;font-weight:800}
+@keyframes ticker{to{transform:translateX(-50%)}}
+
+/* ===== Mobile enhancements ===== */
+@media (max-width: 720px){
+  .flow{padding:16px;border-radius:22px}
+  .flow-head{flex-direction:column;align-items:flex-start;gap:8px}
+  .chip{font-size:11px;padding:6px 9px}
+  .canvas{aspect-ratio:4/5;min-height:320px} /* taller, easier to read on phones */
+  /* lighter strokes/smaller labels for small screens */
+  #ex-line{stroke-width:2.4}
+  #ex-dot{r:5}
+  #ex-price text{font-size:12px}
+  .t-track{animation-duration:34s;padding:8px 12px;gap:14px}
+  .ticket-pop{font-size:11px;padding:7px 9px}
+}
+
+@media (max-width: 420px){
+  .canvas{aspect-ratio:3/4;min-height:300px}
+  .legend{gap:8px}
+  .chip{padding:5px 8px}
+}
+
+/* Motion sensitivity */
+@media (prefers-reduced-motion: reduce){
+  .t-track{animation:none}
+  .ticket-pop.fade{animation:none;opacity:1}
+}
+</style>
+
+<script>
+(() => {
+  const svg = document.getElementById('ex-svg');
+  const area = document.getElementById('ex-area');
+  const line = document.getElementById('ex-line');
+  const dot = document.getElementById('ex-dot');
+  const priceGroup = document.getElementById('ex-price');
+  const priceBg = document.getElementById('ex-price-bg');
+  const priceTxt = document.getElementById('ex-price-txt');
+  const grid = document.getElementById('ex-grid');
+  const tickets = document.getElementById('ex-tickets');
+
+  const W = 800, H = 450, PX = {l:40, r:40, t:30, b:30};
+  const w = W - PX.l - PX.r, h = H - PX.t - PX.b;
+
+  // grid lines & labels (hidden on very narrow screens via media query if needed)
+  const levels = [0.12, 0.18, 0.24, 0.30, 0.36, 0.42];
+  grid.innerHTML = levels.map(val => {
+    const y = PX.t + h - (val - 0.12)/(0.42-0.12)*h;
+    return `<line x1="${PX.l}" y1="${y}" x2="${PX.l+w}" y2="${y}"/><text x="${PX.l+4}" y="${y-6}" fill="#6b7280" font-size="12" font-weight="700">>`;
+  }).join('');
+
+  // helpers
+  const clamp = (v,a,b)=>Math.max(a,Math.min(b,v));
+  const lerp = (a,b,t)=>a+(b-a)*t;
+
+  // initial series
+  let points = Array.from({length:36}, (_,i) => ({
+    x: i/(36-1),
+    y: 0.22 + (Math.sin(i*0.45)*0.03) + (Math.random()-0.5)*0.015
+  }));
+
+  function mapX(t){ return PX.l + t*w }
+  function mapY(v){ return PX.t + h - ((v-0.12)/(0.42-0.12))*h }
+
+  function pathFrom(pts){
+    const d = pts.map((p,i)=> (i? 'L':'M') + mapX(p.x) + ' ' + mapY(p.y)).join(' ');
+    const areaD = d + ` L ${mapX(pts[pts.length-1].x)} ${PX.t+h} L ${mapX(pts[0].x)} ${PX.t+h} Z`;
+    return {d, areaD};
+  }
+
+  function render(){
+    const {d, areaD} = pathFrom(points);
+    line.setAttribute('d', d);
+    area.setAttribute('d', areaD);
+
+    const last = points[points.length-1];
+    const cx = mapX(last.x), cy = mapY(last.y);
+    dot.setAttribute('cx', cx); dot.setAttribute('cy', cy);
+
+    const label = `${last.y.toFixed(2)}/company`;
+    priceTxt.textContent = label;
+    const textX = cx + 10, textY = cy - 10;
+    priceTxt.setAttribute('x', textX + 10);
+    priceTxt.setAttribute('y', textY + 18);
+    const bbox = priceTxt.getBBox();
+    priceBg.setAttribute('x', bbox.x - 8);
+    priceBg.setAttribute('y', bbox.y - 6);
+    priceBg.setAttribute('width', bbox.width + 16);
+    priceBg.setAttribute('height', bbox.height + 12);
+  }
+
+  function tick(){
+    points.shift();
+    const last = points[points.length-1].y;
+    const target = 0.24 + (Math.random()-0.5)*0.02;
+    const next = clamp(lerp(last, target, 0.35) + (Math.random()-0.5)*0.01, 0.12, 0.42);
+    points.push({x:1, y:next});
+    points = points.map((p,i)=>({x:i/(points.length-1), y:p.y}));
+
+    render();
+    maybePopTicket(next);
+  }
+
+  function maybePopTicket(price){
+    if(Math.random() < 0.45){
+      const el = document.createElement('div');
+      el.className = 'ticket-pop fade';
+      // place within safe inner band so it doesn't clip on mobile
+      const left = 20 + Math.random()*60; // %
+      const top  = 25 + Math.random()*50; // %
+      el.style.left = left + '%';
+      el.style.top  = top + '%';
+      const roles = ['SWE','CFO','UX','AE','RevOps','PM','DS','Recruiter'];
+      const cities = ['SE','DE','FR','UK','ES','NL','FI','PL'];
+      const r = roles[Math.floor(Math.random()*roles.length)];
+      const c = cities[Math.floor(Math.random()*cities.length)];
+      el.innerHTML = `Industry • ${r} ${c} <span class="coin">€</span> <span style="margin-left:6px">€${price.toFixed(2)}/dl</span>`;
+      tickets.appendChild(el);
+      setTimeout(()=>el.remove(), 2800);
+    }
+  }
+
+  // run loop with pause on hover/tap
+  let timer;
+  const start = () => { timer = setInterval(tick, 900); };
+  const stop  = () => { clearInterval(timer); };
+
+  render(); start();
+
+  // hover (desktop)
+  svg.addEventListener('mouseenter', stop);
+  svg.addEventListener('mouseleave', () => { stop(); start(); });
+
+  // tap (mobile): toggle pause/resume
+  let paused = false;
+  svg.addEventListener('touchstart', (e)=>{ 
+    e.preventDefault();
+    paused ? start() : stop();
+    paused = !paused;
+  }, {passive:false});
+
+  // Respect reduced motion
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    stop();
+  }
+})();
+</script>
+
+<!-- ===== Future: Personal Data Exchange (concept ticker) ===== -->
+<section class="section" aria-label="Future market">
+  <div class="wrap">
+    <div class="future">
+      <h2>Imagining a Personal Data Exchange</h2>
+      <p style="margin:0 0 12px; color:#cfe7e0">Our goal at Astroscrape is The Future of B2B prospecting. onsent based and monetized, supply and demand on a free exchange market.</p>
+      <div class="ticker" aria-label="Concept ticker">
+        <div class="t-track">
+          <span class="ticket">UX-DIRECTOR <small>€0.22 / dl</small></span>
+          <span class="ticket">CFO (DACH) <small>€0.41 / dl</small></span>
+          <span class="ticket">SWE—Senior <small>€0.28 / dl</small></span>
+          <span class="ticket">RevOps (SaaS) <small>€0.19 / dl</small></span>
+          <span class="ticket">Procurement (EU) <small>€0.24 / dl</small></span>
+          <span class="ticket">Marketing Lead (UK) <small>€0.21 / dl</small></span>
+          <!-- repeat for seamless scroll -->
+          <span class="ticket">UX-DIRECTOR <small>€0.22 / dl</small></span>
+          <span class="ticket">CFO (DACH) <small>€0.41 / dl</small></span>
+          <span class="ticket">SWE—Senior <small>€0.28 / dl</small></span>
+          <span class="ticket">RevOps (SaaS) <small>€0.19 / dl</small></span>
+          <span class="ticket">Procurement (EU) <small>€0.24 / dl</small></span>
+          <span class="ticket">Marketing Lead (UK) <small>€0.21 / dl</small></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Investor CTA ===== -->
+<section class="section" aria-label="Investor contact">
+  <div class="wrap">
+    <div class="cta">
+      <h2>Interested in investing?</h2>
+      <p>We’re exploring the right partners for this next chapter. Let’s talk about the opportunity and the roadmap.</p>
+      <a class="btn" href="https://www.linkedin.com/in/alexandragrisanti/" target="_blank" rel="noopener noreferrer" aria-label="Connect with Alexandra on LinkedIn">
+        Connect with Alexandra on LinkedIn
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+/* Lightweight animation: users drift toward the auction, coins “pay out” back toward them */
+(function(){
+  const root = document.getElementById('flow-canvas');
+  if(!root) return;
+
+  // positions (percent) around left edge to spawn users
+  const lanes = [12, 26, 40, 54, 68, 82];
+  const users = [];
+
+  lanes.forEach((yPct, i) => {
+    const u = document.createElement('div');
+    u.className = 'user move';
+    // random vertical drift and duration
+    const dy = (Math.random()*40 - 20) + 'px';
+    const dur = (7 + Math.random()*3).toFixed(2) + 's';
+    u.style.setProperty('--y', `calc(${yPct}% - 23px)`);
+    u.style.setProperty('--dy', dy);
+    u.style.setProperty('--dur', dur);
+    // stagger start
+    u.style.animationDelay = (i*0.6) + 's';
+    root.appendChild(u);
+    users.push(u);
+
+    // schedule coin payout toward user after it reaches center
+    const coinDelay = (i*0.6) + (parseFloat(dur) - 1.2);
+    setTimeout(()=>spawnCoinToward(u), coinDelay*1000);
+  });
+
+  function spawnCoinToward(userEl){
+    const rect = root.getBoundingClientRect();
+    const uRect = userEl.getBoundingClientRect();
+
+    const coin = document.createElement('div');
+    coin.className = 'coin fly';
+    // travel from center to user offset (relative to center translate)
+    const tx = (uRect.left - (rect.left + rect.width/2)) + 'px';
+    const ty = (uRect.top  - (rect.top  + rect.height/2)) + 'px';
+    coin.style.setProperty('--tx', tx);
+    coin.style.setProperty('--ty', ty);
+    coin.style.setProperty('--pdur', (1.8 + Math.random()*0.8).toFixed(2) + 's');
+    root.appendChild(coin);
+
+    // clean up coin after animation
+    setTimeout(()=> coin.remove(), 2400);
+  }
+
+  // loop: periodically respawn waves
+  setInterval(()=>{
+    users.forEach((u,i)=>{
+      // restart animation by cloning
+      const clone = u.cloneNode(true);
+      clone.style.animation = 'none';
+      // force reflow
+      void clone.offsetWidth;
+      const dur = (7 + Math.random()*3).toFixed(2) + 's';
+      clone.style.setProperty('--dur', dur);
+      clone.style.animation = '';
+      clone.style.animationDelay = (i*0.6) + 's';
+      u.replaceWith(clone);
+      users[i] = clone;
+
+      const coinDelay = (i*0.6) + (parseFloat(dur) - 1.2);
+      setTimeout(()=>spawnCoinToward(clone), coinDelay*1000);
+    });
+  }, 11000);
+})();
+</script>
+  
+<script>
+  // Toggle articles
+  document.querySelectorAll('.news-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      const body = button.parentElement.querySelector('.news-body');
+      const expanded = body.style.display === 'block';
+      body.style.display = expanded ? 'none' : 'block';
+      button.textContent = expanded ? 'Read More' : 'Show Less';
+    });
+  });
+</script>  
+
+<section class="proof-section">
+  <div class="proof-wrap">
+    <!-- Left: copy -->
+    <div class="proof-text">
+      <div class="kicker">Why Sign Up?</div>
+      <h2 class="h2">We care about your Consent. Get Faster qualified outreach.</h2>
+
+      <ul class="benefit-list">
+        <li>✅ Perfect for <strong>Creatives</strong> — find relevant businesses by industry.</li>
+        <li>✅ Built for <strong>Sales</strong> — faster and less cold outreach.</li>
+        <li>✅ Loved by <strong>Consultants</strong> — targeted lists to relevant businesses.</li>
+        <li>🌍 EU-minded — We do not sell your data. We protect our customers</strong>.</li>
+      </ul>
+
+      <div class="social-proof">
+        <div class="sp-pill">6k+ verified businesses (beta)</div>
+        <div class="sp-pill">Opt-in, revocable, exportable</div>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn" href="https://alundsvagen.github.io/Astroscrape/detailed.view.html">Learn More</a>
+        <a class="btn secondary" href="https://form.fillout.com/t/o9LULzcAT2us">Browse the Directory</a>
+      </div>
+    </div>
+
+    <!-- Right: image stack -->
+    <div class="proof-images">
+      <figure class="card-img reveal-up" style="--d:0">
+        <img src="j0182kpexels.jpg" alt="Professional using phone to check leads" />
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="pain-section">
+  <div class="pain-content">
+    <div class="pain-text">
+      <h2>The struggle is real.</h2>
+      <p>
+        You’re building, selling, hustling — but finding quality contacts feels like chasing ghosts.  
+        Lists are outdated. Data is dirty. Compliance is scary.  
+        <strong>Astroscrape flips the script.</strong>
+      </p>
+      <p>
+        A verified, consent-first email directory built for businesses that want 
+        <strong>clean, compliant leads</strong> without the headache.  
+        Start qualifying leads — and closing deals — today.
+      </p>
+      <a href="https://alundsvagen.github.io/Astroscrape/detailed.view.html" class="cta-button">Our Long Term Vision</a>
+    </div>
+    <div class="pain-image">
+      <img src="jsoaeupexels1010.jpg" alt="Business professional checking leads" />
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Section base */
+  .pain-section {
+    background: linear-gradient(135deg, #e7fdf5 0%, #f6fdfb 100%);
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Grid layout */
+  .pain-content {
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  /* Text area */
+  .pain-text h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .pain-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 18px;
+    color: #333;
+  }
+
+  /* Button */
+  .cta-button {
+    background: #000;
+    color: #fff;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 32px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  .cta-button:hover {
+    background: #333;
+    transform: translateY(-2px);
+  }
+
+  /* Image styling */
+  .pain-image img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .pain-content {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      text-align: center;
+    }
+
+    .pain-text h2 {
+      font-size: 2rem;
+    }
+
+    .pain-text p {
+      font-size: 1rem;
+    }
+
+    .cta-button {
+      font-size: 0.95rem;
+      padding: 12px 28px;
+    }
+  }
+   
+
+.proof-section {
+  padding: 80px 20px;
+  background: linear-gradient(180deg, #ffffff 0%, #f7fff6 100%);
+}
+
+.proof-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 36px;
+  align-items: center;
+  grid-template-columns: 1.15fr 0.85fr;
+}
+
+/* Text */
+.proof-text .kicker {
+  font-weight: 900;
+  letter-spacing: .08em;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+.proof-text .h2 {
+  font-weight: 900;
+  font-size: clamp(24px, 4.5vw, 36px);
+  letter-spacing: -.01em;
+  margin: 6px 0 10px;
+}
+.proof-text .p {
+  color: #374151;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+.benefit-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: grid;
+  gap: 10px;
+  color: #1f2937;
+}
+.benefit-list li {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 10px 12px;
+  font-weight: 600;
+}
+.social-proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px 0;
+}
+.sp-pill {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.cta-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 999px;
+  font-weight: 800;
+  border: 2px solid #111;
+  background: #111;
+  color: #fff;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+}
+.btn.secondary {
+  background: #fff;
+  color: #111;
+}
+
+/* Image area */
+.proof-images {
+  position: relative;
+  min-height: 520px;
+  display: grid;
+  place-items: center;
+  perspective: 800px;
+}
+.card-img {
+  width: min(380px, 92%);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .16);
+  transform: translateY(40px);
+  background: #fff;
+  transition: transform .4s ease, box-shadow .3s ease;
+}
+.card-img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.card-img:hover {
+  transform: translateY(-4px) rotate(-.4deg);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .2);
+}
+
+/* Mobile layout */
+@media (max-width: 900px) {
+  .proof-wrap {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    text-align: center;
+  }
+
+  .proof-images {
+    min-height: auto;
+    margin-top: 20px;
+  }
+
+  .card-img {
+    position: relative;
+    transform: none;
+    left: auto;
+    width: min(320px, 90%);
+    margin: 0 auto;
+  }
+}
+</style>  
+
+<!-- HOW IT WORKS -->
+<section class="section" style="background:linear-gradient(180deg,#ffffff 0%, #f7fbff 100%)">
+  <div class="wrap">
+    <div class="kicker">How it works</div>
+    <h2 class="h2">Three steps to verified outreach</h2>
+    <div class="hiw">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <div>
+          <h3>Sign Up</h3>
+          <p>We do want to send you updates but can opt-out anytime. We never sell our customer's data.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <div>
+          <h3>Search & filter</h3>
+          <p>Find businesses by industry, tags, and region — no scraping required.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <div>
+          <h3>Download & Deep Dive</h3>
+          <p>The excel sheet is the starting point, now your mission is to find 10- who you can offer a win-win to, to start conversations with now.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEGIN: Free / Consent (Noisy Blue-Green, Scoped) -->
+<section class="fc-section" aria-labelledby="fc-title">
+  <div class="fc-wrap">
+    <div class="fc-text">
+      <p class="fc-kicker">Transparent by design</p>
+      <h2 id="fc-title" class="fc-title">100% free — and 100% consent-based.</h2>
+      <p class="fc-body">
+        Every email in Astroscrape is <strong>self-submitted</strong> and <strong>revocable</strong>.
+        No scraping. No gray areas. When you download a list, you choose:
+      </p>
+
+      <ul class="fc-list">
+        <li>💳 <strong>Pay for the list</strong> — instant access; the data is public but now it's consolidated and easier to use.</li>
+        <li>🤝 <strong>Your Data is Safe with Us</strong> — in the future we hope to offer micro-payments in exchange for data but we aren't there yet.</li>
+      </ul>
+
+      <div class="fc-badges">
+        <span class="fc-pill">✅ Explicit opt-in</span>
+        <span class="fc-pill">🔄 Easy opt-out</span>
+        <span class="fc-pill">🌍 EU/GDPR-friendly</span>
+      </div>
+
+    <figure class="fc-image fc-reveal">
+      <img src="baialm20201pexels.jpg" alt="Reviewing a consent-based lead list" />
+    </figure>
+  </div>
+</section>
+
+<style>
+  /* ---- SCOPE EVERYTHING UNDER .fc-section ---- */
+  .fc-section{
+    position:relative;
+    isolation:isolate;           /* prevents blending/filters leaking out */
+    overflow:hidden;
+    padding:80px 20px;
+    color:#fff;
+    /* Blue-green noisy gradient background */
+    background:
+      radial-gradient(1200px 600px at 15% -10%, #1d3342 0%, rgba(29,51,66,.6) 50%, rgba(13,29,25,.2) 100%),
+      radial-gradient(1000px 500px at 110% 120%, #0a3d2b 0%, rgba(10,61,43,.6) 55%, rgba(10,61,43,0) 100%),
+      linear-gradient(180deg, #0e1e1a 0%, #0b1514 100%);
+  }
+  /* Grain/noise overlay (very subtle) */
+  .fc-section::before{
+    content:"";
+    position:absolute; inset:0;
+    opacity:.08; pointer-events:none; z-index:0;
+    background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity="0.4"/></svg>');
+    mix-blend-mode:overlay;
+  }
+
+  .fc-wrap{
+    position:relative; z-index:1;
+    max-width:1100px; margin:0 auto;
+    display:grid; gap:36px; align-items:center;
+    grid-template-columns:1.1fr .9fr;
+  }
+
+  /* Copy */
+  .fc-kicker{
+    margin:0 0 6px; font: 900 12px/1.1 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    letter-spacing:.08em; text-transform:uppercase; color:#b7d7cc;
+  }
+  .fc-title{
+    margin:0 0 10px; font-weight:900; letter-spacing:-.01em;
+    font-size:clamp(26px, 4.8vw, 40px);
+  }
+  .fc-body{margin:0 0 12px; color:#e5f2ee; line-height:1.75}
+
+  .fc-list{list-style:none; padding:0; margin:16px 0 0; display:grid; gap:10px}
+  .fc-list li{
+    background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+    border:1px solid rgba(255,255,255,.12);
+    color:#f4fffb; border-radius:16px; padding:12px 14px; font-weight:600;
+  }
+
+  .fc-badges{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+  .fc-pill{
+    display:inline-block; background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.18);
+    color:#daf6ea; padding:8px 12px; border-radius:999px; font-weight:800; font-size:13px;
+  }
+
+  .fc-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+  .fc-btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    padding:14px 20px; border-radius:999px; font-weight:800; text-decoration:none;
+    transition:transform .2s ease, box-shadow .2s ease, background .2s, color .2s, border-color .2s;
+  }
+  .fc-btn--light{background:#ffffff; color:#0c1412; border:2px solid #fff}
+  .fc-btn--light:hover{transform:translateY(-1px); box-shadow:0 10px 30px rgba(0,0,0,.35)}
+  .fc-btn--ghost{background:transparent; color:#ffffff; border:2px solid rgba(255,255,255,.35)}
+  .fc-btn--ghost:hover{background:rgba(255,255,255,.08)}
+
+  /* Image */
+  .fc-image{
+    margin:0; border-radius:24px; overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.06) inset;
+    transform:translateY(26px) scale(.985);
+    background:rgba(0,0,0,.35);
+    transition:transform .6s cubic-bezier(.2,.7,.2,1), box-shadow .4s ease, opacity .4s ease;
+  }
+  .fc-image img{display:block; width:100%; height:auto; object-fit:cover}
+  .fc-image:hover{transform:translateY(16px) scale(1); box-shadow:0 40px 100px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.08) inset}
+
+  /* Reveal-on-scroll (scoped) */
+  .fc-reveal{opacity:0}
+  .fc-reveal.fc-in{opacity:1}
+
+  @media (max-width: 900px){
+    .fc-wrap{grid-template-columns:1fr}
+    .fc-image{transform:none}
+  }
+</style>
+
+<script>
+  // Scoped reveal for this section only
+  (function(){
+    const el = document.querySelector('.fc-image.fc-reveal');
+    if(!el) return;
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('fc-in');
+          io.unobserve(e.target);
+        }
+      });
+    },{threshold:.2});
+    io.observe(el);
+  })();
+</script>
+<!-- END: Free / Consent (Noisy Blue-Green, Scoped) -->
+
+<!-- WHY SIGN UP -->
+<section class="section">
+  <div class="wrap">
+    <div class="kicker">Why sign up today</div>
+    <h2 class="h2">Discover faster</h2>
+    <div class="benefits">
+      <div class="benefit reveal">
+        <h3>For professionals</h3>
+        <p>Get in front of buyers. Browse data, cut prospecting time in half.</p>
+      </div>
+      <div class="benefit reveal">
+        <h3>For teams</h3>
+        <p>Verified contacts, fewer bounces, clearer consent. Outreach your compliance team can love.</p>
+      </div>
+      <div class="benefit reveal">
+        <h3>For everyone</h3>
+        <p>Transparent value exchange. No shady scraping. A directory built for trust and results.</p>
+      </div>
+    </div>
+
+    <div class="cta-row" style="margin-top:18px">
+      <a class="btn secondary" href="https://form.fillout.com/t/o9LULzcAT2us">Sign in to app</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Reveal-on-scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.15});
+  reveals.forEach(el=>io.observe(el));
+
+  // Drawer logic
+  const hamburger = document.getElementById('hamburger');
+  const drawer = document.getElementById('drawer');
+  const scrim = document.getElementById('scrim');
+  const closeBtn = document.getElementById('drawerClose');
+
+  function openDrawer(){
+    drawer.classList.add('open');
+    scrim.classList.add('open');
+    hamburger.classList.add('active');
+    hamburger.setAttribute('aria-expanded','true');
+    drawer.setAttribute('aria-hidden','false');
+  }
+  function closeDrawer(){
+    drawer.classList.remove('open');
+    scrim.classList.remove('open');
+    hamburger.classList.remove('active');
+    hamburger.setAttribute('aria-expanded','false');
+    drawer.setAttribute('aria-hidden','true');
+  }
+  hamburger.addEventListener('click', ()=> drawer.classList.contains('open') ? closeDrawer() : openDrawer());
+  closeBtn.addEventListener('click', closeDrawer);
+  scrim.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeDrawer(); });
+
+  // Respect reduced motion
+  const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if(media.matches){
+    const track = document.querySelector('.marquee-track');
+    if(track) track.style.animation = 'none';
+  }
+</script>
+
+  <!-- BEGIN: Corporate Footer (scoped) -->
+<footer class="ft-footer" role="contentinfo">
+  <div class="ft-wrap">
+    <!-- Brand + tagline -->
+    <div class="ft-brand">
+      <div class="ft-logo">
+        <span class="ft-logo-mark" aria-hidden="true"></span>
+        <span class="ft-logo-word">Astroscrape</span>
+      </div>
+      <p class="ft-tag">Consent-first B2B discovery. Verified contacts, GDPR-friendly by design.</p>
+
+      <div class="ft-social" aria-label="Social links">
+        <a href="https://www.linkedin.com/company/astroscrape" aria-label="LinkedIn" class="ft-social-btn">
+          <!-- LinkedIn -->
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.02h4V24h-4V8.02zM8.98 8.02h3.84v2.18h.06c.54-1.02 1.86-2.1 3.82-2.1 4.09 0 4.85 2.69 4.85 6.19V24h-4v-7.09c0-1.69-.03-3.87-2.36-3.87-2.36 0-2.72 1.84-2.72 3.75V24h-4V8.02z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/astroscrape" aria-label="Twitter/X" class="ft-social-btn">
+          <!-- X -->
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2H21.5l-7.6 8.69L22.5 22h-6.23l-4.87-6.02L5.8 22H2.5l8.17-9.33L1.9 2h6.34l4.4 5.58L18.244 2Zm-2.18 18h1.49L7.97 4H6.4l9.664 16Z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/astroscrape" aria-label="Instagram" class="ft-social-btn">
+          <!-- IG -->
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.584.012 4.85.07 1.17.054 1.97.24 2.67.51.72.28 1.33.65 1.92 1.24.59.59.96 1.2 1.24 1.92.27.7.456 1.5.51 2.67.058 1.266.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.24 1.97-.51 2.67-.28.72-.65 1.33-1.24 1.92-.59.59-1.2.96-1.92 1.24-.7.27-1.5.456-2.67.51-1.266.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.97-.24-2.67-.51-.72-.28-1.33-.65-1.92-1.24-.59-.59-.96-1.2-1.24-1.92-.27-.7-.456-1.5-.51-2.67C2.212 15.584 2.2 15.2 2.2 12s.012-3.584.07-4.85c.054-1.17.24-1.97.51-2.67.28-.72.65-1.33 1.24-1.92.59-.59 1.2-.96 1.92-1.24.7-.27 1.5-.456 2.67-.51C8.416 2.212 8.8 2.2 12 2.2Zm0 1.8c-3.16 0-3.532.012-4.776.07-1.03.048-1.59.22-1.96.37-.49.19-.84.42-1.21.79-.37.37-.6.72-.79 1.21-.15.37-.323.93-.37 1.96-.058 1.244-.07 1.616-.07 4.776s.012 3.532.07 4.776c.048 1.03.22 1.59.37 1.96.19.49.42.84.79 1.21.37.37.72.6 1.21.79.37.15.93.323 1.96.37 1.244.058 1.616.07 4.776.07s3.532-.012 4.776-.07c1.03-.048 1.59-.22 1.96-.37.49-.19.84-.42 1.21-.79.37-.37.6-.72.79-1.21.15-.37.323-.93.37-1.96.058-1.244.07-1.616.07-4.776s-.012-3.532-.07-4.776c-.048-1.03-.22-1.59-.37-1.96-.19-.49-.42-.84-.79-1.21-.37-.37-.72-.6-1.21-.79-.37-.15-.93-.323-1.96-.37C15.532 4.012 15.16 4 12 4Zm0 3.2a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6Zm0 1.8a3 3 0 1 0 0 6.001 3 3 0 0 0 0-6ZM17.8 6.6a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Columns -->
+    <nav class="ft-col">
+      <h3 class="ft-head">Products</h3>
+      <ul class="ft-links">
+        <li><a href="https://alundsvagen.github.io/Astroscrape/detailed.view.html">Email Directory</a></li>
+        <li><a href="https://alundsvagen.github.io/Astroscrape/detailed.view.html">Search & Filters</a></li>
+        <li><a href="https://alundsvagen.github.io/Astroscrape/detailed.view.html">Payouts</a></li>
+        <li><a href="https://alundsvagen.github.io/Astroscrape/detailed.view.html">API (soon)</a></li>
+      </ul>
+    </nav>
+
+    <nav class="ft-col">
+      <h3 class="ft-head">Company</h3>
+      <ul class="ft-links">
+        <li><a href="https://alundsvagen.github.io/Astroscrape/invest.html">About</a></li>
+        <li><a href="https://alundsvagen.github.io/Astroscrape/news.html">News</a></li>
+        <li><a href="https://alundsvagen.github.io/Astroscrape/recruitment.html">Recruitment</a></li>
+        <li><a href="https://alundsvagen.github.io/Astroscrape/invest.html">Investors</a></li>
+      </ul>
+    </nav>
+
+    <nav class="ft-col">
+      <h3 class="ft-head">Legal</h3>
+      <ul class="ft-links">
+        <li><a href="https://alundsvagen.github.io/Astroscrape/support.html">Privacy</a></li>
+        <li><a href="https://alundsvagen.github.io/Astroscrape/support.html">Terms</a></li>
+        <li><a href="https://alundsvagen.github.io/Astroscrape/support.html">DPA</a></li>
+        <li><a href="https://alundsvagen.github.io/Astroscrape/support.html">GDPR Center</a></li>
+      </ul>
+    </nav>
+
+    <!-- Newsletter / Contact -->
+    <div class="ft-news">
+      <h3 class="ft-head">Stay in the loop</h3>
+      <p class="ft-contact">
+        Questions? <a href="https://www.linkedin.com/in/alexandragrisanti/">Inbox us</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="ft-bar">
+    <div class="ft-bar-wrap">
+      <small>© 2025 Astroscrape. All rights reserved.</small>
+      <button class="ft-top" aria-label="Back to top">↑ Back to top</button>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* ---------- Scoped Footer Styles ---------- */
+  .ft-footer{
+    background: radial-gradient(1200px 600px at 10% -10%, #0f1d1a 0%, #0b1514 50%, #0a0e0e 100%);
+    color:#e9f3f0;
+    border-top:1px solid rgba(255,255,255,.06);
+  }
+  .ft-wrap{
+    max-width:1100px; margin:0 auto; padding:48px 18px;
+    display:grid; gap:28px;
+    grid-template-columns: 1.4fr repeat(3, 1fr) 1.6fr;
+  }
+
+  /* Brand */
+  .ft-logo{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .ft-logo-mark{
+    width:36px;height:36px;border-radius:50%;
+    background: radial-gradient(120% 120% at 20% 20%, #dbfbd7 0%, #e0f4f9 60%, #ffffff 100%);
+    box-shadow:0 8px 24px rgba(0,0,0,.25);
+  }
+  .ft-logo-word{font-family:'Shrikhand', cursive; font-size:22px; letter-spacing:.2px}
+  .ft-tag{margin:0 0 14px; color:#cfe7e0; line-height:1.7}
+
+  /* Columns */
+  .ft-col{}.ft-head{margin:0 0 10px; font-weight:800; color:#cfe7e0; font-size:14px; letter-spacing:.06em; text-transform:uppercase}
+  .ft-links{list-style:none; padding:0; margin:0; display:grid; gap:8px}
+  .ft-links a{
+    color:#e9f3f0; text-decoration:none; font-weight:600;
+    opacity:.9; transition:opacity .15s ease, transform .15s ease, color .15s ease;
+  }
+  .ft-links a:hover{opacity:1; transform:translateX(2px); color:#ffffff}
+
+  /* Social */
+  .ft-social{display:flex; gap:10px}
+  .ft-social-btn{
+    width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1);
+    transition:transform .15s ease, background .2s ease, border-color .2s ease;
+  }
+  .ft-social-btn:hover{transform:translateY(-2px); background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.2)}
+  .ft-social-btn svg{width:18px;height:18px;fill:#e9f3f0}
+
+  /* Newsletter */
+  .ft-news{}
+  .ft-form{display:flex; gap:8px; align-items:center}
+  .ft-input{
+    flex:1; min-width:0; padding:12px 12px; border-radius:12px; border:1px solid rgba(255,255,255,.14);
+    background:rgba(255,255,255,.06); color:#fff; font-weight:600;
+  }
+  .ft-input::placeholder{color:#c7d8d3}
+  .ft-submit{
+    padding:12px 16px; border-radius:12px; border:2px solid #ffffff;
+    background:#ffffff; color:#0d1413; font-weight:800; cursor:pointer;
+    transition:transform .15s ease, box-shadow .2s ease;
+  }
+  .ft-submit:hover{transform:translateY(-1px); box-shadow:0 10px 26px rgba(0,0,0,.35)}
+  .ft-contact{margin:10px 0 0; color:#cfe7e0}
+  .ft-contact a{color:#fff; text-decoration:underline; font-weight:700}
+
+  /* Bottom bar */
+  .ft-bar{border-top:1px solid rgba(255,255,255,.06); margin-top:10px}
+  .ft-bar-wrap{
+    max-width:1100px; margin:0 auto; padding:14px 18px;
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    color:#b9cfca;
+  }
+  .ft-top{
+    background:transparent; color:#e9f3f0; border:1px solid rgba(255,255,255,.18);
+    border-radius:999px; padding:8px 12px; font-weight:800; cursor:pointer;
+    transition:transform .15s ease, background .2s ease, border-color .2s ease;
+  }
+  .ft-top:hover{transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.28)}
+
+  /* Responsive */
+  @media (max-width: 980px){
+    .ft-wrap{grid-template-columns: 1fr 1fr; gap:22px}
+    .ft-brand{grid-column:1 / -1}
+  }
+  @media (max-width: 560px){
+    .ft-wrap{grid-template-columns:1fr}
+    .ft-form{flex-direction:column; align-items:stretch}
+    .ft-submit{width:100%}
+    .ft-bar-wrap{flex-direction:column; gap:8px}
+  }
+</style>
+
+<script>
+  // Back to top (scoped)
+  document.querySelector('.ft-top')?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+<!-- END: Corporate Footer -->
+
+ <script>
+  const hamburger = document.getElementById('hamburger');
+  const drawer = document.getElementById('drawer');
+  const scrim = document.getElementById('scrim');
+  const drawerClose = document.getElementById('drawerClose');
+
+  function toggleDrawer(open) {
+    drawer.classList.toggle('open', open);
+    scrim.classList.toggle('open', open);
+    hamburger.classList.toggle('active', open);
+    hamburger.setAttribute('aria-expanded', open);
+  }
+
+  // Open drawer on hamburger click
+  hamburger.addEventListener('click', () => toggleDrawer(!drawer.classList.contains('open')));
+
+  // Close drawer on scrim click or close button
+  scrim.addEventListener('click', () => toggleDrawer(false));
+  drawerClose.addEventListener('click', () => toggleDrawer(false));
+</script> 
+  
 </body>
 </html>
